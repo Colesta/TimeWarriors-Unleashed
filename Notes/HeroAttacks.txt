@@ -1,0 +1,3 @@
+After thr attack button, have a primpt for single and then multiple, and if single they select target but if multiple, then simply show the move. 
+
+Jave a way that wehn mouse highlights hero or enemy, show stats in UI bar (with other info such as type), while having a simplistic one on the actual thing.
