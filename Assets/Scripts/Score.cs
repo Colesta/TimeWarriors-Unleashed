@@ -84,16 +84,7 @@ public class Score : MonoBehaviour
         }
     }
 
-    private void SetMenuScore()
-    {
-        // Implementation for updating the UI with the loaded data
-    }
-
-    private void DismissLogin()
-    {
-        // Implementation for dismissing the login UI
-    }
-
+    
     [System.Serializable]
     private class UserDataArray
     {
