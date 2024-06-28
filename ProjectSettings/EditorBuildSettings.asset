@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 37b9ff38eba43aa41ab365a45394d81d
+  - enabled: 1
+    path: Assets/Scenes/Battle.unity
+    guid: 74c51c75b1114014b91f69b2f0f086db
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 594cfe760bc778c409dba8ea0dd321ff
   m_configObjects: {}

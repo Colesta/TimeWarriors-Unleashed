@@ -5,16 +5,19 @@ using UnityEngine.UI;
 public class SwitchGameScene : MonoBehaviour
 {
     public Button playButton;
+    public string currentSceneName;
+    public string targetSceneName;
 
     void Start()
     {
-        playButton.onClick.AddListener(() => LoadSceneByName("Overworld"));
+        playButton.onClick.AddListener(() => LoadScene(currentSceneName, targetSceneName));
     }
 
-    public void LoadSceneByName(string sceneName)
+    public void LoadScene(string currentScene, string targetScene)
     {
-        SceneManager.LoadScene(sceneName);
+        if (SceneManager.GetActiveScene().name == currentScene)
+        {
+            SceneManager.LoadScene(targetScene);
+        }
     }
-
-    
 }
