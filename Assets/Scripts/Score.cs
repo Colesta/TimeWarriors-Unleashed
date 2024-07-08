@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+
 public class Score : MonoBehaviour
 {
     public GameObject LoginScreen;
@@ -32,25 +33,18 @@ public class Score : MonoBehaviour
     public int HealthPotions = 0;
     public int ManaPotions = 0;
 
-    public string usersDataPath = "/Resources/Scores.json";
+    public string usersDataPath = "Resources/Scores.json";
 
-
-    //Get String values inputted in Text Areas
     public void GetLoginInputValue()
     {
         CurrentUser = InputUser.text;
         CurrentPass = InputPass.text;
-
     }
 
-   
-    //Check if the username and password correlate to any username and password in permanent storage, if so then initialize all the variables above to the values saved in permanent storge that belong to
-    //that specific user
-        public void ValidateLogin()
+    public void ValidateLogin()
     {
         GetLoginInputValue();
-
-        string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + "/" + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -84,50 +78,68 @@ public class Score : MonoBehaviour
         }
     }
 
-    
     [System.Serializable]
     private class UserDataArray
     {
         public UserData[] users;
     }
 
-
-    //return the name of the current user
     public string getCurrentUser()
     {
         return CurrentUser;
     }
 
-    //Adds the username and passowrd of a new user into permanent storage and adds default values into each variable
     public void Register()
     {
         GetLoginInputValue();
-        
-        int money = 250;
-        int enemiesDefeated = 0;
-        int TotalRuns = 0;
-        int CompletedRuns = 0;
-        int HealthPotions = 0;
-        int ManaPotions = 0;
+        Debug.Log("Registering new user: " + CurrentUser);
 
-        string userData = $"{CurrentUser}#{CurrentPass}#{money}#{enemiesDefeated}#{TotalRuns}#{CompletedRuns}#{HealthPotions}#{ManaPotions}";
-
-        string path = Application.dataPath + usersDataPath;
-
-        using (StreamWriter writer = new StreamWriter(path, true))
+        UserData newUser = new UserData
         {
-            writer.WriteLine(userData);
+            username = CurrentUser,
+            password = CurrentPass,
+            money = 250,
+            enemiesDefeated = 0,
+            totalRuns = 0,
+            completedRuns = 0,
+            healthPotions = 0,
+            manaPotions = 0
+        };
+
+        string path = Application.dataPath + "/" + usersDataPath;
+        Debug.Log("Path to JSON file: " + path);
+
+        UserDataArray userDataArray = new UserDataArray();
+        if (File.Exists(path))
+        {
+            Debug.Log("File exists. Reading existing data.");
+            string json = File.ReadAllText(path);
+            userDataArray = JsonUtility.FromJson<UserDataArray>(json);
         }
+        else
+        {
+            Debug.Log("File does not exist. Creating new user data array.");
+            userDataArray.users = new UserData[0];
+        }
+
+        Debug.Log("Current user count: " + userDataArray.users.Length);
+
+        Array.Resize(ref userDataArray.users, userDataArray.users.Length + 1);
+        userDataArray.users[userDataArray.users.Length - 1] = newUser;
+
+        string newJson = JsonUtility.ToJson(userDataArray, true); // Pretty-print JSON for readability
+        File.WriteAllText(path, newJson);
+
+        Debug.Log("New user registered and data saved. Total users now: " + userDataArray.users.Length);
 
         SetMenuScore();
         DismissLogin();
     }
 
-    //Takes the current values of the variables stored in secondary storage for the user and saves it into permanent storage
     public void UpdateUserStats()
     {
         string username = getCurrentUser();
-        string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + "/" + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -140,7 +152,6 @@ public class Score : MonoBehaviour
 
                 if (userData.Length >= 4 && userData[0] == username)
                 {
-                    // Update the user's data
                     userData[2] = Money.ToString();
                     userData[3] = EnemiesDefeated.ToString();
                     userData[4] = TotalRuns.ToString();
@@ -148,7 +159,6 @@ public class Score : MonoBehaviour
                     userData[6] = HealthPotions.ToString();
                     userData[7] = ManaPotions.ToString();
 
-                    // Join the updated user data back into a single string
                     lines[i] = string.Join("#", userData);
                     userFound = true;
                     break;
@@ -157,7 +167,6 @@ public class Score : MonoBehaviour
 
             if (userFound)
             {
-                // Now, you should write the modified data back to the file
                 File.WriteAllLines(path, lines);
                 Debug.Log("User data updated successfully.");
             }
@@ -168,11 +177,10 @@ public class Score : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("File Doesnt Exist");
+            Debug.LogWarning("File Doesn't Exist");
         }
     }
 
-    //set the score you see on the main menu to that relaring to current user
     public void SetMenuScore()
     {
         MoneyText.text = "Money: " + Money;
@@ -181,7 +189,6 @@ public class Score : MonoBehaviour
         CompletedRunsText.text = "Runs Completed: " + CompletedRuns;
     }
 
-    //make the login screen go away, make the main menu screen active, and dislay who is currently playing
     public void DismissLogin()
     {
         LoginScreen.SetActive(false);
@@ -189,10 +196,9 @@ public class Score : MonoBehaviour
         UserPlaying.text = "Current User Playing: \n" + CurrentUser;
     }
 
-    //Sets the variables stored in this class to those that correlate to the current user
     public void UpdateCurrentScore()
     {
-        string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + "/" + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -211,7 +217,7 @@ public class Score : MonoBehaviour
                     TotalRuns = int.Parse(values[4]);
                     CompletedRuns = int.Parse(values[5]);
                     HealthPotions = int.Parse(values[6]);
-                    ManaPotions = int.Parse(values[7]); ;
+                    ManaPotions = int.Parse(values[7]);
                     break;
                 }
             }
@@ -220,41 +226,37 @@ public class Score : MonoBehaviour
 
     public void SaveUserData(UserData userData)
     {
-    string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + "/" + usersDataPath;
 
-    UserDataArray userDataArray = new UserDataArray();
-    if (File.Exists(path))
-    {
-        string json = File.ReadAllText(path);
-        userDataArray = JsonUtility.FromJson<UserDataArray>(json);
-    }
-    else
-    {
-        userDataArray.users = new UserData[0];
-    }
-
-    // Add or update the user data
-    bool userExists = false;
-    for (int i = 0; i < userDataArray.users.Length; i++)
-    {
-        if (userDataArray.users[i].username == userData.username)
+        UserDataArray userDataArray = new UserDataArray();
+        if (File.Exists(path))
         {
-            userDataArray.users[i] = userData;
-            userExists = true;
-            break;
+            string json = File.ReadAllText(path);
+            userDataArray = JsonUtility.FromJson<UserDataArray>(json);
         }
+        else
+        {
+            userDataArray.users = new UserData[0];
+        }
+
+        bool userExists = false;
+        for (int i = 0; i < userDataArray.users.Length; i++)
+        {
+            if (userDataArray.users[i].username == userData.username)
+            {
+                userDataArray.users[i] = userData;
+                userExists = true;
+                break;
+            }
+        }
+
+        if (!userExists)
+        {
+            Array.Resize(ref userDataArray.users, userDataArray.users.Length + 1);
+            userDataArray.users[userDataArray.users.Length - 1] = userData;
+        }
+
+        string newJson = JsonUtility.ToJson(userDataArray, true);
+        File.WriteAllText(path, newJson);
     }
-
-    if (!userExists)
-    {
-        Array.Resize(ref userDataArray.users, userDataArray.users.Length + 1);
-        userDataArray.users[userDataArray.users.Length - 1] = userData;
-    }
-
-    string newJson = JsonUtility.ToJson(userDataArray);
-    File.WriteAllText(path, newJson);
-  }
-
-
 }
-

@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "username": "DragonKnight",
+            "password": "pass123",
+            "money": 250,
+            "enemiesDefeated": 0,
+            "totalRuns": 0,
+            "completedRuns": 0,
+            "healthPotions": 0,
+            "manaPotions": 0
+        }
+    ]
+}
