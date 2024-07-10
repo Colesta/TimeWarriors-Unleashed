@@ -33,7 +33,7 @@ public class Score : MonoBehaviour
     public int HealthPotions = 0;
     public int ManaPotions = 0;
 
-    public string usersDataPath = "Resources/Scores.json";
+    public string usersDataPath = "Resources/Scsadsadores.json";
 
     public void GetLoginInputValue()
     {
@@ -44,7 +44,7 @@ public class Score : MonoBehaviour
     public void ValidateLogin()
     {
         GetLoginInputValue();
-        string path = Application.dataPath + "/" + usersDataPath;
+        string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -94,6 +94,8 @@ public class Score : MonoBehaviour
         GetLoginInputValue();
         Debug.Log("Registering new user: " + CurrentUser);
 
+        Debug.Log("sdfsdfdsf");
+
         UserData newUser = new UserData
         {
             username = CurrentUser,
@@ -106,7 +108,7 @@ public class Score : MonoBehaviour
             manaPotions = 0
         };
 
-        string path = Application.dataPath + "/" + usersDataPath;
+        string path = Application.dataPath + usersDataPath;
         Debug.Log("Path to JSON file: " + path);
 
         UserDataArray userDataArray = new UserDataArray();
@@ -139,7 +141,7 @@ public class Score : MonoBehaviour
     public void UpdateUserStats()
     {
         string username = getCurrentUser();
-        string path = Application.dataPath + "/" + usersDataPath;
+        string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -198,7 +200,7 @@ public class Score : MonoBehaviour
 
     public void UpdateCurrentScore()
     {
-        string path = Application.dataPath + "/" + usersDataPath;
+        string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
         {
@@ -226,7 +228,7 @@ public class Score : MonoBehaviour
 
     public void SaveUserData(UserData userData)
     {
-        string path = Application.dataPath + "/" + usersDataPath;
+        string path = Application.dataPath + usersDataPath;
 
         UserDataArray userDataArray = new UserDataArray();
         if (File.Exists(path))

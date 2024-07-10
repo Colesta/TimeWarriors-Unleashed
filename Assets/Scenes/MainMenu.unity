@@ -4189,7 +4189,7 @@ MonoBehaviour:
   CompletedRuns: 0
   HealthPotions: 0
   ManaPotions: 0
-  usersDataPath: /Resources/Scores.txt
+  usersDataPath: /Resources/Scores.json
 --- !u!1 &2096674908
 GameObject:
   m_ObjectHideFlags: 0
