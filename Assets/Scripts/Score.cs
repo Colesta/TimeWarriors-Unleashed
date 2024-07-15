@@ -9,7 +9,7 @@ using System;
 
 public class Score : MonoBehaviour
 {
-    
+    public Login lo;
 
     public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI EnemiesDefeatedText;
@@ -35,11 +35,21 @@ public class Score : MonoBehaviour
         public UserData[] usersData;
     }
 
+    public void newRun(){
+    //will add a new run to score file
+
+
+
+
+
+
+    }
+
 
 
     public void UpdateUserStats()
     {
-        string username = getCurrentUser();
+        string username = lo.getCurrentUser();
         string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
@@ -91,7 +101,7 @@ public class Score : MonoBehaviour
     }
 
    
-    public void AddScore()
+    public void UpdateCurrentScore()
     {
         string path = Application.dataPath + usersDataPath;
 
@@ -103,16 +113,16 @@ public class Score : MonoBehaviour
             {
                 string[] values = line.Split('#');
                 string storedUsername = values[0];
-                string storedPassword = values[1];
+                
 
-                if (storedUsername == getCurrentUser())
+                if (storedUsername == lo.getCurrentUser())
                 {
-                    Money = int.Parse(values[2]);
-                    EnemiesDefeated = int.Parse(values[3]);
-                    TotalRuns = int.Parse(values[4]);
-                    CompletedRuns = int.Parse(values[5]);
-                    HealthPotions = int.Parse(values[6]);
-                    ManaPotions = int.Parse(values[7]);
+                    Money = int.Parse(values[1]);
+                    EnemiesDefeated = int.Parse(values[2]);
+                    TotalRuns = int.Parse(values[3]);
+                    CompletedRuns = int.Parse(values[4]);
+                    HealthPotions = int.Parse(values[5]);
+                    ManaPotions = int.Parse(values[6]);
                     break;
                 }
             }

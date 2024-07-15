@@ -5,7 +5,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
+
 
 public class Login : MonoBehaviour
 {
@@ -23,6 +23,7 @@ public class Login : MonoBehaviour
 
     private string usersPath = "/Resources/Users.json";
 
+
     [System.Serializable]
     private class UsersArray
     {
@@ -37,8 +38,9 @@ public class Login : MonoBehaviour
 
     public void ValidateLogin()
     {
+        Score s = new Score();
         GetLoginInputValue();
-        string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + usersPath;
 
         if (File.Exists(path))
         {
@@ -50,16 +52,8 @@ public class Login : MonoBehaviour
                 if (string.Equals(user.username, CurrentUser, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(user.password, CurrentPass))
                 {
-                    Money = user.money;
-                    EnemiesDefeated = user.enemiesDefeated;
-                    TotalRuns = user.totalRuns;
-                    CompletedRuns = user.completedRuns;
-                    HealthPotions = user.healthPotions;
-                    ManaPotions = user.manaPotions;
-
-                    SetMenuScore();
+                    s.SetMenuScore();
                     DismissLogin();
-
                     return;
                 }
             }
@@ -75,21 +69,17 @@ public class Login : MonoBehaviour
 
     public void Register()
     {
+        Score s = new Score();
         GetLoginInputValue();
 
         UserData newUser = new UserData
         {
             username = CurrentUser,
             password = CurrentPass,
-            money = 250,
-            enemiesDefeated = 0,
-            totalRuns = 0,
-            completedRuns = 0,
-            healthPotions = 0,
-            manaPotions = 0
+           
         };
 
-        string path = Application.dataPath + usersDataPath;
+        string path = Application.dataPath + usersPath;
         
 
         UserDataArray userDataArray = new UserDataArray();
@@ -111,9 +101,15 @@ public class Login : MonoBehaviour
         string newJson = JsonUtility.ToJson(userDataArray, true); 
         File.WriteAllText(path, newJson);
 
-        SetMenuScore();
+        s.SetMenuScore();
         DismissLogin();
     }
+
+    public String getCurrentUser(){
+        return this.CurrentUser;
+    }
+    
+
 
     public void DismissLogin()
     {
