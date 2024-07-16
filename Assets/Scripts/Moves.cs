@@ -58,8 +58,7 @@ public class Moves : MonoBehaviour
     {
         //initilaize your inventory so you can use in battle, as well as the current hero
         sc.UpdateCurrentScore();
-        NumHealthP.text = "x" +  sc.HealthPotions;
-        NumManaP.text = "x" + sc.ManaPotions;
+       
         currentHeroText.text = "Current Hero: " + CurrentPlayer;
     }
 
@@ -409,8 +408,8 @@ public class Moves : MonoBehaviour
     public void HealthPotion()
     {
         int health = 50;
-        ss.HealHero(health);
-        NumHealthP.text = "x" +  sc.HealthPotions;
+        // ss.HealHero(health);
+        
         sc.UpdateCurrentScore();
 
         Items.SetActive(false);
@@ -422,8 +421,8 @@ public class Moves : MonoBehaviour
     public void ManaPotion()
     {
         int mana = 50;
-        ss.AddMana(mana);
-        NumManaP.text = "x" +  sc.HealthPotions;
+        // ss.AddMana(mana);
+        
         sc.UpdateCurrentScore();
 
         Items.SetActive(false);

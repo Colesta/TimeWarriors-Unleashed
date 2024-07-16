@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 
 public class Login : MonoBehaviour
 {
@@ -23,11 +22,17 @@ public class Login : MonoBehaviour
 
     private string usersPath = "/Resources/Users.json";
 
+    [System.Serializable]
+    private class User
+    {
+        public string username;
+        public string password;
+    }
 
     [System.Serializable]
-    private class UsersArray
+    private class UserArray
     {
-        public Users[] users;
+        public User[] users;
     }
 
     public void GetLoginInputValue()
@@ -45,9 +50,9 @@ public class Login : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            UserData[] usersData = JsonUtility.FromJson<UserDataArray>(json).users;
+            User[] usersData = JsonUtility.FromJson<UserArray>(json).users;
 
-            foreach (UserData user in usersData)
+            foreach (User user in usersData)
             {
                 if (string.Equals(user.username, CurrentUser, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(user.password, CurrentPass))
@@ -66,50 +71,45 @@ public class Login : MonoBehaviour
         }
     }
 
-
     public void Register()
     {
         Score s = new Score();
         GetLoginInputValue();
 
-        UserData newUser = new UserData
+        User newUser = new User
         {
             username = CurrentUser,
             password = CurrentPass,
-           
         };
 
         string path = Application.dataPath + usersPath;
-        
+        UserArray userArray;
 
-        UserDataArray userDataArray = new UserDataArray();
         if (File.Exists(path))
         {
-           
             string json = File.ReadAllText(path);
-            userDataArray = JsonUtility.FromJson<UserDataArray>(json);
+            userArray = JsonUtility.FromJson<UserArray>(json);
         }
         else
         {
-            
-            userDataArray.users = new UserData[0];
+            userArray = new UserArray();
+            userArray.users = new User[0];
         }
 
-        Array.Resize(ref userDataArray.users, userDataArray.users.Length + 1);
-        userDataArray.users[userDataArray.users.Length - 1] = newUser;
+        Array.Resize(ref userArray.users, userArray.users.Length + 1);
+        userArray.users[userArray.users.Length - 1] = newUser;
 
-        string newJson = JsonUtility.ToJson(userDataArray, true); 
+        string newJson = JsonUtility.ToJson(userArray, true);
         File.WriteAllText(path, newJson);
 
         s.SetMenuScore();
         DismissLogin();
     }
 
-    public String getCurrentUser(){
+    public string GetCurrentUser()
+    {
         return this.CurrentUser;
     }
-    
-
 
     public void DismissLogin()
     {
@@ -117,5 +117,4 @@ public class Login : MonoBehaviour
         MainMenu.SetActive(true);
         UserPlaying.text = "Current User Playing: \n" + CurrentUser;
     }
-
 }

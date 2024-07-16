@@ -321,35 +321,35 @@ public int returnMaxHeroHP(int num)
     }
 
     //Add health to all heroes, used for the health potion
-    public void HealHero(int health)
-    {
-        // if you have no health potions, then you wont heal
-        if(sc.HealthPotions > 0)
-        {
-            Hero1.CurrentHP += health;
-            Hero2.CurrentHP += health;
-            Hero3.CurrentHP += health;
-            Hero4.CurrentHP += health;
-            UpdateStats();
-            sc.HealthPotions -= 1;
-        }
+    // public void HealHero(int health)
+    // {
+    //     // if you have no health potions, then you wont heal
+    //     if(sc.HealthPotions > 0)
+    //     {
+    //         Hero1.CurrentHP += health;
+    //         Hero2.CurrentHP += health;
+    //         Hero3.CurrentHP += health;
+    //         Hero4.CurrentHP += health;
+    //         UpdateStats();
+    //         sc.HealthPotions -= 1;
+    //     }
        
-    }
+    // }
 
     //same logic for Heal Hero here
-    public void AddMana(int mana)
-    {
-        if(sc.ManaPotions > 0)
-        {
-            Hero1.CurrentMana += mana;
-            Hero2.CurrentMana += mana;
-            Hero3.CurrentMana += mana;
-            Hero4.CurrentMana += mana;
-            UpdateStats();
-            sc.ManaPotions -= 1;
-        }
+    // public void AddMana(int mana)
+    // {
+    //     if(sc.ManaPotions > 0)
+    //     {
+    //         Hero1.CurrentMana += mana;
+    //         Hero2.CurrentMana += mana;
+    //         Hero3.CurrentMana += mana;
+    //         Hero4.CurrentMana += mana;
+    //         UpdateStats();
+    //         sc.ManaPotions -= 1;
+    //     }
        
-    }
+    // }
 
     //when attacking you lose mana, this is how
     public void RemoveMana(int target, int mana)

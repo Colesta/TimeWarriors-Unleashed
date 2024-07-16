@@ -39,54 +39,54 @@ public class Shop : MonoBehaviour
         sc.UpdateCurrentScore();
         MoneyText.text = "Money: " + sc.Money;
         Debug.Log(sc.Money + "");
-        HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
-        ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
+        // HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
+        // ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
         
     }
 
  
     //Add potions to inventory and decrese your total money by cost of item
-    public void BuyHealthPotions()
-    {
-        Debug.Log("ItemPressed");
-        if(sc.Money >= PriceHealth)
-        {
-            sc.HealthPotions += 1;
-            sc.Money -= PriceHealth;
-            Warning.text = "";
-        }
-        else
-        {
-            Warning.text = "It Would Appear you dont have enough money to purchase this item";
-        }
+    // public void BuyHealthPotions()
+    // {
+    //     Debug.Log("ItemPressed");
+    //     if(sc.Money >= PriceHealth)
+    //     {
+    //         sc.HealthPotions += 1;
+    //         sc.Money -= PriceHealth;
+    //         Warning.text = "";
+    //     }
+    //     else
+    //     {
+    //         Warning.text = "It Would Appear you dont have enough money to purchase this item";
+    //     }
 
-        MoneyText.text = "Money: " + sc.Money;
-        HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
-        ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
+    //     MoneyText.text = "Money: " + sc.Money;
+    //     HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
+    //     ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
 
-        sc.UpdateUserStats();
-    }
+    //     sc.UpdateUserStats();
+    // }
 
-    public void BuyManaPotions()
-    {
-        if (sc.Money >= PriceMana)
-        {
-            sc.ManaPotions += 1;
-            sc.Money -= PriceMana;
-            Warning.text = "";
-        }
-        else
-        {
-            Warning.text = "It Would Appear you dont have enough money to purchase this item";
-        }
+    // public void BuyManaPotions()
+    // {
+    //     if (sc.Money >= PriceMana)
+    //     {
+    //         sc.ManaPotions += 1;
+    //         sc.Money -= PriceMana;
+    //         Warning.text = "";
+    //     }
+    //     else
+    //     {
+    //         Warning.text = "It Would Appear you dont have enough money to purchase this item";
+    //     }
 
-        MoneyText.text = "Money: " + sc.Money;
-        HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
-        ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
+    //     MoneyText.text = "Money: " + sc.Money;
+    //     HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
+    //     ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
 
-        sc.UpdateUserStats();
+    //     sc.UpdateUserStats();
 
-    }
+    // }
 
 
 
