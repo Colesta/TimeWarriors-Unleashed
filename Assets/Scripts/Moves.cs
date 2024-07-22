@@ -17,12 +17,12 @@ public class Moves : MonoBehaviour
     public GameObject Hero4Single;
     public GameObject Hero4Multiple;
 
+    public Sprite Tombstone;
+
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
     public GameObject Enemy4;
-
-    public Sprite Tombstone;
 
 
     public GameObject BackgroundImage;

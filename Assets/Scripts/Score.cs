@@ -48,7 +48,7 @@ public class Score : MonoBehaviour
 
     public void UpdateUserStats()
     {
-        string username = lo.getCurrentUser();
+        string username = lo.GetCurrentUser();
         string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
@@ -107,7 +107,7 @@ public class Score : MonoBehaviour
 
             foreach (var user in userArray.users)
             {
-                if (user.username == lo.getCurrentUser())
+                if (user.username == lo.GetCurrentUser())
                 {
                     Money = user.money;
                     EnemiesDefeated = user.enemiesDefeated;
