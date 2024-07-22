@@ -8,6 +8,7 @@ using TMPro;
 
 public class Login : MonoBehaviour
 {
+    
     public GameObject LoginScreen;
     public GameObject MainMenu;
 
@@ -103,6 +104,8 @@ public class Login : MonoBehaviour
 
         string newJson = JsonUtility.ToJson(userArray, true);
         File.WriteAllText(path, newJson);
+
+        s.newRun();
 
         s.SetMenuScore();
         DismissLogin();

@@ -4134,8 +4134,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1968166140}
   - component: {fileID: 1968166141}
+  - component: {fileID: 1968166142}
   m_Layer: 5
-  m_Name: Score
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4173,23 +4174,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f19dc3f0b335e4e9a311e9ff12c9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoginScreen: {fileID: 1589079893}
-  MainMenu: {fileID: 1632054355}
-  InputUser: {fileID: 1038637303}
-  InputPass: {fileID: 2096674910}
-  Error: {fileID: 196305668}
-  UserPlaying: {fileID: 1638235469}
+  lo: {fileID: 1968166142}
   MoneyText: {fileID: 414159969}
   EnemiesDefeatedText: {fileID: 257328573}
   TotalRunsText: {fileID: 495355006}
   CompletedRunsText: {fileID: 1778717678}
+  test: {fileID: 0}
   Money: 0
   EnemiesDefeated: 0
   TotalRuns: 0
   CompletedRuns: 0
-  HealthPotions: 0
-  ManaPotions: 0
-  usersDataPath: /Resources/Scores.json
+--- !u!114 &1968166142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968166139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c63b8b4961f824ebdf84597ab15ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoginScreen: {fileID: 0}
+  MainMenu: {fileID: 0}
+  InputUser: {fileID: 0}
+  InputPass: {fileID: 0}
+  Error: {fileID: 0}
+  UserPlaying: {fileID: 0}
 --- !u!1 &2096674908
 GameObject:
   m_ObjectHideFlags: 0

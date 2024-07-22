@@ -24,7 +24,7 @@ public class Score : MonoBehaviour
     private string usersDataPath = "/Resources/Score.json";
 
     [System.Serializable]
-    public class User
+    public class UserData
     {
         public string username;
         public int money;
@@ -34,25 +34,64 @@ public class Score : MonoBehaviour
     }
 
     [System.Serializable]
-    public class UserArray
+    public class UserDataArray
     {
-        public User[] users;
+        public UserData[] users;
     }
 
-    private UserArray userArray;
+    private UserDataArray userArray;
 
     //will add a new run to score file
     public void newRun()
     {
-        
+        // Increment the run counters
+        TotalRuns++;
 
+        // Check if the run is completed and increment CompletedRuns accordingly
+        bool runCompleted = true; // Set this based on your game logic
+        if (runCompleted)
+        {
+            CompletedRuns++;
+        }
 
+        // Get current user
+        string username = lo.GetCurrentUser();
 
+        // Create new user data entry
+        UserData newUser = new UserData
+        {
+            username = username,
+            money = Money,
+            enemiesDefeated = EnemiesDefeated,
+            totalRuns = TotalRuns,
+            completedRuns = CompletedRuns
+        };
 
+        // Load existing data
+        string path = Application.dataPath + usersDataPath;
 
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            userArray = JsonUtility.FromJson<UserDataArray>(json);
+        }
+        else
+        {
+            Debug.Log("File not found, creating a new one.");
+            userArray = new UserDataArray();
+            userArray.users = new UserData[0];
+        }
 
+        // Add new user data to the array
+        Array.Resize(ref userArray.users, userArray.users.Length + 1);
+        userArray.users[userArray.users.Length - 1] = newUser;
 
-        
+        // Save updated data
+        string newJson = JsonUtility.ToJson(userArray, true);
+        File.WriteAllText(path, newJson);
+
+        // Update the UI with the new stats
+        SetMenuScore();
     }
 
     public void UpdateUserStats()
@@ -63,7 +102,7 @@ public class Score : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            userArray = JsonUtility.FromJson<UserArray>(json);
+            userArray = JsonUtility.FromJson<UserDataArray>(json);
             bool userFound = false;
 
             foreach (var user in userArray.users)
@@ -112,7 +151,7 @@ public class Score : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            userArray = JsonUtility.FromJson<UserArray>(json);
+            userArray = JsonUtility.FromJson<UserDataArray>(json);
 
             foreach (var user in userArray.users)
             {
@@ -128,19 +167,19 @@ public class Score : MonoBehaviour
         }
     }
 
-    public void SaveUserData(User userData)
+    public void SaveUserData(UserData userData)
     {
         string path = Application.dataPath + usersDataPath;
 
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            userArray = JsonUtility.FromJson<UserArray>(json);
+            userArray = JsonUtility.FromJson<UserDataArray>(json);
         }
         else
         {
-            userArray = new UserArray();
-            userArray.users = new User[0];
+            userArray = new UserDataArray();
+            userArray.users = new UserData[0];
         }
 
         bool userExists = false;

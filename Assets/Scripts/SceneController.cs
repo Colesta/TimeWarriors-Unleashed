@@ -15,6 +15,13 @@ public class SceneController : MonoBehaviour
      SceneManager.LoadScene("Battle");
   }
 
+  public void gotoShop(){
+
+   SceneManager.LoadScene("Shop");
+
+
+  }
+
 
 
 
