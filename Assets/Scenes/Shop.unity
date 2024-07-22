@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 4474364207630125263, guid: 313e739ce30592f42a6c9c46e5dfdda4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313e739ce30592f42a6c9c46e5dfdda4, type: 3}
 --- !u!1 &1342865449

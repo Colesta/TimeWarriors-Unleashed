@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 11e2d421330df7346b405f284c82ca4e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Hero1Single: {instanceID: 0}
+  - Hero1Multiple: {instanceID: 0}
+  - Hero2Single: {instanceID: 0}
+  - Hero2Multiple: {instanceID: 0}
+  - Hero3Single: {instanceID: 0}
+  - Hero3Multiple: {instanceID: 0}
+  - Hero4Single: {instanceID: 0}
+  - Hero4Multiple: {instanceID: 0}
+  - Tombstone: {fileID: 21300000, guid: 62ce01ddca719d34ea9648c586a7cc94, type: 3}
+  - Enemy1: {instanceID: 0}
+  - Enemy2: {instanceID: 0}
+  - Enemy3: {instanceID: 0}
+  - Enemy4: {instanceID: 0}
+  - BackgroundImage: {instanceID: 0}
+  - Buttons: {instanceID: 0}
+  - OptionButton: {instanceID: 0}
+  - Items: {instanceID: 0}
+  - currentHeroText: {instanceID: 0}
+  - s: {instanceID: 0}
+  - ss: {instanceID: 0}
+  - sc: {instanceID: 0}
+  - dh: {instanceID: 0}
+  - NumHealthP: {instanceID: 0}
+  - NumManaP: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

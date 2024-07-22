@@ -41,9 +41,18 @@ public class Score : MonoBehaviour
 
     private UserArray userArray;
 
+    //will add a new run to score file
     public void newRun()
     {
-        //will add a new run to score file
+        
+
+
+
+
+
+
+
+        
     }
 
     public void UpdateUserStats()

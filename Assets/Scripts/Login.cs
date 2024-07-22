@@ -52,12 +52,14 @@ public class Login : MonoBehaviour
             string json = File.ReadAllText(path);
             User[] usersData = JsonUtility.FromJson<UserArray>(json).users;
 
+
             foreach (User user in usersData)
             {
                 if (string.Equals(user.username, CurrentUser, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(user.password, CurrentPass))
                 {
                     s.SetMenuScore();
+                    s.newRun();
                     DismissLogin();
                     return;
                 }

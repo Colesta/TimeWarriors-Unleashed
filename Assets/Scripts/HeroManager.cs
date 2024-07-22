@@ -6,7 +6,7 @@ using TMPro;
 using System.Runtime;
 using System.Security.Cryptography;
 
-public class Moves : MonoBehaviour
+public class HeroManager : MonoBehaviour
 {
     public GameObject Hero1Single;
     public GameObject Hero1Multiple;

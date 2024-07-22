@@ -6,7 +6,7 @@ public class EnemySystem : MonoBehaviour
 {
     public Stats s;        
     public SetStats ss;
-    public Moves m;
+    public HeroManager hm;
     public Score sc;
    
 
