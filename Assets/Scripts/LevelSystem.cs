@@ -41,8 +41,7 @@ public class LevelSystem : MonoBehaviour
     public void LoseScreen()
     {
         sc.UpdateCurrentScore();
-        sc.TotalRuns += 1;
-        s.CurrentLevel = 1;
+       
     }
 
 
@@ -50,8 +49,7 @@ public class LevelSystem : MonoBehaviour
     public void WinScreen()
     {
         sc.UpdateCurrentScore();
-        sc.TotalRuns += 1;
-        sc.CompletedRuns += 1;
+       
         s.CurrentLevel = 1;
     }
 

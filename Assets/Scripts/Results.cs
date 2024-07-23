@@ -6,7 +6,7 @@ using TMPro;
 public class Results : MonoBehaviour
 {
 
-    public TextMeshProUGUI MoneyText;
+    // public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI Dialouge;
 
     public Score sc;
@@ -16,10 +16,10 @@ public class Results : MonoBehaviour
     {
 
         //Adds the money you earned into permanent storage as well as Dislay it on screen
-        MoneyText.text = "Money:        " + CalculateMoney();
+        // MoneyText.text = "Money:        " + CalculateMoney();
         Dialouge.text = "Good Job";
 
-        sc.UpdateUserStats();
+        //sc.UpdateUserStats();
         sc.Money += CalculateMoney();
 
 

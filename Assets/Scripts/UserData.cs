@@ -15,8 +15,10 @@ public class UserData
     public string username;
     public int money;
     public int enemiesDefeated;
-    public int totalRuns;
-    public int completedRuns;
+    public int totalTime;
+    public int distanceRan;
+
+
     
 }
 

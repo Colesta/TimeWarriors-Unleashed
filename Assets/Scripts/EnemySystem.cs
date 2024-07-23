@@ -43,7 +43,7 @@ public class EnemySystem : MonoBehaviour
                 //If you havnt finished all levels, result screen is brought up, if you have, then you see the win screen
                 BattleScreen.SetActive(false);
 
-                sc.UpdateUserStats();
+                //sc.UpdateUserStats();
                 sc.EnemiesDefeated +=4;
 
 

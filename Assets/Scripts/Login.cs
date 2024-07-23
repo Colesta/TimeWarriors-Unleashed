@@ -8,8 +8,11 @@ using TMPro;
 
 public class Login : MonoBehaviour
 {
-    
+
+    public Score s;
+
     public GameObject LoginScreen;
+    
     public GameObject MainMenu;
 
     public TMP_InputField InputUser;
@@ -44,7 +47,7 @@ public class Login : MonoBehaviour
 
     public void ValidateLogin()
     {
-        Score s = new Score();
+       
         GetLoginInputValue();
         string path = Application.dataPath + usersPath;
 
@@ -59,7 +62,7 @@ public class Login : MonoBehaviour
                 if (string.Equals(user.username, CurrentUser, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(user.password, CurrentPass))
                 {
-                    s.SetMenuScore();
+                    //s.SetMenuScore();
                     s.newRun();
                     DismissLogin();
                     return;
@@ -74,10 +77,21 @@ public class Login : MonoBehaviour
         }
     }
 
-    public void Register()
+   public void Register()
+{
+    try
     {
-        Score s = new Score();
+       
+
         GetLoginInputValue();
+        Debug.Log($"CurrentUser: {CurrentUser}, CurrentPass: {CurrentPass}");
+
+        if (string.IsNullOrEmpty(CurrentUser) || string.IsNullOrEmpty(CurrentPass))
+        {
+            Debug.LogError("Username or Password is empty.");
+            Error.text = "Username or Password cannot be empty.";
+            return;
+        }
 
         User newUser = new User
         {
@@ -86,30 +100,44 @@ public class Login : MonoBehaviour
         };
 
         string path = Application.dataPath + usersPath;
+        Debug.Log($"Path to user data: {path}");
         UserArray userArray;
 
         if (File.Exists(path))
         {
+            Debug.Log("File exists, reading user data.");
             string json = File.ReadAllText(path);
-            userArray = JsonUtility.FromJson<UserArray>(json);
+            userArray = JsonUtility.FromJson<UserArray>(json) ?? new UserArray { users = new User[0] };
+            Debug.Log("User data read and parsed.");
         }
         else
         {
+            Debug.Log("File does not exist, creating new user array.");
             userArray = new UserArray();
             userArray.users = new User[0];
         }
 
+        Debug.Log("Resizing user array.");
         Array.Resize(ref userArray.users, userArray.users.Length + 1);
         userArray.users[userArray.users.Length - 1] = newUser;
 
         string newJson = JsonUtility.ToJson(userArray, true);
         File.WriteAllText(path, newJson);
+        Debug.Log("User registered and data saved.");
 
         s.newRun();
+        Debug.Log("s.newRun() called.");
 
-        s.SetMenuScore();
+        //s.SetMenuScore();
+        Debug.Log("s.SetMenuScore() called.");
         DismissLogin();
+        Debug.Log("DismissLogin() called.");
     }
+    catch (Exception ex)
+    {
+        Debug.LogError("Exception occurred: " + ex.Message);
+    }
+}
 
     public string GetCurrentUser()
     {
@@ -117,9 +145,19 @@ public class Login : MonoBehaviour
     }
 
     public void DismissLogin()
+{
+    Debug.Log("DismissLogin method started.");
+
+    if (LoginScreen == null || MainMenu == null || UserPlaying == null)
     {
-        LoginScreen.SetActive(false);
-        MainMenu.SetActive(true);
-        UserPlaying.text = "Current User Playing: \n" + CurrentUser;
+        Debug.LogError("One or more UI elements are not assigned.");
+        return;
     }
+
+    LoginScreen.SetActive(false);
+    MainMenu.SetActive(true);
+    UserPlaying.text = "Current User Playing: \n" + CurrentUser;
+
+    Debug.Log("DismissLogin method finished.");
+}
 }
