@@ -36,23 +36,39 @@ public class Score : MonoBehaviour
     [System.Serializable]
     public class UserDataArray
     {
-        public UserData[] users;
+        public UserData[] score;
     }
 
     private UserDataArray userArray;
 
     //will add a new run to score file
     public void newRun()
+{
+    try
     {
-        
-
-    
+        // Check if 'lo' is null
+        if (lo == null)
+        {
+            Debug.LogError("lo is not assigned.");
+            return;
+        }
 
         // Get current user
         string username = lo.GetCurrentUser();
+        Debug.Log($"Current user: {username}");
+
+        // Check if username is null or empty
+        if (string.IsNullOrEmpty(username))
+        {
+            Debug.LogError("Username is null or empty.");
+            return;
+        }
+
+        // Check other variables
+        Debug.Log($"Money: {Money}, EnemiesDefeated: {EnemiesDefeated}, totalTime: {totalTime}, distanceRan: {distanceRan}");
 
         // Create new user data entry
-        UserData newUser = new UserData
+        UserData newUserData = new UserData
         {
             username = username,
             money = Money,
@@ -61,32 +77,45 @@ public class Score : MonoBehaviour
             distanceRan = distanceRan
         };
 
+        // Check if usersDataPath is null or empty
+        if (string.IsNullOrEmpty(usersDataPath))
+        {
+            Debug.LogError("usersDataPath is null or empty.");
+            return;
+        }
+
         // Load existing data
         string path = Application.dataPath + usersDataPath;
+        Debug.Log($"Path to user data: {path}");
 
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            userArray = JsonUtility.FromJson<UserDataArray>(json);
+            userArray = JsonUtility.FromJson<UserDataArray>(json) ?? new UserDataArray { score = new UserData[0] };
         }
         else
         {
             Debug.Log("File not found, creating a new one.");
             userArray = new UserDataArray();
-            userArray.users = new UserData[0];
+            userArray.score = new UserData[0];
         }
 
         // Add new user data to the array
-        Array.Resize(ref userArray.users, userArray.users.Length + 1);
-        userArray.users[userArray.users.Length - 1] = newUser;
+        Array.Resize(ref userArray.score, userArray.score.Length + 1);
+        userArray.score[userArray.score.Length - 1] = newUserData;
 
         // Save updated data
         string newJson = JsonUtility.ToJson(userArray, true);
         File.WriteAllText(path, newJson);
-
-        // Update the UI with the new stats
-        SetMenuScore();
+        Debug.Log("User data updated and saved.");
     }
+    catch (Exception ex)
+    {
+        Debug.LogError("Exception in newRun(): " + ex.Message);
+        Debug.LogError("Stack Trace: " + ex.StackTrace);
+    }
+}
+
 
     // public void UpdateUserStats()
     // {
@@ -99,7 +128,7 @@ public class Score : MonoBehaviour
     //         userArray = JsonUtility.FromJson<UserDataArray>(json);
     //         bool userFound = false;
 
-    //         foreach (var user in userArray.users)
+    //         foreach (var user in userArray.score)
     //         {
     //             if (user.username == username)
     //             {
@@ -145,7 +174,7 @@ public class Score : MonoBehaviour
             string json = File.ReadAllText(path);
             userArray = JsonUtility.FromJson<UserDataArray>(json);
 
-            foreach (var user in userArray.users)
+            foreach (var user in userArray.score)
             {
                 if (user.username == lo.GetCurrentUser())
                 {
@@ -170,15 +199,15 @@ public class Score : MonoBehaviour
         else
         {
             userArray = new UserDataArray();
-            userArray.users = new UserData[0];
+            userArray.score = new UserData[0];
         }
 
         bool userExists = false;
-        for (int i = 0; i < userArray.users.Length; i++)
+        for (int i = 0; i < userArray.score.Length; i++)
         {
-            if (userArray.users[i].username == userData.username)
+            if (userArray.score[i].username == userData.username)
             {
-                userArray.users[i] = userData;
+                userArray.score[i] = userData;
                 userExists = true;
                 break;
             }
@@ -186,8 +215,8 @@ public class Score : MonoBehaviour
 
         if (!userExists)
         {
-            Array.Resize(ref userArray.users, userArray.users.Length + 1);
-            userArray.users[userArray.users.Length - 1] = userData;
+            Array.Resize(ref userArray.score, userArray.score.Length + 1);
+            userArray.score[userArray.score.Length - 1] = userData;
         }
 
         string newJson = JsonUtility.ToJson(userArray, true);

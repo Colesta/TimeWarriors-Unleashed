@@ -77,19 +77,24 @@ public class Login : MonoBehaviour
         }
     }
 
-   public void Register()
+public void Register()
 {
     try
     {
-       
-
         GetLoginInputValue();
         Debug.Log($"CurrentUser: {CurrentUser}, CurrentPass: {CurrentPass}");
 
         if (string.IsNullOrEmpty(CurrentUser) || string.IsNullOrEmpty(CurrentPass))
         {
             Debug.LogError("Username or Password is empty.");
-            Error.text = "Username or Password cannot be empty.";
+            if (Error != null)
+            {
+                Error.text = "Username or Password cannot be empty.";
+            }
+            else
+            {
+                Debug.LogError("Error text component is not assigned.");
+            }
             return;
         }
 
@@ -125,19 +130,32 @@ public class Login : MonoBehaviour
         File.WriteAllText(path, newJson);
         Debug.Log("User registered and data saved.");
 
-        s.newRun();
-        Debug.Log("s.newRun() called.");
+        // Check if 's' is assigned before calling its methods
+        if (s != null)
+        {
+            s.newRun();
+            Debug.Log("s.newRun() called.");
+            //s.SetMenuScore();
+            
+        }
+        else
+        {
+            Debug.LogError("s is not assigned.");
+        }
 
-        //s.SetMenuScore();
-        Debug.Log("s.SetMenuScore() called.");
+        // Add additional logs before and after calling DismissLogin()
+        Debug.Log("Attempting to call DismissLogin().");
         DismissLogin();
         Debug.Log("DismissLogin() called.");
     }
     catch (Exception ex)
     {
         Debug.LogError("Exception occurred: " + ex.Message);
+        Debug.LogError("Stack Trace: " + ex.StackTrace);
     }
 }
+
+
 
     public string GetCurrentUser()
     {

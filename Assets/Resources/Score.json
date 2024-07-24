@@ -1,0 +1,18 @@
+{
+    "score": [
+        {
+            "username": "Hello",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0
+        },
+        {
+            "username": "Hello",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0
+        }
+    ]
+}
