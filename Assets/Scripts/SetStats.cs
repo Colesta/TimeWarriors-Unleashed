@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System.IO;
 
 public class SetStats : MonoBehaviour
 {
@@ -28,13 +27,36 @@ public class SetStats : MonoBehaviour
     public Slider HPE3;
     public Slider HPE4;
 
+    [System.Serializable]
+    public class Enemy
+    {
+        public string Species;
+        public string Element;
+        public int Health;
+        public int Damage;
+        public string Image;
+    }
+
+    [System.Serializable]
+    public class JsonData
+    {
+        public List<Enemy> Enemies;
+    }
+
+    private Enemy randomEnemy;
+
     void Start()
     {
-        //Objects for all Characters, since they share the same variables
+        InitializeHeroes();
+        InitializeEnemies();
+        InitializeSliders();
+    }
 
+    private void InitializeHeroes()
+    {
         Hero1.MaxHP = 500;
         Hero1.CurrentHP = 500;
-        Hero1.MaxMana = 100 ;
+        Hero1.MaxMana = 100;
         Hero1.CurrentMana = 100;
         Hero1.Type = s.FireType;
 
@@ -55,25 +77,23 @@ public class SetStats : MonoBehaviour
         Hero4.MaxMana = 100;
         Hero4.CurrentMana = 100;
         Hero4.Type = s.FireType;
+    }
 
-        Enemy1.MaxHP = 500;
-        Enemy1.CurrentHP = 500;
-        Enemy1.Type = s.FireType;
+    private void InitializeEnemies()
+    {
+        Stats[] enemies = { Enemy1, Enemy2, Enemy3, Enemy4 };
 
-        Enemy2.MaxHP = 500;
-        Enemy2.CurrentHP = 500;
-        Enemy2.Type = s.FireType;
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            GenerateRandomEnemy();
+            enemies[i].MaxHP = randomEnemy.Health;
+            enemies[i].CurrentHP = randomEnemy.Health;
+            enemies[i].Type = randomEnemy.Element;
+        }
+    }
 
-        Enemy3.MaxHP = 500;
-        Enemy3.CurrentHP = 500;
-        Enemy3.Type = s.FireType;
-
-        Enemy4.MaxHP = 500;
-        Enemy4.CurrentHP = 500;
-        Enemy4.Type = s.FireType;
-
-        //The Mini health bars seen at all times on the batte screen above the characters heads are initialized here
-
+    private void InitializeSliders()
+    {
         HPH1.maxValue = returnMaxHeroHP(1);
         HPH1.value = returnCurrentHeroHP(1);
 
@@ -97,11 +117,37 @@ public class SetStats : MonoBehaviour
 
         HPE4.maxValue = returnMaxEnemyHP(4);
         HPE4.value = returnCurrentEnemyHP(4);
-
-
-
-
     }
+
+    private void GenerateRandomEnemy()
+    {
+        // Load JSON data from Resources folder
+        TextAsset jsonTextAsset = Resources.Load<TextAsset>("Enemies");
+        if (jsonTextAsset == null)
+        {
+            Debug.LogError("Failed to load JSON file.");
+            return;
+        }
+
+        // Deserialize JSON data into JsonData object
+        JsonData data = JsonConvert.DeserializeObject<JsonData>(jsonTextAsset.text);
+
+        // Check if there are enemies in the data
+        if (data.Enemies == null || data.Enemies.Count == 0)
+        {
+            Debug.LogError("No enemies found in the JSON data.");
+            return;
+        }
+
+        // Randomly pick one enemy from the array using Unity's Random class
+        int randomIndex = UnityEngine.Random.Range(0, data.Enemies.Count);
+        randomEnemy = data.Enemies[randomIndex];
+    }
+
+    private int returnMaxHeroHP(int index) { /* Implementation */ }
+    private int returnCurrentHeroHP(int index) { /* Implementation */ }
+    private int returnMaxEnemyHP(int index) { /* Implementation */ }
+    private int returnCurrentEnemyHP(int index) { /* Implementation */ }
 
     public void InitializeScreen(){
         Hero1.CurrentHP = 500;

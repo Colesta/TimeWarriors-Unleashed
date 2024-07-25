@@ -1,0 +1,32 @@
+{
+    "enemies": [
+      {
+        "species": "Gollum",
+        "element": "fire",
+        "health" : 550,
+        "damage" : 45,
+        "image"  : "workingOnIt.png"
+      },
+      {
+       "species": "Hybrid",
+        "element": "ice",
+        "health" : 500,
+        "damage" : 30,
+        "image"  : "workingOnIt.png"
+      },
+      {
+        "species": "Mage",
+        "element": "thunder",
+        "health" : 380,
+        "damage" : 150,
+        "image"  : "workingOnIt.png"
+      },
+      {
+        "species": "Orc",
+        "element": "wind",
+        "health" : 1050,
+        "damage" : 75,
+        "image"  : "workingOnIt.png"
+      }
+    ]
+  }

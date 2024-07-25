@@ -7,9 +7,12 @@ public class LevelSystem : MonoBehaviour
     public Stats s;
     public Score sc;
 
-    public Image Background;
-    public Sprite Level1;
-    public Sprite Level2;
+
+    public Image Level1Background;
+    public Image Level2Background;
+    public Image Level3Background;
+    
+    
     
 
     void Start()
@@ -17,14 +20,14 @@ public class LevelSystem : MonoBehaviour
 
         //Sets the background of the battle screen to diffenret images bsed on the current level
 
-        if (s.CurrentLevel == 1)
-        {
-            Background.sprite = Level1;
-        }
-        else if (s.CurrentLevel == 2)
-        {
-            Background.sprite = Level2;
-        }
+        // if (s.CurrentLevel == 1)
+        // {
+        //     Background.sprite = Level1;
+        // }
+        // else if (s.CurrentLevel == 2)
+        // {
+        //     Background.sprite = Level2;
+        // }
        
 
     }

@@ -49,10 +49,6 @@ public class HeroManager : MonoBehaviour
     public TextMeshProUGUI NumManaP;
 
 
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
