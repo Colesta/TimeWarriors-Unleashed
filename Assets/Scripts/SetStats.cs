@@ -103,8 +103,8 @@ public class SetStats : MonoBehaviour
         HPH3.maxValue = returnMaxHeroHP(3);
         HPH3.value = returnCurrentHeroHP(3);
 
-        HPH4.maxValue = returnMaxHeroHP(4);
-        HPH4.value = returnCurrentHeroHP(4);
+        HPH4.maxValue = returnMaxHeroHP(0);
+        HPH4.value = returnCurrentHeroHP(0);
 
         HPE1.maxValue = returnMaxEnemyHP(1);
         HPE1.value = returnCurrentEnemyHP(1);
@@ -130,7 +130,7 @@ public class SetStats : MonoBehaviour
         }
 
         // Deserialize JSON data into JsonData object
-        JsonData data = JsonConvert.DeserializeObject<JsonData>(jsonTextAsset.text);
+        JsonData data = JsonUtility.FromJson<JsonData>(jsonTextAsset.text);
 
         // Check if there are enemies in the data
         if (data.Enemies == null || data.Enemies.Count == 0)
@@ -144,12 +144,13 @@ public class SetStats : MonoBehaviour
         randomEnemy = data.Enemies[randomIndex];
     }
 
-    private int returnMaxHeroHP(int index) { /* Implementation */ }
-    private int returnCurrentHeroHP(int index) { /* Implementation */ }
-    private int returnMaxEnemyHP(int index) { /* Implementation */ }
-    private int returnCurrentEnemyHP(int index) { /* Implementation */ }
+    public int returnMaxHeroHP(int index) { /* Implementation */ }
+    public int returnCurrentHeroHP(int index) { /* Implementation */ }
+    public int returnMaxEnemyHP(int index) { /* Implementation */ }
+    public int returnCurrentEnemyHP(int index) { /* Implementation */ }
 
-    public void InitializeScreen(){
+    public void InitializeScreen()
+    {
         Hero1.CurrentHP = 500;
         Hero1.CurrentMana = 100;
 
@@ -168,8 +169,6 @@ public class SetStats : MonoBehaviour
         Enemy4.CurrentHP = 500;
     }
 
-
-    //Udates stats of the healthbars so you can see the damage done in real time
     public void UpdateStats()
     {
         HPH1.value = returnCurrentHeroHP(1);
@@ -183,119 +182,21 @@ public class SetStats : MonoBehaviour
         HPE4.value = returnCurrentEnemyHP(4);
     }
 
-
-    //For all return methods you will see below, they were used because its more conveniant and easy to type "returnMaxHeroHP(1)" then "ss.Hero1.MaxHP" multiple times
-
-    //Return a specific heroes max HP
-public int returnMaxHeroHP(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                return Hero1.MaxHP;
-
-            case 2:
-                return Hero2.MaxHP;
-
-            case 3:
-                return Hero3.MaxHP;
-
-            case 4:
-                return Hero4.MaxHP;
-
-
-        }
-        return 0;
-    }
-    //Return a specific enemies max HP
-    public int returnMaxEnemyHP(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                return Enemy1.MaxHP;
-
-            case 2:
-                return Enemy2.MaxHP;
-
-            case 3:
-                return Enemy3.MaxHP;
-
-            case 4:
-                return Enemy4.MaxHP;
-
-
-        }
-        return 0;
-    }
-
-    //Return a specific heroes current HP
-    public int returnCurrentHeroHP(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                return Hero1.CurrentHP;
-
-            case 2:
-                return Hero2.CurrentHP;
-
-            case 3:
-                return Hero3.CurrentHP;
-
-            case 4:
-                return Hero4.CurrentHP;
-
-
-        }
-        return 0;
-    }
-
-    //Return a specific enemies current HP
-    public int returnCurrentEnemyHP(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                return Enemy1.CurrentHP;
-
-            case 2:
-                return Enemy2.CurrentHP;
-
-            case 3:
-                return Enemy3.CurrentHP;
-
-            case 4:
-                return Enemy4.CurrentHP;
-
-
-        }
-        return 0;
-    }
-
-    //Return specific max mana
     public int returnMaxMana(int num)
     {
         switch (num)
         {
             case 1:
                 return Hero1.MaxMana;
-
             case 2:
                 return Hero2.MaxMana;
-
             case 3:
                 return Hero3.MaxMana;
-
             case 4:
                 return Hero4.MaxMana;
-
-
         }
         return 0;
     }
-
-    //Return specific current mana
 
     public int returnCurrentMana(int num)
     {
@@ -303,22 +204,16 @@ public int returnMaxHeroHP(int num)
         {
             case 1:
                 return Hero1.CurrentMana;
-
             case 2:
                 return Hero2.CurrentMana;
-
             case 3:
                 return Hero3.CurrentMana;
-
             case 4:
                 return Hero4.CurrentMana;
-
-
         }
         return 0;
     }
 
-    
     public string returnType(int Num)
     {
         switch (Num)
@@ -338,9 +233,7 @@ public int returnMaxHeroHP(int num)
         }
         return null;
     }
-    
 
-    //Method that enemies use to attack the hero
     public void DamageHero(int target, int damage)
     {
         switch (target)
@@ -361,46 +254,11 @@ public int returnMaxHeroHP(int num)
                 Hero4.CurrentHP -= damage;
                 UpdateStats();
                 break;
-
-
         }
     }
 
-    //Add health to all heroes, used for the health potion
-    // public void HealHero(int health)
-    // {
-    //     // if you have no health potions, then you wont heal
-    //     if(sc.HealthPotions > 0)
-    //     {
-    //         Hero1.CurrentHP += health;
-    //         Hero2.CurrentHP += health;
-    //         Hero3.CurrentHP += health;
-    //         Hero4.CurrentHP += health;
-    //         UpdateStats();
-    //         sc.HealthPotions -= 1;
-    //     }
-       
-    // }
-
-    //same logic for Heal Hero here
-    // public void AddMana(int mana)
-    // {
-    //     if(sc.ManaPotions > 0)
-    //     {
-    //         Hero1.CurrentMana += mana;
-    //         Hero2.CurrentMana += mana;
-    //         Hero3.CurrentMana += mana;
-    //         Hero4.CurrentMana += mana;
-    //         UpdateStats();
-    //         sc.ManaPotions -= 1;
-    //     }
-       
-    // }
-
-    //when attacking you lose mana, this is how
     public void RemoveMana(int target, int mana)
     {
-
         switch (target)
         {
             case 1:
@@ -416,14 +274,8 @@ public int returnMaxHeroHP(int num)
                 Hero4.CurrentMana -= mana;
                 break;
         }
-        
-
     }
 
-
-
-
-    //Method that hereoes use to attack the enemy
     public void DamageEnemy(int target, int damage)
     {
         switch (target)
@@ -444,12 +296,9 @@ public int returnMaxHeroHP(int num)
                 Enemy4.CurrentHP -= damage;
                 UpdateStats();
                 break;
-
-
         }
     }
 
-    //Check if the hero has died
     public bool CheckIfHeroDead(int num)
     {
         switch (num)
@@ -466,7 +315,6 @@ public int returnMaxHeroHP(int num)
         return false;
     }
 
-    //Check if the enemy has died
     public bool CheckIfEnemyDead(int num)
     {
         switch (num)
@@ -483,7 +331,6 @@ public int returnMaxHeroHP(int num)
         return false;
     }
 
-    //Both methods below are used to see if either respective side is fully dead, and will call diffrent screens based on if either are true
     public bool AllHeroDead()
     {
         return CheckIfHeroDead(1) && CheckIfHeroDead(2) && CheckIfHeroDead(3) && CheckIfHeroDead(4);
@@ -493,9 +340,4 @@ public int returnMaxHeroHP(int num)
     {
         return CheckIfEnemyDead(1) && CheckIfEnemyDead(2) && CheckIfEnemyDead(3) && CheckIfEnemyDead(4);
     }
-
-
-
-
-
 }
