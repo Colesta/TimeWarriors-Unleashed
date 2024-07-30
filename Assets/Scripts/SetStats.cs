@@ -95,7 +95,7 @@ public class SetStats : MonoBehaviour
     private void InitializeSliders()
     {
         HPH1.maxValue = returnMaxHeroHP(1);
-        HPH1.value = returnCurrentHeroHP(1);
+        HPH1.value = returnCurrentHeroHP(2);
 
         HPH2.maxValue = returnMaxHeroHP(2);
         HPH2.value = returnCurrentHeroHP(2);
@@ -103,8 +103,8 @@ public class SetStats : MonoBehaviour
         HPH3.maxValue = returnMaxHeroHP(3);
         HPH3.value = returnCurrentHeroHP(3);
 
-        HPH4.maxValue = returnMaxHeroHP(0);
-        HPH4.value = returnCurrentHeroHP(0);
+        HPH4.maxValue = returnMaxHeroHP(4);
+        HPH4.value = returnCurrentHeroHP(4);
 
         HPE1.maxValue = returnMaxEnemyHP(1);
         HPE1.value = returnCurrentEnemyHP(1);
@@ -144,10 +144,77 @@ public class SetStats : MonoBehaviour
         randomEnemy = data.Enemies[randomIndex];
     }
 
-    public int returnMaxHeroHP(int index) { /* Implementation */ }
-    public int returnCurrentHeroHP(int index) { /* Implementation */ }
-    public int returnMaxEnemyHP(int index) { /* Implementation */ }
-    public int returnCurrentEnemyHP(int index) { /* Implementation */ }
+   public int returnMaxHeroHP(int index)
+{
+    switch (index)
+    {
+        case 1:
+            return Hero1.MaxHP;
+        case 2:
+            return Hero2.MaxHP;
+        case 3:
+            return Hero3.MaxHP;
+        case 4:
+            return Hero4.MaxHP;
+        default:
+            Debug.LogError("Invalid hero index: " + index);
+            return 0; // or another default value indicating an error
+    }
+}
+    public int returnCurrentHeroHP(int index)
+{
+    switch (index)
+    {
+        case 1:
+            return Hero1.CurrentHP;
+        case 2:
+            return Hero2.CurrentHP;
+        case 3:
+            return Hero3.CurrentHP;
+        case 4:
+            return Hero4.CurrentHP;
+        default:
+            Debug.LogError("Invalid hero index: " + index);
+            return 0; // or another default value indicating an error
+    }
+}
+
+public int returnMaxEnemyHP(int index)
+{
+    switch (index)
+    {
+        case 1:
+            return Enemy1.MaxHP;
+        case 2:
+            return Enemy2.MaxHP;
+        case 3:
+            return Enemy3.MaxHP;
+        case 4:
+            return Enemy4.MaxHP;
+        default:
+            Debug.LogError("Invalid enemy index: " + index);
+            return 0; // or another default value indicating an error
+    }
+}
+
+public int returnCurrentEnemyHP(int index)
+{
+    switch (index)
+    {
+        case 1:
+            return Enemy1.CurrentHP;
+        case 2:
+            return Enemy2.CurrentHP;
+        case 3:
+            return Enemy3.CurrentHP;
+        case 4:
+            return Enemy4.CurrentHP;
+        default:
+            Debug.LogError("Invalid enemy index: " + index);
+            return 0; // or another default value indicating an error
+    }
+}
+
 
     public void InitializeScreen()
     {
