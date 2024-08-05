@@ -35,11 +35,6 @@ public class HeroManager : MonoBehaviour
 
     public TextMeshProUGUI currentHeroText;
 
-
-    public Stats s;
-    public SetStats ss;
-    public Score sc;
-
     public DropdownHandler dh;
 
     private int CurrentPlayer = 1;
@@ -48,6 +43,22 @@ public class HeroManager : MonoBehaviour
     public TextMeshProUGUI NumHealthP;
     public TextMeshProUGUI NumManaP;
 
+
+    private Stats s;
+    private SetStats ss;
+    private Score sc; 
+    private AttackBarController ab;
+
+    void Awake()
+    {
+        s = new Stats();
+        ss = new SetStats();
+        sc = new Score();
+        ab = new AttackBarController();
+    }
+
+
+    
 
 
     void Start()
@@ -161,6 +172,7 @@ public class HeroManager : MonoBehaviour
 
     public void Hero1Move1()
     {
+        ab.moveSpeed = 2;
         if (ss.CheckIfHeroDead(1))
         {
             NextPlayersTurn();

@@ -18,9 +18,6 @@ public class EnemySystem : MonoBehaviour
     void Start()
     {
         StartCoroutine(BattleSequence());
-
-        
-
     }
 
     //Lets the Battle sequence happen every 3 seconds, allwoing the enemies to automatically take their own "turns"

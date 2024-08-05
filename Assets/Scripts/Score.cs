@@ -8,12 +8,13 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    public Login lo;
+   private Login lo;
 
-    // public TextMeshProUGUI MoneyText;
-    // public TextMeshProUGUI EnemiesDefeatedText;
-    // public TextMeshProUGUI totalTimeText;
-    // public TextMeshProUGUI distanceRanText;
+    void Awake()
+    {
+        lo = new Login();
+        // You can now use lo as needed
+    }
     
 
     public int Money = 0;

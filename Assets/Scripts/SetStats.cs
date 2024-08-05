@@ -175,7 +175,7 @@ public class SetStats : MonoBehaviour
             return Hero4.CurrentHP;
         default:
             Debug.LogError("Invalid hero index: " + index);
-            return 0; // or another default value indicating an error
+            return 0; // default value indicating an error
     }
 }
 
@@ -193,7 +193,7 @@ public int returnMaxEnemyHP(int index)
             return Enemy4.MaxHP;
         default:
             Debug.LogError("Invalid enemy index: " + index);
-            return 0; // or another default value indicating an error
+            return 0; // default value indicating an error
     }
 }
 
