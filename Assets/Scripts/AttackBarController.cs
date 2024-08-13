@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class AttackBarController : MonoBehaviour
 {
     public Slider attackBarSlider; // Reference to the slider UI element
+    public GameObject attackBar;
+    public GameObject battleMenu;
+    public GameObject battleUI;
     public float moveSpeed = 1.0f; // Speed of the moving line
     private bool movingRight = true; // Direction of the moving line
 
@@ -21,6 +24,10 @@ public class AttackBarController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) // Check for player input
         {
             float attackPower = CheckPlayerInput();
+            attackBar.SetActive(false);
+            battleMenu.SetActive(true);
+            battleUI.SetActive(true);
+
             Debug.Log("Attack power: " + attackPower);
         }
     }

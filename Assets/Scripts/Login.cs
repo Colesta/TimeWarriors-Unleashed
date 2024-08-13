@@ -9,7 +9,11 @@ using TMPro;
 public class Login : MonoBehaviour
 {
 
-    public Score s;
+    private Score s;
+    void Awake()
+    {
+        s = GetComponent<Score>();
+    }
 
     public GameObject LoginScreen;
     
@@ -63,7 +67,7 @@ public class Login : MonoBehaviour
                     string.Equals(user.password, CurrentPass))
                 {
                     //s.SetMenuScore();
-                    s.newRun();
+                    s.NewRun();
                     DismissLogin();
                     return;
                 }
@@ -133,8 +137,8 @@ public void Register()
         // Check if 's' is assigned before calling its methods
         if (s != null)
         {
-            s.newRun();
-            Debug.Log("s.newRun() called.");
+            s.NewRun();
+            Debug.Log("s.NewRun() called.");
             //s.SetMenuScore();
             
         }

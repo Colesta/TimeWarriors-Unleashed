@@ -19,17 +19,18 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI NextLevel;
     public TextMeshProUGUI Warning;
 
+    private Stats s;
+    private Score sc;
 
-
-    public Score sc;
-    public Stats s;
-
-    
-
+    void Awake()
+    {
+        s = GetComponent<Stats>(); // Get the Stats component attached to the same GameObject
+        sc = GetComponent<Score>(); // Get the Score component attached to the same GameObject
+    }
 
     void Start()
     {
-        //Initializes screen to show the next level you will fifght, and takes Variables from permanent storage that relate to the current user and also puts that on screen to be used
+        // Initializes screen to show the next level you will fight, and takes Variables from permanent storage that relate to the current user and also puts that on screen to be used
         s.CurrentLevel += 1;
         NextLevel.text = "Level " + s.CurrentLevel;
 
@@ -41,11 +42,9 @@ public class Shop : MonoBehaviour
         Debug.Log(sc.Money + "");
         // HealthPotionsText.text = "Health Potions: " + sc.HealthPotions;
         // ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
-        
     }
 
- 
-    //Add potions to inventory and decrese your total money by cost of item
+    // Add potions to inventory and decrease your total money by cost of item
     // public void BuyHealthPotions()
     // {
     //     Debug.Log("ItemPressed");
@@ -85,9 +84,5 @@ public class Shop : MonoBehaviour
     //     ManaPotionsText.text = "Mana Potions: " + sc.ManaPotions;
 
     //     sc.UpdateUserStats();
-
     // }
-
-
-
 }

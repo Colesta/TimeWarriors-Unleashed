@@ -4,8 +4,14 @@ using UnityEngine.UI;
 
 public class LevelSystem : MonoBehaviour
 {
-    public Stats s;
-    public Score sc;
+    private Stats s;
+    private Score sc;
+
+    void Awake()
+    {
+        s = GetComponent<Stats>();
+        sc = GetComponent<Score>();
+    }
 
 
     public Image Level1Background;

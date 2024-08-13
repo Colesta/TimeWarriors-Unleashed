@@ -9,7 +9,12 @@ public class Results : MonoBehaviour
     // public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI Dialouge;
 
-    public Score sc;
+    private Score sc;
+
+    void Awake()
+    {
+        sc = GetComponent<Score>();
+    }
 
     // Start is called before the first frame update
     void Start()

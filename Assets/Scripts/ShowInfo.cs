@@ -6,7 +6,6 @@ using System.Net.Security;
 
 public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
     public TextMeshProUGUI HealthText;
     public Slider HPSlider;
     public TextMeshProUGUI ManaText;
@@ -14,7 +13,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TextMeshProUGUI typeText;
 
     public GameObject Mana;
-    
 
     public GameObject visibleObject;
     public GameObject triggerObject;
@@ -29,25 +27,26 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject Enemy2;
     public GameObject Enemy3;
     public GameObject Enemy4;
-    public Stats s;
-    public SetStats ss;
+    private Stats s;
+    private SetStats ss;
 
-    
+    void Awake()
+    {
+        s = GetComponent<Stats>();
+        // ss = new SetStats(); // Remove this line, SetStats is a MonoBehaviour
+    }
+
     //When the mouse hovers over a certain GameObject, The Stats of that object will be displayed on Screen. This was done to minimize UI elements on screen to be less overwhelming
     public void OnPointerEnter(PointerEventData eventData)
     {
         visibleObject.SetActive(true);
-        ss = Hero1.GetComponent<SetStats>();
+        ss = Hero1.GetComponent<SetStats>(); // Use GetComponent to get the SetStats component
 
-        //trigger Object is the object that when the mouse hovers over it, the "Visible Object" (Whihc is the same object for every case) will be visible
-        //while the same object is being made visible everytime, each if statement chnages the values of the object, making it unique to every game object whilst cuttong down on UI elements (Meaning less startup time and loding)
+        //trigger Object is the object that when the mouse hovers over it, the "Visible Object" (Which is the same object for every case) will be visible
+        //while the same object is being made visible everytime, each if statement changes the values of the object, making it unique to every game object whilst cutting down on UI elements (Meaning less startup time and loading)
 
-        
         if (triggerObject == Hero1)
         {
-
-            
-
             HealthText.text = ss.returnCurrentHeroHP(1) + "/" + ss.returnMaxHeroHP(1);
             HPSlider.maxValue = ss.returnMaxHeroHP(1);
             HPSlider.value = ss.returnCurrentHeroHP(1);
@@ -59,12 +58,7 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(1);
 
             Mana.SetActive(true);
-
-            
-
         }
-
-
         else if (triggerObject == Hero2)
         {
             HealthText.text = ss.returnCurrentHeroHP(2) + "/" + ss.returnMaxHeroHP(2);
@@ -78,8 +72,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(2);
 
             Mana.SetActive(true);
-
-           
         }
         else if (triggerObject == Hero3)
         {
@@ -94,16 +86,12 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(3);
 
             Mana.SetActive(true);
-
-           
-
         }
         else if (triggerObject == Hero4)
         {
             HealthText.text = ss.returnCurrentHeroHP(4) + "/" + ss.returnMaxHeroHP(4);
             HPSlider.maxValue = ss.returnMaxHeroHP(4);
             HPSlider.value = ss.returnCurrentHeroHP(4);
-
 
             ManaText.text = ss.returnCurrentMana(4) + "/" + ss.returnMaxMana(4);
             ManaSlider.maxValue = ss.returnMaxMana(4);
@@ -112,7 +100,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(4);
 
             Mana.SetActive(true);
-
         }
         else if (triggerObject == Enemy1)
         {
@@ -120,13 +107,9 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             HPSlider.maxValue = ss.returnMaxEnemyHP(1);
             HPSlider.value = ss.returnCurrentEnemyHP(1);
 
-
             typeText.text = ss.returnType(1);
 
             Mana.SetActive(false);
-
-           
-
         }
         else if (triggerObject == Enemy2)
         {
@@ -137,9 +120,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(1);
 
             Mana.SetActive(false);
-
-          
-
         }
         else if (triggerObject == Enemy3)
         {
@@ -150,8 +130,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(1);
 
             Mana.SetActive(false);
-
-          
         }
         else if (triggerObject == Enemy4)
         {
@@ -162,9 +140,6 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             typeText.text = ss.returnType(1);
 
             Mana.SetActive(false);
-
-           
-
         }
     }
 
@@ -172,7 +147,5 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         // When the mouse exits the trigger object, hide the visible object
         visibleObject.SetActive(false);
-
-
     }
 }

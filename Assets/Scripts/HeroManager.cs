@@ -51,10 +51,10 @@ public class HeroManager : MonoBehaviour
 
     void Awake()
     {
-        s = new Stats();
-        ss = new SetStats();
-        sc = new Score();
-        ab = new AttackBarController();
+        s = GetComponent<Stats>();
+        ss = GetComponent<SetStats>();
+        sc = GetComponent<Score>();
+        ab = GetComponent<AttackBarController>();
     }
 
 
@@ -82,6 +82,13 @@ public class HeroManager : MonoBehaviour
     }
 
    
+    public void HighlightCurrentPlayer(int CurrentPlayer){
+
+
+        
+    }
+
+
 
     //When the single button is pressed and this method is called, diffrent moves will be made visible depedning on the current hero
     public void Single()

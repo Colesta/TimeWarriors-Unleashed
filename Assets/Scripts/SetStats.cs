@@ -6,8 +6,12 @@ using System.IO;
 
 public class SetStats : MonoBehaviour
 {
-    public Stats s;
-    public Score sc;
+    private Score sc;
+
+    void Awake()
+    {
+        sc = GetComponent<Score>();
+    }
 
     public Stats Hero1;
     public Stats Hero2;
@@ -54,33 +58,43 @@ public class SetStats : MonoBehaviour
 
     private void InitializeHeroes()
     {
+        Hero1 = gameObject.AddComponent<Stats>();
+        Hero2 = gameObject.AddComponent<Stats>();
+        Hero3 = gameObject.AddComponent<Stats>();
+        Hero4 = gameObject.AddComponent<Stats>();
+
         Hero1.MaxHP = 500;
         Hero1.CurrentHP = 500;
         Hero1.MaxMana = 100;
         Hero1.CurrentMana = 100;
-        Hero1.Type = s.FireType;
+        Hero1.Type = Stats.FireType;
 
         Hero2.MaxHP = 500;
         Hero2.CurrentHP = 500;
         Hero2.MaxMana = 100;
         Hero2.CurrentMana = 100;
-        Hero2.Type = s.FireType;
+        Hero2.Type = Stats.FireType;
 
         Hero3.MaxHP = 500;
         Hero3.CurrentHP = 500;
         Hero3.MaxMana = 100;
         Hero3.CurrentMana = 100;
-        Hero3.Type = s.FireType;
+        Hero3.Type = Stats.FireType;
 
         Hero4.MaxHP = 500;
         Hero4.CurrentHP = 500;
         Hero4.MaxMana = 100;
         Hero4.CurrentMana = 100;
-        Hero4.Type = s.FireType;
+        Hero4.Type = Stats.FireType;
     }
 
     private void InitializeEnemies()
     {
+        Enemy1 = gameObject.AddComponent<Stats>();
+        Enemy2 = gameObject.AddComponent<Stats>();
+        Enemy3 = gameObject.AddComponent<Stats>();
+        Enemy4 = gameObject.AddComponent<Stats>();
+
         Stats[] enemies = { Enemy1, Enemy2, Enemy3, Enemy4 };
 
         for (int i = 0; i < enemies.Length; i++)
@@ -95,7 +109,7 @@ public class SetStats : MonoBehaviour
     private void InitializeSliders()
     {
         HPH1.maxValue = returnMaxHeroHP(1);
-        HPH1.value = returnCurrentHeroHP(2);
+        HPH1.value = returnCurrentHeroHP(1);
 
         HPH2.maxValue = returnMaxHeroHP(2);
         HPH2.value = returnCurrentHeroHP(2);
@@ -144,76 +158,76 @@ public class SetStats : MonoBehaviour
         randomEnemy = data.Enemies[randomIndex];
     }
 
-   public int returnMaxHeroHP(int index)
-{
-    switch (index)
+    public int returnMaxHeroHP(int index)
     {
-        case 1:
-            return Hero1.MaxHP;
-        case 2:
-            return Hero2.MaxHP;
-        case 3:
-            return Hero3.MaxHP;
-        case 4:
-            return Hero4.MaxHP;
-        default:
-            Debug.LogError("Invalid hero index: " + index);
-            return 0; // or another default value indicating an error
+        switch (index)
+        {
+            case 1:
+                return Hero1.MaxHP;
+            case 2:
+                return Hero2.MaxHP;
+            case 3:
+                return Hero3.MaxHP;
+            case 4:
+                return Hero4.MaxHP;
+            default:
+                Debug.LogError("Invalid hero index: " + index);
+                return 0; // or another default value indicating an error
+        }
     }
-}
     public int returnCurrentHeroHP(int index)
-{
-    switch (index)
     {
-        case 1:
-            return Hero1.CurrentHP;
-        case 2:
-            return Hero2.CurrentHP;
-        case 3:
-            return Hero3.CurrentHP;
-        case 4:
-            return Hero4.CurrentHP;
-        default:
-            Debug.LogError("Invalid hero index: " + index);
-            return 0; // default value indicating an error
+        switch (index)
+        {
+            case 1:
+                return Hero1.CurrentHP;
+            case 2:
+                return Hero2.CurrentHP;
+            case 3:
+                return Hero3.CurrentHP;
+            case 4:
+                return Hero4.CurrentHP;
+            default:
+                Debug.LogError("Invalid hero index: " + index);
+                return 0; // default value indicating an error
+        }
     }
-}
 
-public int returnMaxEnemyHP(int index)
-{
-    switch (index)
+    public int returnMaxEnemyHP(int index)
     {
-        case 1:
-            return Enemy1.MaxHP;
-        case 2:
-            return Enemy2.MaxHP;
-        case 3:
-            return Enemy3.MaxHP;
-        case 4:
-            return Enemy4.MaxHP;
-        default:
-            Debug.LogError("Invalid enemy index: " + index);
-            return 0; // default value indicating an error
+        switch (index)
+        {
+            case 1:
+                return Enemy1.MaxHP;
+            case 2:
+                return Enemy2.MaxHP;
+            case 3:
+                return Enemy3.MaxHP;
+            case 4:
+                return Enemy4.MaxHP;
+            default:
+                Debug.LogError("Invalid enemy index: " + index);
+                return 0; // default value indicating an error
+        }
     }
-}
 
-public int returnCurrentEnemyHP(int index)
-{
-    switch (index)
+    public int returnCurrentEnemyHP(int index)
     {
-        case 1:
-            return Enemy1.CurrentHP;
-        case 2:
-            return Enemy2.CurrentHP;
-        case 3:
-            return Enemy3.CurrentHP;
-        case 4:
-            return Enemy4.CurrentHP;
-        default:
-            Debug.LogError("Invalid enemy index: " + index);
-            return 0; // or another default value indicating an error
+        switch (index)
+        {
+            case 1:
+                return Enemy1.CurrentHP;
+            case 2:
+                return Enemy2.CurrentHP;
+            case 3:
+                return Enemy3.CurrentHP;
+            case 4:
+                return Enemy4.CurrentHP;
+            default:
+                Debug.LogError("Invalid enemy index: " + index);
+                return 0; // or another default value indicating an error
+        }
     }
-}
 
 
     public void InitializeScreen()
@@ -286,17 +300,17 @@ public int returnCurrentEnemyHP(int index)
         switch (Num)
         {
             case 1:
-                return s.FireType;
+                return Stats.FireType;
             case 2:
-                return s.IceType;
+                return Stats.IceType;
             case 3:
-                return s.WindType;
+                return Stats.WindType;
             case 4:
-                return s.ThunderType;
+                return Stats.ThunderType;
             case 5:
-                return s.EclipseType;
+                return Stats.EclipseType;
             case 6:
-                return s.SolarType;
+                return Stats.SolarType;
         }
         return null;
     }
@@ -408,3 +422,4 @@ public int returnCurrentEnemyHP(int index)
         return CheckIfEnemyDead(1) && CheckIfEnemyDead(2) && CheckIfEnemyDead(3) && CheckIfEnemyDead(4);
     }
 }
+

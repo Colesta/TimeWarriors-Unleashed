@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class EnemySystem : MonoBehaviour
 {
-    public Stats s;        
-    public SetStats ss;
-    public HeroManager hm;
-    public Score sc;
+    private Stats s;        
+    private SetStats ss;
+    private HeroManager hm;
+    private Score sc;
+
+    void Awake(){
+        s = GetComponent<Stats>();
+        ss = GetComponent<SetStats>();
+        hm = GetComponent<HeroManager>();
+        sc = GetComponent<Score>();
+
+
+    }
    
 
     public GameObject BattleScreen;
@@ -95,7 +104,9 @@ public class EnemySystem : MonoBehaviour
 
 
     }
+
     // The actual value of said damage 
+    //TO DO: Change this
     public int EnemyAttack(int num)
     {
         switch (num)
