@@ -13,14 +13,14 @@ public class SetStats : MonoBehaviour
         sc = GetComponent<Score>();
     }
 
-    public Stats Hero1;
-    public Stats Hero2;
-    public Stats Hero3;
-    public Stats Hero4;
-    public Stats Enemy1;
-    public Stats Enemy2;
-    public Stats Enemy3;
-    public Stats Enemy4;
+    private Stats Hero1;
+    private Stats Hero2;
+    private Stats Hero3;
+    private Stats Hero4;
+    private Stats Enemy1;
+    private Stats Enemy2;
+    private Stats Enemy3;
+    private Stats Enemy4;
 
     public Slider HPH1;
     public Slider HPH2;

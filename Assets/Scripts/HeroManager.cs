@@ -8,14 +8,15 @@ using System.Security.Cryptography;
 
 public class HeroManager : MonoBehaviour
 {
-    public GameObject Hero1Single;
-    public GameObject Hero1Multiple;
-    public GameObject Hero2Single;
-    public GameObject Hero2Multiple;
-    public GameObject Hero3Single;
-    public GameObject Hero3Multiple;
-    public GameObject Hero4Single;
-    public GameObject Hero4Multiple;
+public GameObject Move1;
+public GameObject Move2;
+public GameObject Move3;
+public GameObject UltimateMove;
+
+    
+
+
+
 
     public Sprite Tombstone;
 
@@ -38,6 +39,7 @@ public class HeroManager : MonoBehaviour
     public DropdownHandler dh;
 
     private int CurrentPlayer = 1;
+    private int currentMove = 1;
 
 
     public TextMeshProUGUI NumHealthP;
@@ -81,6 +83,17 @@ public class HeroManager : MonoBehaviour
         Debug.Log(CurrentPlayer + " NextPlayerTurn Method");
     }
 
+
+    public int returnCurrentPlayer(){
+        return this.CurrentPlayer;
+    }
+
+    public int returnCurrentMove(){
+        return this.currentMove;
+    }
+
+
+
    
     public void HighlightCurrentPlayer(int CurrentPlayer){
 
@@ -91,332 +104,357 @@ public class HeroManager : MonoBehaviour
 
 
     //When the single button is pressed and this method is called, diffrent moves will be made visible depedning on the current hero
-    public void Single()
+   public int Move1Damage()
+{
+    switch (CurrentPlayer)
     {
-        switch (CurrentPlayer)
-        {
-            case 1:
+        case 1:
+        return Hero1Move1();
 
-                Hero1Single.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
-                break;
+        case 2:
+        //     H2M1.SetActive(true);
+        //     BackgroundImage.SetActive(true);
+        //     OptionButton.SetActive(false);
+             return -1;
 
-            case 2:
+        case 3:
+        //     H3M1.SetActive(true);
+        //     BackgroundImage.SetActive(true);
+        //     OptionButton.SetActive(false);
+              return -1;
 
-                Hero2Single.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
-
-                break;
-
-            case 3:
-
-                Hero3Single.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
-
-                break;
-
-            case 4:
-
-                Hero4Single.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
-
-                break;
-
-
-        }
-
+        case 4:
+        //     H4M1.SetActive(true);
+        //     BackgroundImage.SetActive(true);
+        //     OptionButton.SetActive(false);
+              return -1;
     }
+        return -1;
+}
 
-    //Same logic as single
+// public void Move2x()
+// {
+//     switch (CurrentPlayer)
+//     {
+//         case 1:
+//             H1M2.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-    public void Multiple()
-    {
-        switch (CurrentPlayer)
-        {
-            case 1:
+//         case 2:
+//             H2M2.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-                Hero1Multiple.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
-                break;
+//         case 3:
+//             H3M2.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-            case 2:
+//         case 4:
+//             H4M2.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
+//     }
+// }
 
-                Hero2Multiple.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
+// public void Move3x()
+// {
+//     switch (CurrentPlayer)
+//     {
+//         case 1:
+//             H1M3.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-                break;
+//         case 2:
+//             H2M3.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-            case 3:
+//         case 3:
+//             H3M3.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-                Hero3Multiple.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
+//         case 4:
+//             H4M3.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
+//     }
+// }
 
-                break;
+// public void Move4()
+// {
+//     switch (CurrentPlayer)
+//     {
+//         case 1:
+//             H1M4.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-            case 4:
+//         case 2:
+//             H2M4.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-                Hero4Multiple.SetActive(true);
-                BackgroundImage.SetActive(true);
-                OptionButton.SetActive(false);
+//         case 3:
+//             H3M4.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
 
-                break;
+//         case 4:
+//             H4M4.SetActive(true);
+//             BackgroundImage.SetActive(true);
+//             OptionButton.SetActive(false);
+//             break;
+//     }
+// }
 
-
-        }
-
-    }
+    
+    
 
     //All moves the heroes can do, with move 1 being a single attack wherre you use a drop down menu to select a target and then attack, decreasing the enemies health and decreasing your mana,
     //while mana does the same exect all enemies healths are being decreased. After every move the NextPlayersTurn method is called automatically mkaing it the next players turn. If the current her is dead, 
     //Instead of doing damage the next hero will be able to go
 
-    public void Hero1Move1()
+    public int Hero1Move1()
     {
-        ab.moveSpeed = 2;
-        if (ss.CheckIfHeroDead(1))
-        {
-            NextPlayersTurn();
-            return;
-        }
-
         int damage = 75;
-        int target = dh.target;
         int mana = 15;
-        ss.DamageEnemy(target, damage);
+        
 
         ss.RemoveMana(1, mana);
-
+        //Need to relook at what Update Stats does
         ss.UpdateStats();
 
-        Hero1Single.SetActive(false);
-        BackgroundImage.SetActive(false);
-
-        NextPlayersTurn();
-
-        Buttons.SetActive(true);
-
         ChangeEnemyOnDeath();
+        return damage;
 
       
     }
 
 
-    public void Hero1Move2()
-    {
-        if (ss.CheckIfHeroDead(1))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero1Move2()
+    // {
+    //     if (ss.CheckIfHeroDead(1))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 50;
-        int mana = 30;
+    //     int damage = 50;
+    //     int mana = 30;
 
-        ss.RemoveMana(1, mana);
+    //     ss.RemoveMana(1, mana);
 
 
-        ss.DamageEnemy(1, damage);
-        ss.DamageEnemy(2, damage);
-        ss.DamageEnemy(3, damage);
-        ss.DamageEnemy(4, damage);
+    //     ss.DamageEnemy(1, damage);
+    //     ss.DamageEnemy(2, damage);
+    //     ss.DamageEnemy(3, damage);
+    //     ss.DamageEnemy(4, damage);
 
-        ss.UpdateStats();
-        Hero1Multiple.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     ss.UpdateStats();
+    //     Hero1Multiple.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
+    //     Buttons.SetActive(true);
 
 
-    }
+    // }
 
-    public void Hero2Move1()
-    {
-        if (ss.CheckIfHeroDead(2))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero2Move1()
+    // {
+    //     if (ss.CheckIfHeroDead(2))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 75;
-        int mana = 15;
+    //     int damage = 75;
+    //     int mana = 15;
 
-        ss.RemoveMana(2, mana);
+    //     ss.RemoveMana(2, mana);
 
-        int target = dh.target;
-        ss.DamageEnemy(target, damage);
-        ss.UpdateStats();
-        Hero2Single.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     int target = dh.target;
+    //     ss.DamageEnemy(target, damage);
+    //     ss.UpdateStats();
+    //     Hero2Single.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
+    //     Buttons.SetActive(true);
 
-        ChangeEnemyOnDeath();
+    //     ChangeEnemyOnDeath();
 
 
 
 
-    }
+    // }
 
-    public void Hero2Move2()
-    {
-        if (ss.CheckIfHeroDead(2))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero2Move2()
+    // {
+    //     if (ss.CheckIfHeroDead(2))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 50;
-        int mana = 20;
+    //     int damage = 50;
+    //     int mana = 20;
 
-        ss.RemoveMana(2, mana);
+    //     ss.RemoveMana(2, mana);
 
-        ss.DamageEnemy(1, damage);
-        ss.DamageEnemy(2, damage);
-        ss.DamageEnemy(3, damage);
-        ss.DamageEnemy(4, damage);
+    //     ss.DamageEnemy(1, damage);
+    //     ss.DamageEnemy(2, damage);
+    //     ss.DamageEnemy(3, damage);
+    //     ss.DamageEnemy(4, damage);
 
-        ss.UpdateStats();
-        Hero2Multiple.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     ss.UpdateStats();
+    //     Hero2Multiple.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
-    }
+    //     Buttons.SetActive(true);
+    // }
 
-    public void Hero3Move1()
-    {
-        if (ss.CheckIfHeroDead(3))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero3Move1()
+    // {
+    //     if (ss.CheckIfHeroDead(3))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 75;
-        int mana = 15;
+    //     int damage = 75;
+    //     int mana = 15;
 
-        ss.RemoveMana(3, mana);
+    //     ss.RemoveMana(3, mana);
 
-        int target = dh.target;
-        ss.DamageEnemy(target, damage);
-        ss.UpdateStats();
-        Hero3Single.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     int target = dh.target;
+    //     ss.DamageEnemy(target, damage);
+    //     ss.UpdateStats();
+    //     Hero3Single.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
+    //     Buttons.SetActive(true);
 
-        ChangeEnemyOnDeath();
+    //     ChangeEnemyOnDeath();
 
-    }
+    // }
 
-    public void Hero3Move2()
-    {
-        if (ss.CheckIfHeroDead(3))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero3Move2()
+    // {
+    //     if (ss.CheckIfHeroDead(3))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 50;
-        int mana = 30;
+    //     int damage = 50;
+    //     int mana = 30;
 
-        ss.RemoveMana(3, mana);
+    //     ss.RemoveMana(3, mana);
 
 
-        ss.DamageEnemy(1, damage);
-        ss.DamageEnemy(2, damage);
-        ss.DamageEnemy(3, damage);
-        ss.DamageEnemy(4, damage);
+    //     ss.DamageEnemy(1, damage);
+    //     ss.DamageEnemy(2, damage);
+    //     ss.DamageEnemy(3, damage);
+    //     ss.DamageEnemy(4, damage);
 
-        ss.UpdateStats();
-        Hero3Multiple.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     ss.UpdateStats();
+    //     Hero3Multiple.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
-    }
+    //     Buttons.SetActive(true);
+    // }
 
-    public void Hero4Move1()
-    {
-        if (ss.CheckIfHeroDead(4))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero4Move1()
+    // {
+    //     if (ss.CheckIfHeroDead(4))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 75;
-        int mana = 15;
+    //     int damage = 75;
+    //     int mana = 15;
 
-        ss.RemoveMana(4, mana);
+    //     ss.RemoveMana(4, mana);
 
-        int target = dh.target;
-        ss.DamageEnemy(target, damage);
-        ss.UpdateStats();
-        Hero4Single.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     int target = dh.target;
+    //     ss.DamageEnemy(target, damage);
+    //     ss.UpdateStats();
+    //     Hero4Single.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
+    //     Buttons.SetActive(true);
 
-        ChangeEnemyOnDeath();
+    //     ChangeEnemyOnDeath();
 
-    }
+    // }
 
-    public void Hero4Move2()
-    {
-        if (ss.CheckIfHeroDead(4))
-        {
-            NextPlayersTurn();
-            return;
-        }
+    // public void Hero4Move2()
+    // {
+    //     if (ss.CheckIfHeroDead(4))
+    //     {
+    //         NextPlayersTurn();
+    //         return;
+    //     }
 
-        NextPlayersTurn();
-        currentHeroText.text = "Current Hero: " + CurrentPlayer;
+    //     NextPlayersTurn();
+    //     currentHeroText.text = "Current Hero: " + CurrentPlayer;
 
 
-        int damage = 50;
-        int mana = 30;
+    //     int damage = 50;
+    //     int mana = 30;
 
-        ss.RemoveMana(4, mana);
+    //     ss.RemoveMana(4, mana);
 
-        ss.DamageEnemy(1, damage);
-        ss.DamageEnemy(2, damage);
-        ss.DamageEnemy(3, damage);
-        ss.DamageEnemy(4, damage);
+    //     ss.DamageEnemy(1, damage);
+    //     ss.DamageEnemy(2, damage);
+    //     ss.DamageEnemy(3, damage);
+    //     ss.DamageEnemy(4, damage);
 
-        ss.UpdateStats();
-        Hero4Multiple.SetActive(false);
-        BackgroundImage.SetActive(false);
+    //     ss.UpdateStats();
+    //     Hero4Multiple.SetActive(false);
+    //     BackgroundImage.SetActive(false);
 
-        Buttons.SetActive(true);
-    }
+    //     Buttons.SetActive(true);
+    // }
 
     //Potions will increase either your health or mana for all players, and decrease the amount of that item you have in your inventory by 1
 

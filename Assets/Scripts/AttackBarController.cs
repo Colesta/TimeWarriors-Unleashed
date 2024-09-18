@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,21 @@ public class AttackBarController : MonoBehaviour
     public GameObject battleUI;
     public float moveSpeed = 1.0f; // Speed of the moving line
     private bool movingRight = true; // Direction of the moving line
+
+    private SetStats ss;
+    private DropdownHandler dh;
+    private HeroManager hm;
+
+
+    void Awake()
+    {
+      
+        ss = GetComponent<SetStats>();
+        dh = GetComponent<DropdownHandler>();
+        hm = GetComponent<HeroManager>();
+        
+       
+    }
 
     void Start()
     {
@@ -24,11 +40,30 @@ public class AttackBarController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) // Check for player input
         {
             float attackPower = CheckPlayerInput();
+
+            
+            int player = hm.returnCurrentPlayer();
+            int move = hm.returnCurrentMove();
+
+            //Insert Damage
+
+            int totDamage = (int)attackPower + 1;
+
+
+
+
+            ss.DamageEnemy(dh.target, totDamage);
+            hm.NextPlayersTurn();
+            //Need to get what move was selected, and then what hero selected it.
+
+
+
+
             attackBar.SetActive(false);
             battleMenu.SetActive(true);
             battleUI.SetActive(true);
 
-            Debug.Log("Attack power: " + attackPower);
+            
         }
     }
 

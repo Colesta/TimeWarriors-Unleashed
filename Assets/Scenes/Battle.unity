@@ -242,6 +242,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &31262467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3242,12 +3254,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584767278853081
 MonoBehaviour:
@@ -3261,14 +3267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -3454,12 +3452,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!61 &3413584767300622218
 BoxCollider2D:
@@ -3550,14 +3542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -4859,12 +4843,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584767547524431
 RectTransform:
@@ -4920,14 +4898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -5516,12 +5486,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584767611996742
 MonoBehaviour:
@@ -5535,14 +5499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -6056,12 +6012,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584767731309332
 RectTransform:
@@ -6095,14 +6045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -7582,14 +7524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -7773,12 +7707,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584768027891388
 MonoBehaviour:
@@ -8040,14 +7968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -8073,12 +7993,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!1 &3413584768046431936
 GameObject:
@@ -8201,14 +8115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -8392,12 +8298,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!1 &3413584768059909201
 GameObject:
@@ -8683,12 +8583,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584768165346074
 MonoBehaviour:
@@ -8732,7 +8626,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4163246, y: -17.097137}
+  m_Offset: {x: 1.4163265, y: -17.097137}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8743,7 +8637,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 41.292664, y: 46.810333}
+  m_Size: {x: 41.29266, y: 46.810333}
   m_EdgeRadius: 0
 --- !u!114 &3413584768165346078
 MonoBehaviour:
@@ -8757,14 +8651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -9881,14 +9767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -9914,12 +9792,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584768374426271
 MonoBehaviour:
@@ -11926,12 +11798,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584768791236713
 RectTransform:
@@ -12081,14 +11947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -12254,12 +12112,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584768819227614
 MonoBehaviour:
@@ -12273,14 +12125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -12864,14 +12708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -13005,12 +12841,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584768915230054
 RectTransform:
@@ -13402,14 +13232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 3413584768165346073}
-  Hero2: {fileID: 3413584768915230053}
-  Hero3: {fileID: 3413584768047520039}
-  Hero4: {fileID: 3413584768819227611}
-  Enemy1: {fileID: 3413584768374426270}
-  Enemy2: {fileID: 3413584768993686770}
-  Enemy3: {fileID: 3413584767611996739}
-  Enemy4: {fileID: 3413584767967874919}
   HPH1: {fileID: 3413584767914092260}
   HPH2: {fileID: 3413584768574117993}
   HPH3: {fileID: 3413584767572803385}
@@ -13435,12 +13257,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!114 &3413584768993686771
 MonoBehaviour:
@@ -13681,14 +13497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -13714,12 +13522,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584768993849593
 RectTransform:
@@ -13792,14 +13594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -13961,12 +13755,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!1 &3413584769019435897
 GameObject:
@@ -14483,12 +14271,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!224 &3413584769065456331
 RectTransform:
@@ -14545,14 +14327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
@@ -14679,12 +14453,6 @@ MonoBehaviour:
   MaxMana: 0
   CurrentMana: 0
   Type: 
-  FireType: Fire
-  IceType: Ice
-  WindType: Wind
-  ThunderType: Thunder
-  EclipseType: Eclipse
-  SolarType: Solar
   CurrentLevel: 1
 --- !u!61 &3413584769069081242
 BoxCollider2D:
@@ -14775,14 +14543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003f7525af94c2e488a4537c7fcb3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1: {fileID: 0}
-  Hero2: {fileID: 0}
-  Hero3: {fileID: 0}
-  Hero4: {fileID: 0}
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
   HPH1: {fileID: 3413584768618403861}
   HPH2: {fileID: 3413584768465119362}
   HPH3: {fileID: 3413584768663036957}
