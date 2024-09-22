@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public GameObject trigShop;
-    public GameObject Shopkeeper;
-
     public GameObject trigOne;
     public GameObject portalOne;
 
@@ -15,6 +12,9 @@ public class PlayerCollision : MonoBehaviour
 
     public GameObject trigThree;
     public GameObject portalThree;
+
+    public GameObject ShopKeeper;
+    public GameObject shopTrig;
 
     public SceneController sc;
 
@@ -35,7 +35,8 @@ public class PlayerCollision : MonoBehaviour
             { trigOne, portalOne },
             { trigTwo, portalTwo },
             { trigThree, portalThree },
-            { trigShop, Shopkeeper}
+            { shopTrig, ShopKeeper },
+            // Add more portals if necessary
         };
     }
 
@@ -47,17 +48,14 @@ public class PlayerCollision : MonoBehaviour
             if (lastPortal != null)
             {
                 Debug.Log("Interacting with portal: " + lastPortal.name);
+                sc.gotoBattle();
             }
 
-            if(lastPortal == Shopkeeper)
+            // Example: Transition to another scene (battle/shop)
+            if (lastPortal == ShopKeeper)
             {
-                sc.gotoShop();
-
+                sc.gotoShop(); // Or gotoShop(), depending on your logic
             }
-
-            // Make sure to replace SwitchGameScene.LoadScene with SceneManager.LoadScene
-            // since LoadScene should be a static method or belong to a specific instance.
-            //sc.gotoBattle();
         }
     }
 
@@ -69,9 +67,10 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collision.gameObject == kvp.Value)
             {
-                kvp.Key.SetActive(true);
+                kvp.Key.SetActive(true); // Activate the corresponding trigger
                 collisionOccurred = true;
-                lastPortal = kvp.Value; // Store the last portal that caused the collision
+                lastPortal = kvp.Value;  // Store the last portal that caused the collision
+                Debug.Log("Collided with: " + kvp.Value.name);
                 return;
             }
         }
@@ -85,9 +84,10 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collision.gameObject == kvp.Value)
             {
-                kvp.Key.SetActive(false);
+                kvp.Key.SetActive(false);  // Deactivate the trigger
                 collisionOccurred = false;
-                lastPortal = null; // Clear the last portal reference
+                lastPortal = null;  // Clear the last portal reference
+                Debug.Log("Exited collision with: " + kvp.Value.name);
             }
         }
     }

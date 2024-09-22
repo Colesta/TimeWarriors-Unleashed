@@ -5943,14 +5943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e2d421330df7346b405f284c82ca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1Single: {fileID: 0}
-  Hero1Multiple: {fileID: 0}
-  Hero2Single: {fileID: 0}
-  Hero2Multiple: {fileID: 0}
-  Hero3Single: {fileID: 0}
-  Hero3Multiple: {fileID: 0}
-  Hero4Single: {fileID: 0}
-  Hero4Multiple: {fileID: 0}
+  Move1: {fileID: 31262464}
+  Move2: {fileID: 1001362097}
+  Move3: {fileID: 164926539}
+  UltimateMove: {fileID: 1307467599}
   Tombstone: {fileID: 21300000, guid: 9e45f55b26567734287ede9f6646e18a, type: 3}
   Enemy1: {fileID: 3413584768374426266}
   Enemy2: {fileID: 3413584768993686782}
