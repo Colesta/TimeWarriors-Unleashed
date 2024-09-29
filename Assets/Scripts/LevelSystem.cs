@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,55 +12,55 @@ public class LevelSystem : MonoBehaviour
         sc = GetComponent<Score>();
     }
 
+    // Reference to the UI Image component for the background
+    public Image Background;
 
-    public Image Level1Background;
-    public Image Level2Background;
-    public Image Level3Background;
-    
-    
-    
+    // Sprites for different level backgrounds
+    public Sprite Level1Background;
+    public Sprite Level2Background;
+    public Sprite Level3Background;
 
     void Start()
     {
-
-        //Sets the background of the battle screen to diffenret images bsed on the current level
-
-        // if (s.CurrentLevel == 1)
-        // {
-        //     Background.sprite = Level1;
-        // }
-        // else if (s.CurrentLevel == 2)
-        // {
-        //     Background.sprite = Level2;
-        // }
-       
-
+        // Sets the background of the battle screen to different images based on the current level
+        UpdateBackground();
     }
 
-    //Increase level count by one
+    // Updates the background sprite based on the current level
+    void UpdateBackground()
+    {
+        if (s.CurrentLevel == 1)
+        {
+            Background.sprite = Level1Background;
+        }
+        else if (s.CurrentLevel == 2)
+        {
+            Background.sprite = Level2Background;
+        }
+        else if (s.CurrentLevel == 3)
+        {
+            Background.sprite = Level3Background;
+        }
+    }
 
+    // Increase level count by one
     public void AddLevel()
     {
         s.CurrentLevel += 1;
+        UpdateBackground(); // Update background when level changes
     }
 
-
-    //When button is pressed on lose scrreen, will run this code. Updates your scores
+    // When the button is pressed on lose screen, update your scores
     public void LoseScreen()
     {
         sc.UpdateCurrentScore();
-       
     }
 
-
-    //When button is pressed on win scrreen, will run this code. Updates your scores
+    // When the button is pressed on win screen, update your scores and reset level
     public void WinScreen()
     {
         sc.UpdateCurrentScore();
-       
-        s.CurrentLevel = 1;
+        s.CurrentLevel = 1; // Reset level to 1
+        UpdateBackground();  // Reset background as well
     }
-
-
-
 }

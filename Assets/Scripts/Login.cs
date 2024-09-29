@@ -86,21 +86,40 @@ public void Register()
     try
     {
         GetLoginInputValue();
-        Debug.Log($"CurrentUser: {CurrentUser}, CurrentPass: {CurrentPass}");
+       
 
         if (string.IsNullOrEmpty(CurrentUser) || string.IsNullOrEmpty(CurrentPass))
         {
-            Debug.LogError("Username or Password is empty.");
-            if (Error != null)
-            {
-                Error.text = "Username or Password cannot be empty.";
-            }
-            else
-            {
-                Debug.LogError("Error text component is not assigned.");
-            }
+            Error.text = "Username or Password is empty.";
+           
             return;
         }
+
+        if (UsernameExists()){
+            Error.text = "Username already exists";
+           
+            return;
+        }
+
+        if (CurrentUser.Length < 5){
+            Error.text = "Username must be at least 5 characters";
+           
+            return;
+        }
+
+        if(CurrentPass.Length < 8 || !PasswordLowerCheck() || !PasswordUpperCheck() || !PasswordLowerCheck()){
+            Error.text = "Password needs to be 8 characters, have a Lowercase, Uppercase and a Digit";
+           
+            return;
+        }
+
+        
+
+       
+
+        
+
+        
 
         User newUser = new User
         {
@@ -182,4 +201,72 @@ public void Register()
 
     Debug.Log("DismissLogin method finished.");
 }
+
+public bool UsernameExists()
+{
+    // Get the path to the JSON file
+    string path = Application.dataPath + usersPath;
+
+    if (File.Exists(path))
+    {
+        // Deserialize the JSON file into an array of users
+        string json = File.ReadAllText(path);
+        User[] usersData = JsonUtility.FromJson<UserArray>(json).users;
+
+        // Loop through the users and compare usernames
+        foreach (User user in usersData)
+        {
+            if (user.username == CurrentUser)
+            {
+                return true; // Username already exists
+            }
+        }
+    }
+    else
+    {
+        Error.text = "User data file doesn't exist.";
+    }
+
+    return false; // Username does not exist
 }
+
+public bool PasswordLowerCheck(){
+
+    for (int i = 0; i < CurrentPass.Length; i++){
+        char letter = CurrentPass[i];
+        if (char.IsLower(letter)){
+            return true;
+        }
+    }
+        return false;
+  
+}
+
+public bool PasswordUpperCheck(){
+
+    for (int i = 0; i < CurrentPass.Length; i++){
+        char letter = CurrentPass[i];
+        if (char.IsUpper(letter)){
+            return true;
+        }
+    }
+        return false;
+  
+}
+
+public bool PasswordDigitCheck(){
+
+    for (int i = 0; i < CurrentPass.Length; i++){
+        char letter = CurrentPass[i];
+        if (char.IsDigit(letter)){
+            return true;
+        }
+    }
+        return false;
+  
+}
+
+
+}
+
+

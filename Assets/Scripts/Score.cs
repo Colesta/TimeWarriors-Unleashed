@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     void Awake()
     {
         lo = GetComponent<Login>();
-        Testing();
+       
 
        
     }
@@ -40,22 +40,7 @@ public class Score : MonoBehaviour
 
     private UserDataArray userArray = new UserDataArray();
 
-    public void Testing(){
-         string username = lo.GetCurrentUser();
-            UserData currentUserData = null;
-
-            if (string.IsNullOrEmpty(username))
-            {
-                Debug.LogWarning("Current user is null or empty, setting to 'test'.");
-                currentUserData = userArray.score.Find(user => user.username == "test");
-
-                if (currentUserData == null)
-                {
-                    Debug.LogError("Test user data not found.");
-                    return;
-                }
-            }
-    }
+  
 
     public void NewRun()
     {

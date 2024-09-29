@@ -48,6 +48,20 @@
             "enemiesDefeated": 0,
             "totalTime": 0,
             "distanceRan": 0
+        },
+        {
+            "username": "test",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0
+        },
+        {
+            "username": "Carlos",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0
         }
     ]
 }
