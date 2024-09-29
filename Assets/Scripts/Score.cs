@@ -5,15 +5,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    private Login lo;
-
-    void Awake()
-    {
-        lo = GetComponent<Login>();
-       
-
-       
-    }
+   
 
     public int Money = 0;
     public int EnemiesDefeated = 0;
@@ -46,13 +38,9 @@ public class Score : MonoBehaviour
     {
         try
         {
-            if (lo == null)
-            {
-                Debug.LogError("Login component not found.");
-                return;
-            }
+            
 
-            string username = lo.GetCurrentUser();
+            string username = UserSession.CurrentUser;
             if (string.IsNullOrEmpty(username))
             {
                 Debug.LogError("Username is null or empty.");
@@ -96,46 +84,48 @@ public class Score : MonoBehaviour
     }
 
     public void UpdateCurrentScore()
+{
+    try
     {
-        try
+        string path = Application.dataPath + usersDataPath;
+
+        if (File.Exists(path))
         {
-            string path = Application.dataPath + usersDataPath;
-
-            if (File.Exists(path))
+            string json = File.ReadAllText(path);
+            userArray = JsonUtility.FromJson<UserDataArray>(json);
+            Login lo = new Login();
+           
+            string username = UserSession.CurrentUser;
+            if (string.IsNullOrEmpty(username))
             {
-                string json = File.ReadAllText(path);
-                userArray = JsonUtility.FromJson<UserDataArray>(json);
+                Debug.LogError("Username is null or empty.");
+                return;
+            }
 
-                string username = lo.GetCurrentUser();
-                if (string.IsNullOrEmpty(username))
-                {
-                    Debug.LogError("Username is null or empty.");
-                    return;
-                }
+            UserData currentUserData = userArray.score.Find(user => user.username == username);
 
-                UserData currentUserData = userArray.score.Find(user => user.username == username);
-
-                if (currentUserData != null)
-                {
-                    Money = currentUserData.money;
-                    EnemiesDefeated = currentUserData.enemiesDefeated;
-                    totalTime = currentUserData.totalTime;
-                    distanceRan = currentUserData.distanceRan;
-                }
-                else
-                {
-                    Debug.LogWarning("Current user data not found in score file.");
-                }
+            if (currentUserData != null)
+            {
+                Money = currentUserData.money;
+                EnemiesDefeated = currentUserData.enemiesDefeated;
+                totalTime = currentUserData.totalTime;
+                distanceRan = currentUserData.distanceRan;
             }
             else
             {
-                Debug.LogError("Score file does not exist at path: " + path);
+                Debug.LogWarning("Current user data not found in score file.");
             }
         }
-        catch (Exception ex)
+        else
         {
-            Debug.LogError($"Exception in UpdateCurrentScore(): {ex.Message}");
-            Debug.LogError($"Stack Trace: {ex.StackTrace}");
+            Debug.LogError("Score file does not exist at path: " + path);
         }
     }
+    catch (Exception ex)
+    {
+        Debug.LogError($"Exception in UpdateCurrentScore(): {ex.Message}");
+        Debug.LogError($"Stack Trace: {ex.StackTrace}");
+    }
+}
+
 }

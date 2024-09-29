@@ -1,32 +1,16 @@
 {
     "users": [
         {
-            "username": "Hello",
-            "password": "There"
-        },
-        {
-            "username": "DragonKnight",
-            "password": "dragon@9"
-        },
-        {
-            "username": "SathishaGqwerty",
-            "password": "SathishaG2005"
-        },
-        {
-            "username": "Hello",
-            "password": "heeeeeeey"
-        },
-        {
             "username": "test",
             "password": "test"
         },
         {
-            "username": "Jason",
-            "password": "RedHood"
-        },
-        {
             "username": "Carlos",
             "password": "Second22"
+        },
+        {
+            "username": "Test1",
+            "password": "Testing1"
         }
     ]
 }

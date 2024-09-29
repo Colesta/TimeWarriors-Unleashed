@@ -5972,9 +5972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800cda2617bb7a14596dc93636dd2a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level1Background: {fileID: 0}
-  Level2Background: {fileID: 0}
-  Level3Background: {fileID: 0}
+  Background: {fileID: 3413584769211088718}
+  Level1Background: {fileID: 21300000, guid: c7c4e62aa96ffa44fa79ce8f6d20a042, type: 3}
+  Level2Background: {fileID: 21300000, guid: 93633088bf9ba75429b8768eb76d1859, type: 3}
+  Level3Background: {fileID: 21300000, guid: 366979f0c57c1b74ab9ea01b3712a8ad, type: 3}
 --- !u!114 &3413584767731309323
 MonoBehaviour:
   m_ObjectHideFlags: 0

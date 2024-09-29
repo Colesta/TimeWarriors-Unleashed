@@ -9,15 +9,23 @@ public class EnemySystem : MonoBehaviour
     private HeroManager hm;
     private Score sc;
 
-    void Awake(){
+    void Awake()
+    {
         s = GetComponent<Stats>();
         ss = GetComponent<SetStats>();
         hm = GetComponent<HeroManager>();
         sc = GetComponent<Score>();
 
-
+        // Null checks to prevent errors if components are missing
+        if (s == null)
+            Debug.LogError("Stats component missing on this GameObject.");
+        if (ss == null)
+            Debug.LogError("SetStats component missing on this GameObject.");
+        if (hm == null)
+            Debug.LogError("HeroManager component missing on this GameObject.");
+        if (sc == null)
+            Debug.LogError("Score component missing on this GameObject.");
     }
-   
 
     public GameObject BattleScreen;
     public GameObject ResultScreen;
@@ -29,7 +37,7 @@ public class EnemySystem : MonoBehaviour
         StartCoroutine(BattleSequence());
     }
 
-    //Lets the Battle sequence happen every 3 seconds, allwoing the enemies to automatically take their own "turns"
+    // Lets the battle sequence happen every 3 seconds, allowing the enemies to automatically take their own "turns"
     IEnumerator BattleSequence()
     {
         while (!ss.AllEnemyDead())
@@ -37,21 +45,17 @@ public class EnemySystem : MonoBehaviour
             int target = GenerateRandomTarget();
             int damage = GenerateRandomEnemyAttack();
 
-            //Attack a randomly selected target by a random amount of damage every 3 seconds
+            // Attack a randomly selected target by a random amount of damage every 3 seconds
             yield return new WaitForSeconds(3); 
             ss.DamageHero(target, damage);
-           
 
-
+            // Check if all enemies are dead
             if (ss.AllEnemyDead())
             {
-                //When all enmies die, the battle screen goes away and the amount of enemies defeated is increased and saved to permanent storage
-                //If you havnt finished all levels, result screen is brought up, if you have, then you see the win screen
+                // Deactivate the battle screen, update score, and show result/win screen
                 BattleScreen.SetActive(false);
 
-                //sc.UpdateUserStats();
-                sc.EnemiesDefeated +=4;
-
+                sc.EnemiesDefeated += 4;
 
                 if (s.CurrentLevel == 2) 
                 {
@@ -64,67 +68,35 @@ public class EnemySystem : MonoBehaviour
                 }
             }
 
-            //If all heroes died, then you see the lose screen
-
+            // Check if all heroes are dead
             if (ss.AllHeroDead())
             {
                 BattleScreen.SetActive(false);
                 LoseScreen.SetActive(true);
-
             }
         }
     }
 
+    // Randomly select between the 4 heroes
+    public int GenerateRandomTarget()
+    {
+        int minRange = 1;
+        int maxRange = 4;  // Adjusted to reflect inclusive range
+        return UnityEngine.Random.Range(minRange, maxRange + 1);
+    }
+
+    // Randomly generate how much damage will be done
+    public int GenerateRandomEnemyAttack()
+    {
+        int[] possibleDamageValues = { 25, 30, 45, 70 };
+        int randomIndex = UnityEngine.Random.Range(0, possibleDamageValues.Length);
+        return possibleDamageValues[randomIndex];
+    }
+
+    // Coroutine for delayed hero damage
     IEnumerator DamageHeroWithDelay(int target, int damage)
     {
         yield return new WaitForSeconds(5); // Wait for 5 seconds
         ss.DamageHero(target, damage);
     }
-
-
-    //Randoly select between the 4 heroes
-    public int GenerateRandomTarget()
-    {
-        int minRange = 1;
-        int maxRange = 4;
-        int randomValue = UnityEngine.Random.Range(minRange, maxRange);
-        return randomValue;
-
-    }
-
-    //randomly select how what damge will be done
-    public int GenerateRandomEnemyAttack()
-    {
-        int minRange = 1;
-        int maxRange = 4;
-        int randomValue = UnityEngine.Random.Range(minRange, maxRange);
-
-
-        return EnemyAttack(randomValue);
-
-
-    }
-
-    // The actual value of said damage 
-    //TO DO: Change this
-    public int EnemyAttack(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                return 25;
-            case 2:
-                return 30;
-            case 3:
-                return 45;
-            case 4:
-                return 70;
-        }
-
-
-
-        return 0;
-    }
 }
-
-

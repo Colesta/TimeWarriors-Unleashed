@@ -58,10 +58,16 @@ public class SetStats : MonoBehaviour
 
     private void InitializeHeroes()
     {
+        
         Hero1 = gameObject.AddComponent<Stats>();
         Hero2 = gameObject.AddComponent<Stats>();
         Hero3 = gameObject.AddComponent<Stats>();
         Hero4 = gameObject.AddComponent<Stats>();
+
+        if (Hero1 == null) {
+        Debug.LogError("Failed to add Stats component to Hero1.");
+        }
+
 
         Hero1.MaxHP = 500;
         Hero1.CurrentHP = 500;
@@ -88,26 +94,41 @@ public class SetStats : MonoBehaviour
         Hero4.Type = Stats.FireType;
     }
 
-    private void InitializeEnemies()
+   private void InitializeEnemies()
+{
+    Enemy1 = gameObject.AddComponent<Stats>();
+    Enemy2 = gameObject.AddComponent<Stats>();
+    Enemy3 = gameObject.AddComponent<Stats>();
+    Enemy4 = gameObject.AddComponent<Stats>();
+
+    Stats[] enemies = { Enemy1, Enemy2, Enemy3, Enemy4 };
+
+    for (int i = 0; i < enemies.Length; i++)
     {
-        Enemy1 = gameObject.AddComponent<Stats>();
-        Enemy2 = gameObject.AddComponent<Stats>();
-        Enemy3 = gameObject.AddComponent<Stats>();
-        Enemy4 = gameObject.AddComponent<Stats>();
+        GenerateRandomEnemy();
 
-        Stats[] enemies = { Enemy1, Enemy2, Enemy3, Enemy4 };
-
-        for (int i = 0; i < enemies.Length; i++)
+        if (randomEnemy == null)  // If randomEnemy is null, skip or set default values
         {
-            GenerateRandomEnemy();
-            enemies[i].MaxHP = randomEnemy.Health;
-            enemies[i].CurrentHP = randomEnemy.Health;
-            enemies[i].Type = randomEnemy.Element;
+            Debug.LogError("Random enemy is null!");
+            enemies[i].MaxHP = 100; // Default values to prevent null reference
+            enemies[i].CurrentHP = 100;
+            enemies[i].Type = "Default";
+            continue;
         }
+
+        enemies[i].MaxHP = randomEnemy.Health;
+        enemies[i].CurrentHP = randomEnemy.Health;
+        enemies[i].Type = randomEnemy.Element;
     }
+}
+
 
     private void InitializeSliders()
     {
+        if (HPH1 == null || HPH2 == null || HPE1 == null){
+        Debug.LogError("Sliders are not assigned in the Inspector.");
+        return;
+        }
         HPH1.maxValue = returnMaxHeroHP(1);
         HPH1.value = returnCurrentHeroHP(1);
 
@@ -397,20 +418,23 @@ public class SetStats : MonoBehaviour
     }
 
     public bool CheckIfEnemyDead(int num)
+{
+    switch (num)
     {
-        switch (num)
-        {
-            case 1:
-                return Enemy1.CurrentHP <= 0;
-            case 2:
-                return Enemy2.CurrentHP <= 0;
-            case 3:
-                return Enemy3.CurrentHP <= 0;
-            case 4:
-                return Enemy4.CurrentHP <= 0;
-        }
-        return false;
+        case 1:
+            return Enemy1 != null && Enemy1.CurrentHP <= 0;
+        case 2:
+            return Enemy2 != null && Enemy2.CurrentHP <= 0;
+        case 3:
+            return Enemy3 != null && Enemy3.CurrentHP <= 0;
+        case 4:
+            return Enemy4 != null && Enemy4.CurrentHP <= 0;
+        default:
+            Debug.LogError("Invalid enemy number: " + num);
+            return false;
     }
+}
+
 
     public bool AllHeroDead()
     {
