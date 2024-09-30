@@ -1,16 +1,24 @@
 {
     "users": [
         {
-            "username": "test",
-            "password": "test"
-        },
-        {
             "username": "Carlos",
             "password": "Second22"
         },
         {
             "username": "Test1",
             "password": "Testing1"
+        },
+        {
+            "username": "Test2",
+            "password": "Testing2"
+        },
+        {
+            "username": "Test3",
+            "password": "Testing3"
+        },
+        {
+            "username": "Test4",
+            "password": "Testing4"
         }
     ]
 }

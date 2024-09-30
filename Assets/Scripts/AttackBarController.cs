@@ -42,28 +42,6 @@ public class AttackBarController : MonoBehaviour
             float attackPower = CheckPlayerInput();
 
             
-            int player = hm.returnCurrentPlayer();
-            int move = hm.returnCurrentMove();
-
-            //Insert Damage
-
-            int totDamage = (int)attackPower + 1;
-
-
-
-
-            ss.DamageEnemy(dh.target, totDamage);
-            hm.NextPlayersTurn();
-            //Need to get what move was selected, and then what hero selected it.
-
-
-
-
-            attackBar.SetActive(false);
-            battleMenu.SetActive(true);
-            battleUI.SetActive(true);
-
-            
         }
     }
 
@@ -93,7 +71,6 @@ public class AttackBarController : MonoBehaviour
     public float CheckPlayerInput()
     {
         float hitPosition = attackBarSlider.value;
-        Debug.Log("Attack at position: " + hitPosition);
 
         if (hitPosition >= 0.0f && hitPosition <= 0.15f || hitPosition >= 0.85f && hitPosition <= 1.0f)
         {

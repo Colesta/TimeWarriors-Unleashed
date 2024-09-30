@@ -19,6 +19,7 @@ public class DropdownHandler : MonoBehaviour
         {
             // Add an event listener to detect changes in the Dropdown's value.
             dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
+            
         }
     }
 
@@ -33,5 +34,9 @@ public class DropdownHandler : MonoBehaviour
         target = int.Parse(selectedOption); 
             
        
+    }
+
+    public int SelectedTarget(){
+        return target;
     }
 }

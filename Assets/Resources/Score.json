@@ -1,18 +1,25 @@
 {
     "score": [
         {
-            "username": "test",
-            "money": 0,
-            "enemiesDefeated": 0,
-            "totalTime": 0,
-            "distanceRan": 0
-        },
-        {
             "username": "Carlos",
-            "money": 0,
-            "enemiesDefeated": 0,
-            "totalTime": 0,
-            "distanceRan": 0
+            "money": 550,
+            "enemiesDefeated": 2,
+            "totalTime": 200,
+            "distanceRan": 20
+        },
+        {
+            "username": "Test1",
+            "money": 700,
+            "enemiesDefeated": 11,
+            "totalTime": 120,
+            "distanceRan": 20
+        },
+        {
+            "username": "Test1",
+            "money": 550,
+            "enemiesDefeated": 2,
+            "totalTime": 200,
+            "distanceRan": 20
         },
         {
             "username": "Test1",
@@ -43,11 +50,26 @@
             "distanceRan": 0
         },
         {
-            "username": "Test1",
-            "money": 0,
-            "enemiesDefeated": 0,
-            "totalTime": 0,
-            "distanceRan": 0
+            "username": "Test2",
+            "money": 20,
+            "enemiesDefeated": 40,
+            "totalTime": 450,
+            "distanceRan": 500
+        },
+        {
+            "username": "Test3",
+            "money": 1000,
+            "enemiesDefeated": 12,
+            "totalTime": 160,
+            "distanceRan": 300
+        },
+        {
+            "username": "Test4",
+            "money": 200,
+            "enemiesDefeated": 16,
+            "totalTime": 40,
+            "distanceRan": 2000
         }
+
     ]
 }

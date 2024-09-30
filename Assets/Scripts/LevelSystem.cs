@@ -50,6 +50,10 @@ public class LevelSystem : MonoBehaviour
         UpdateBackground(); // Update background when level changes
     }
 
+    public string getCurrentLevel(){
+        return s.CurrentLevel + "";
+    }
+
     // When the button is pressed on lose screen, update your scores
     public void LoseScreen()
     {

@@ -1,32 +1,28 @@
 {
     "Enemies": [
       {
-        "species": "Gollum",
-        "element": "fire",
-        "health" : 550,
-        "damage" : 45,
-        "image"  : "workingOnIt.png"
+        "Species": "Gollum",
+        "Element": "fire",
+        "Health" : 550,
+        "Damage" : 45
       },
       {
-       "species": "Hybrid",
-        "element": "ice",
-        "health" : 500,
-        "damage" : 30,
-        "image"  : "workingOnIt.png"
+        "Species": "Hybrid",
+        "Element": "ice",
+        "Health" : 500,
+        "Damage" : 30
       },
       {
-        "species": "Mage",
-        "element": "thunder",
-        "health" : 380,
-        "damage" : 150,
-        "image"  : "workingOnIt.png"
+        "Species": "Mage",
+        "Element": "thunder",
+        "Health" : 380,
+        "Damage" : 150
       },
       {
-        "species": "Orc",
-        "element": "wind",
-        "health" : 1050,
-        "damage" : 75,
-        "image"  : "workingOnIt.png"
+        "Species": "Orc",
+        "Element": "wind",
+        "Health" : 1050,
+        "Damage" : 75
       }
     ]
   }

@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.IO;
 
 public class SetStats : MonoBehaviour
 {
     private Score sc;
+
+    
 
     void Awake()
     {
@@ -21,6 +22,8 @@ public class SetStats : MonoBehaviour
     private Stats Enemy2;
     private Stats Enemy3;
     private Stats Enemy4;
+
+    private GameObject[] enemies;
 
     public Slider HPH1;
     public Slider HPH2;
@@ -41,86 +44,110 @@ public class SetStats : MonoBehaviour
         public string Image;
     }
 
-    [System.Serializable]
-    public class JsonData
+   [System.Serializable]
+    public class EnemyList
     {
         public List<Enemy> Enemies;
     }
 
-    private Enemy randomEnemy;
+    private List<Enemy> enemiesList;
 
     void Start()
     {
         InitializeHeroes();
+        LoadEnemiesFromJson();
         InitializeEnemies();
         InitializeSliders();
+
+        
+    }
+
+    void Update(){
+        UpdateStats();
+
     }
 
     private void InitializeHeroes()
     {
-        
         Hero1 = gameObject.AddComponent<Stats>();
         Hero2 = gameObject.AddComponent<Stats>();
         Hero3 = gameObject.AddComponent<Stats>();
         Hero4 = gameObject.AddComponent<Stats>();
 
-        if (Hero1 == null) {
-        Debug.LogError("Failed to add Stats component to Hero1.");
-        }
-
-
-        Hero1.MaxHP = 500;
-        Hero1.CurrentHP = 500;
-        Hero1.MaxMana = 100;
-        Hero1.CurrentMana = 100;
-        Hero1.Type = Stats.FireType;
-
-        Hero2.MaxHP = 500;
-        Hero2.CurrentHP = 500;
-        Hero2.MaxMana = 100;
-        Hero2.CurrentMana = 100;
-        Hero2.Type = Stats.FireType;
-
-        Hero3.MaxHP = 500;
-        Hero3.CurrentHP = 500;
-        Hero3.MaxMana = 100;
-        Hero3.CurrentMana = 100;
-        Hero3.Type = Stats.FireType;
-
-        Hero4.MaxHP = 500;
-        Hero4.CurrentHP = 500;
-        Hero4.MaxMana = 100;
-        Hero4.CurrentMana = 100;
-        Hero4.Type = Stats.FireType;
+        // Set hero stats
+        SetHeroStats(Hero1);
+        SetHeroStats(Hero2);
+        SetHeroStats(Hero3);
+        SetHeroStats(Hero4);
     }
 
-   private void InitializeEnemies()
-{
-    Enemy1 = gameObject.AddComponent<Stats>();
-    Enemy2 = gameObject.AddComponent<Stats>();
-    Enemy3 = gameObject.AddComponent<Stats>();
-    Enemy4 = gameObject.AddComponent<Stats>();
-
-    Stats[] enemies = { Enemy1, Enemy2, Enemy3, Enemy4 };
-
-    for (int i = 0; i < enemies.Length; i++)
+    private void SetHeroStats(Stats hero)
     {
-        GenerateRandomEnemy();
+        hero.MaxHP = 500;
+        hero.CurrentHP = 500;
+        hero.MaxMana = 100;
+        hero.CurrentMana = 100;
+        hero.Type = Stats.FireType;
+    }
 
-        if (randomEnemy == null)  // If randomEnemy is null, skip or set default values
+    private void LoadEnemiesFromJson()
+    {
+
+        
+        // Load JSON data from Resources folder
+        TextAsset jsonTextAsset = Resources.Load<TextAsset>("Enemies");
+        if (jsonTextAsset == null)
         {
-            Debug.LogError("Random enemy is null!");
-            enemies[i].MaxHP = 100; // Default values to prevent null reference
-            enemies[i].CurrentHP = 100;
-            enemies[i].Type = "Default";
-            continue;
+            Debug.LogError("Failed to load JSON file.");
+            return;
         }
 
-        enemies[i].MaxHP = randomEnemy.Health;
-        enemies[i].CurrentHP = randomEnemy.Health;
-        enemies[i].Type = randomEnemy.Element;
+        // Deserialize JSON data into JsonData object
+        EnemyList data = JsonUtility.FromJson<EnemyList>(jsonTextAsset.text);
+        enemiesList = data.Enemies;
+       
+
+        if (enemiesList == null || enemiesList.Count == 0)
+        {
+            Debug.LogError("No enemies found in the JSON data.");
+        }
     }
-}
+
+    private void InitializeEnemies()
+    {
+        // Generate random enemies from the loaded list
+        Enemy1 = CreateRandomEnemy();
+        Enemy2 = CreateRandomEnemy();
+        Enemy3 = CreateRandomEnemy();
+        Enemy4 = CreateRandomEnemy();
+    }
+
+    private Stats CreateRandomEnemy()
+    {
+        // Create a new GameObject for the enemy
+        GameObject enemyObject = new GameObject("Enemy");
+        
+        // Add the Stats component to the new GameObject
+        Stats enemyStats = enemyObject.AddComponent<Stats>();
+
+        if (enemiesList.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, enemiesList.Count);
+            Enemy randomEnemy = enemiesList[randomIndex];
+
+            // Set stats based on the selected enemy from JSON
+            enemyStats.Type = randomEnemy.Element;
+            enemyStats.MaxHP = randomEnemy.Health;
+            enemyStats.CurrentHP = randomEnemy.Health;
+            enemyStats.Damage = randomEnemy.Damage;
+        }
+        else
+        {
+            Debug.LogError("Enemy list is empty!");
+        }
+
+        return enemyStats;
+    }
 
 
     private void InitializeSliders()
@@ -141,8 +168,11 @@ public class SetStats : MonoBehaviour
         HPH4.maxValue = returnMaxHeroHP(4);
         HPH4.value = returnCurrentHeroHP(4);
 
-        HPE1.maxValue = returnMaxEnemyHP(1);
-        HPE1.value = returnCurrentEnemyHP(1);
+        // HPE1.maxValue = returnMaxEnemyHP(1);
+        // HPE1.value = returnCurrentEnemyHP(1);
+
+        HPE1.maxValue = 500;
+        HPE1.value = 500;
 
         HPE2.maxValue = returnMaxEnemyHP(2);
         HPE2.value = returnCurrentEnemyHP(2);
@@ -154,30 +184,8 @@ public class SetStats : MonoBehaviour
         HPE4.value = returnCurrentEnemyHP(4);
     }
 
-    private void GenerateRandomEnemy()
-    {
-        // Load JSON data from Resources folder
-        TextAsset jsonTextAsset = Resources.Load<TextAsset>("Enemies");
-        if (jsonTextAsset == null)
-        {
-            Debug.LogError("Failed to load JSON file.");
-            return;
-        }
+    
 
-        // Deserialize JSON data into JsonData object
-        JsonData data = JsonUtility.FromJson<JsonData>(jsonTextAsset.text);
-
-        // Check if there are enemies in the data
-        if (data.Enemies == null || data.Enemies.Count == 0)
-        {
-            Debug.LogError("No enemies found in the JSON data.");
-            return;
-        }
-
-        // Randomly pick one enemy from the array using Unity's Random class
-        int randomIndex = UnityEngine.Random.Range(0, data.Enemies.Count);
-        randomEnemy = data.Enemies[randomIndex];
-    }
 
     public int returnMaxHeroHP(int index)
     {
@@ -251,25 +259,6 @@ public class SetStats : MonoBehaviour
     }
 
 
-    public void InitializeScreen()
-    {
-        Hero1.CurrentHP = 500;
-        Hero1.CurrentMana = 100;
-
-        Hero2.CurrentHP = 500;
-        Hero2.CurrentMana = 100;
-
-        Hero3.CurrentHP = 500;
-        Hero3.CurrentMana = 100;
-
-        Hero4.CurrentHP = 500;
-        Hero4.CurrentMana = 100;
-
-        Enemy1.CurrentHP = 500;
-        Enemy2.CurrentHP = 500;
-        Enemy3.CurrentHP = 500;
-        Enemy4.CurrentHP = 500;
-    }
 
     public void UpdateStats()
     {
@@ -398,6 +387,10 @@ public class SetStats : MonoBehaviour
                 Enemy4.CurrentHP -= damage;
                 UpdateStats();
                 break;
+        }
+
+        if(CheckIfEnemyDead(target)){
+            sc.EnemiesDefeated += 1;
         }
     }
 

@@ -6,14 +6,17 @@ using TMPro;
 public class Results : MonoBehaviour
 {
 
-    // public TextMeshProUGUI MoneyText;
+    public TextMeshProUGUI CompletionText;
+    public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI Dialouge;
 
     private Score sc;
+    private LevelSystem ls;
 
     void Awake()
     {
         sc = GetComponent<Score>();
+        ls = GetComponent<LevelSystem>();
     }
 
     // Start is called before the first frame update
@@ -21,10 +24,12 @@ public class Results : MonoBehaviour
     {
 
         //Adds the money you earned into permanent storage as well as Dislay it on screen
-        // MoneyText.text = "Money:        " + CalculateMoney();
+        CompletionText.text = "Level " + ls.getCurrentLevel() + " Completed";
+        MoneyText.text = "Money:        " + CalculateMoney();
         Dialouge.text = "Good Job";
 
-        //sc.UpdateUserStats();
+        sc.UpdateCurrentScore();
+        ls.AddLevel();
         sc.Money += CalculateMoney();
 
 

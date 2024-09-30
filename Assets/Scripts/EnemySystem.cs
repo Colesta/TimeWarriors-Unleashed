@@ -46,7 +46,7 @@ public class EnemySystem : MonoBehaviour
             int damage = GenerateRandomEnemyAttack();
 
             // Attack a randomly selected target by a random amount of damage every 3 seconds
-            yield return new WaitForSeconds(3); 
+            yield return new WaitForSeconds(1); 
             ss.DamageHero(target, damage);
 
             // Check if all enemies are dead
@@ -55,17 +55,18 @@ public class EnemySystem : MonoBehaviour
                 // Deactivate the battle screen, update score, and show result/win screen
                 BattleScreen.SetActive(false);
 
-                sc.EnemiesDefeated += 4;
+               
+                ResultScreen.SetActive(true);
 
-                if (s.CurrentLevel == 2) 
-                {
-                    WinScreen.SetActive(true);
-                    s.CurrentLevel = 1;
-                }
-                else
-                {
-                    ResultScreen.SetActive(true);
-                }
+                // if (s.CurrentLevel == 2) 
+                // {
+                //     WinScreen.SetActive(true);
+                //     s.CurrentLevel = 1;
+                // }
+                // else
+                // {
+                //     ResultScreen.SetActive(true);
+                // }
             }
 
             // Check if all heroes are dead

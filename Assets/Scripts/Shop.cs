@@ -31,9 +31,7 @@ public class Shop : MonoBehaviour
     void Start()
     {
         // Initializes screen to show the next level you will fight, and takes Variables from permanent storage that relate to the current user and also puts that on screen to be used
-        s.CurrentLevel += 1;
-        NextLevel.text = "Level " + s.CurrentLevel;
-
+       
         HPriceText.text = PriceHealth + "";
         MPriceText.text = PriceMana + "";
 

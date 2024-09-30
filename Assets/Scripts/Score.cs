@@ -93,7 +93,7 @@ public class Score : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             userArray = JsonUtility.FromJson<UserDataArray>(json);
-            Login lo = new Login();
+            
            
             string username = UserSession.CurrentUser;
             if (string.IsNullOrEmpty(username))
