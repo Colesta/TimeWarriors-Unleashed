@@ -98,6 +98,8 @@ public class HeroManager : MonoBehaviour
         for (int i = 1; i <= 4; i++)
         {
             ss.DamageEnemy(i, totalDamage); // Make sure totalDamage is an int
+           
+            
         }
     }
     else
@@ -105,24 +107,25 @@ public class HeroManager : MonoBehaviour
         // Get selected target from dropdown
         int target = dh.SelectedTarget();
         ss.DamageEnemy(target, totalDamage); // Make sure totalDamage is an int
+        
     }
 
    // Update stats and change enemy appearance if dead
-ss.UpdateStats();
-ChangeEnemyOnDeath();
+    ss.UpdateStats();
+    ChangeEnemyOnDeath();
 
 // End turn
-NextPlayersTurn(); // Move to the next player's turn
+    NextPlayersTurn(); // Move to the next player's turn
 
 // Check if the next players are dead and skip them if necessary
 if (ss.CheckIfHeroDead(CurrentPlayer))
-{
+    {
     yield break; // If the current player is dead, stop execution
-}
+    }
 
 // Check the next players
 if (ss.CheckIfHeroDead(CurrentPlayer + 1))
-{
+    {
     NextPlayersTurn();
     if (ss.CheckIfHeroDead(CurrentPlayer + 2))
     {
@@ -132,7 +135,7 @@ if (ss.CheckIfHeroDead(CurrentPlayer + 1))
             NextPlayersTurn();
         }
     }
-}
+    }
 
    
 }

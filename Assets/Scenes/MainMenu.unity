@@ -4088,6 +4088,18 @@ MonoBehaviour:
           m_StringArgument: Overworld
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3674110520487773735}
+        m_TargetAssemblyTypeName: GameTimer, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1291309189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5782,6 +5794,74 @@ PrefabInstance:
       objectReference: {fileID: 1638235469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecef777f637bda3408644ff99267f5c6, type: 3}
+--- !u!1001 &3674110520487773734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1019.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 697.97174
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2695645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679425450372955560, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_Name
+      value: GameTimer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+--- !u!114 &3674110520487773735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 145487110463256980, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+  m_PrefabInstance: {fileID: 3674110520487773734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca920cd84bb7234ab64af390fced0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4699590419871898819
 PrefabInstance:
   m_ObjectHideFlags: 0

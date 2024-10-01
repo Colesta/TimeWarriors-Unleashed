@@ -12,11 +12,7 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TextMeshProUGUI typeText;
 
     public GameObject Mana;
-
     public GameObject visibleObject;
-    public GameObject triggerObject;
-
-    public Color fillColor;
 
     public GameObject Hero1;
     public GameObject Hero2;
@@ -27,12 +23,10 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject Enemy3;
     public GameObject Enemy4;
     
-    private Stats s;
     private SetStats ss;
 
     void Awake()
     {
-        s = GetComponent<Stats>();
         ss = FindObjectOfType<SetStats>(); // Find the SetStats manager
 
         if (ss == null)
@@ -51,17 +45,20 @@ public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         visibleObject.SetActive(true);
 
+        // Ensure to get the correct trigger object (the collider)
+        GameObject triggerObject = eventData.pointerEnter;
+
+        if (triggerObject == null)
+        {
+            Debug.LogError("No trigger object detected!");
+            return;
+        }
+
         // Null checks for all heroes/enemies
         if (Hero1 == null || Hero2 == null || Hero3 == null || Hero4 == null ||
             Enemy1 == null || Enemy2 == null || Enemy3 == null || Enemy4 == null)
         {
             Debug.LogError("One or more hero/enemy GameObjects are not assigned!");
-            return;
-        }
-
-        if (triggerObject == null)
-        {
-            Debug.LogError("triggerObject is not assigned!");
             return;
         }
 

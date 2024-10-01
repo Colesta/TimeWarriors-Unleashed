@@ -327,6 +327,26 @@ public class SetStats : MonoBehaviour
         return null;
     }
 
+    public int getEnemyDamage(int enemy) {
+    switch (enemy)
+    {
+        case 1:
+            return Enemy1.Damage;
+        case 2:
+            return Enemy2.Damage;
+        case 3:
+            return Enemy3.Damage;
+        case 4:
+            return Enemy4.Damage;    
+        default:
+            Debug.LogError("Invalid enemy index: " + enemy);
+            return 0; // Return a default value, or you could throw an exception
+    }
+}
+
+
+
+
     public void DamageHero(int target, int damage)
     {
         switch (target)

@@ -58,15 +58,7 @@ public class EnemySystem : MonoBehaviour
                
                 ResultScreen.SetActive(true);
 
-                // if (s.CurrentLevel == 2) 
-                // {
-                //     WinScreen.SetActive(true);
-                //     s.CurrentLevel = 1;
-                // }
-                // else
-                // {
-                //     ResultScreen.SetActive(true);
-                // }
+               
             }
 
             // Check if all heroes are dead
@@ -89,7 +81,7 @@ public class EnemySystem : MonoBehaviour
     // Randomly generate how much damage will be done
     public int GenerateRandomEnemyAttack()
     {
-        int[] possibleDamageValues = { 25, 30, 45, 70 };
+        int[] possibleDamageValues = { ss.getEnemyDamage(1), ss.getEnemyDamage(2), ss.getEnemyDamage(3), ss.getEnemyDamage(4)};
         int randomIndex = UnityEngine.Random.Range(0, possibleDamageValues.Length);
         return possibleDamageValues[randomIndex];
     }
