@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class SetStats : MonoBehaviour
     void Awake()
     {
         sc = GetComponent<Score>();
+        
     }
 
     private Stats Hero1;
@@ -57,14 +59,12 @@ public class SetStats : MonoBehaviour
         InitializeHeroes();
         LoadEnemiesFromJson();
         InitializeEnemies();
+        Debug.Log("Started");
         InitializeSliders();
-
-        
     }
 
     void Update(){
         UpdateStats();
-
     }
 
     private void InitializeHeroes()
@@ -92,8 +92,7 @@ public class SetStats : MonoBehaviour
 
     private void LoadEnemiesFromJson()
     {
-
-        
+        Debug.Log("Loading enemies from JSON."); // Debug log added
         // Load JSON data from Resources folder
         TextAsset jsonTextAsset = Resources.Load<TextAsset>("Enemies");
         if (jsonTextAsset == null)
@@ -105,7 +104,6 @@ public class SetStats : MonoBehaviour
         // Deserialize JSON data into JsonData object
         EnemyList data = JsonUtility.FromJson<EnemyList>(jsonTextAsset.text);
         enemiesList = data.Enemies;
-       
 
         if (enemiesList == null || enemiesList.Count == 0)
         {
@@ -115,11 +113,18 @@ public class SetStats : MonoBehaviour
 
     private void InitializeEnemies()
     {
-        // Generate random enemies from the loaded list
-        Enemy1 = CreateRandomEnemy();
-        Enemy2 = CreateRandomEnemy();
-        Enemy3 = CreateRandomEnemy();
-        Enemy4 = CreateRandomEnemy();
+        int enemyCount = 0; // Counter to track enemy creation
+        for (int i = 0; i < 4; i++)
+        {
+            // Create enemy and increment count
+            if (i == 0) Enemy1 = CreateRandomEnemy();
+            else if (i == 1) Enemy2 = CreateRandomEnemy();
+            else if (i == 2) Enemy3 = CreateRandomEnemy();
+            else if (i == 3) Enemy4 = CreateRandomEnemy();
+
+            enemyCount++;
+        }
+        Debug.Log("Total enemies created: " + enemyCount); // Log the total number of enemies created
     }
 
     private Stats CreateRandomEnemy()
@@ -168,11 +173,8 @@ public class SetStats : MonoBehaviour
         HPH4.maxValue = returnMaxHeroHP(4);
         HPH4.value = returnCurrentHeroHP(4);
 
-        // HPE1.maxValue = returnMaxEnemyHP(1);
-        // HPE1.value = returnCurrentEnemyHP(1);
-
-        HPE1.maxValue = 500;
-        HPE1.value = 500;
+        HPE1.maxValue = returnMaxEnemyHP(1);
+        HPE1.value = returnCurrentEnemyHP(1);
 
         HPE2.maxValue = returnMaxEnemyHP(2);
         HPE2.value = returnCurrentEnemyHP(2);
@@ -426,6 +428,45 @@ public class SetStats : MonoBehaviour
             Debug.LogError("Invalid enemy number: " + num);
             return false;
     }
+}
+
+public void RestoreHealth(int heroIndex, int amount)
+{
+    switch (heroIndex)
+        {
+            case 1:
+                Hero1.CurrentHP += amount;
+                break;
+            case 2:
+                Hero2.CurrentHP += amount;
+                break;
+            case 3:
+                Hero3.CurrentHP += amount;
+                break;
+            case 4:
+                Hero4.CurrentHP += amount;
+                break;
+        }
+    
+}
+
+public void RestoreMana(int heroIndex, int amount)
+{
+     switch (heroIndex)
+        {
+            case 1:
+                Hero1.CurrentMana += amount;
+                break;
+            case 2:
+                Hero2.CurrentMana += amount;
+                break;
+            case 3:
+                Hero3.CurrentMana += amount;
+                break;
+            case 4:
+                Hero4.CurrentMana += amount;
+                break;
+        }
 }
 
 

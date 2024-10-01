@@ -69,7 +69,13 @@
             "enemiesDefeated": 16,
             "totalTime": 40,
             "distanceRan": 2000
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0
         }
-
     ]
 }
