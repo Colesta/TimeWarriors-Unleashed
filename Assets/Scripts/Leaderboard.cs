@@ -123,20 +123,24 @@ public class Leaderboard : MonoBehaviour
         }
     }
 
-    private int GetScoreValue(UserScore userScore, string criteria)
+    private string GetScoreValue(UserScore userScore, string criteria)
     {
         switch (criteria.ToLower())
         {
             case "most gold":
-                return userScore.money;
+                return userScore.money.ToString();
             case "most enemies defeated":
-                return userScore.enemiesDefeated;
+                return userScore.enemiesDefeated.ToString();
             case "longest time played":
-                return userScore.totalTime;
+                // Convert total time from seconds to minutes
+                float minutesPlayed = userScore.totalTime / 60f;
+                return $"{minutesPlayed:F2} min"; // Format to 2 decimal places
             case "furthest distance travelled":
-                return userScore.distanceRan;
+                // Convert distanceRan to meters and format
+                float distanceInMeters = userScore.distanceRan / 1000f;
+                return $"{distanceInMeters:F2} m"; // Format to 2 decimal places
             default:
-                return 0;
+                return "0"; // Default case
         }
     }
 }

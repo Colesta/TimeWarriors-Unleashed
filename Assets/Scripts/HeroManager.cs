@@ -31,19 +31,18 @@ public class HeroManager : MonoBehaviour
     public TextMeshProUGUI NumManaP;
 
     private SetStats ss;
-    private Score sc; 
+ 
     private AttackBarController ab;
 
     void Awake()
     {
         ss = GetComponent<SetStats>();
-        sc = GetComponent<Score>();
         ab = GetComponent<AttackBarController>();
     }
 
     void Start()
     {
-        sc.UpdateCurrentScore();
+        
         currentHeroText.text = "Current Hero: " + CurrentPlayer;
         Debug.Log(returnCurrentPlayer() + "");
     }
@@ -274,7 +273,7 @@ public void Ultimate(){
     {
         int health = 50;
         ss.RestoreHealth(CurrentPlayer, health); // Restore health using SetStats
-        sc.UpdateCurrentScore();
+        
         Items.SetActive(false);
         Buttons.SetActive(true);
         NextPlayersTurn();
@@ -284,7 +283,7 @@ public void Ultimate(){
     {
         int mana = 50;
         ss.RestoreMana(CurrentPlayer, mana); // Restore mana using SetStats
-        sc.UpdateCurrentScore();
+        
         Items.SetActive(false);
         Buttons.SetActive(true);
         NextPlayersTurn();

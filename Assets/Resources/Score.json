@@ -97,6 +97,132 @@
             "enemiesDefeated": 0,
             "totalTime": 0,
             "distanceRan": 0.0
+        },
+        {
+            "username": "Akira",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Ryuiji",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "LadyAnn",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Yusuke",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Kasumi",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Aketchi57",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 5,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Haru7",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "YuPersona",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 5,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Sataneal",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 8,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Myriad",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 4,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "ArseneLupin",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 5,
+            "distanceRan": 6873.818359375
+        },
+        {
+            "username": "Sathisha",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 3,
+            "distanceRan": 7863.369140625
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 5,
+            "distanceRan": 33.47999954223633
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 7,
+            "distanceRan": 78.91000366210938
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 5,
+            "distanceRan": 8.311833381652832
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 0.0
+        },
+        {
+            "username": "Sataneal",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 74,
+            "distanceRan": 103832.640625
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 95,
+            "distanceRan": 123700.5625
         }
     ]
 }

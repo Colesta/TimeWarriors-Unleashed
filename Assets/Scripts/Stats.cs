@@ -31,7 +31,7 @@ public class Stats : MonoBehaviour
     public static string EclipseType = "Eclipse";
     public static string SolarType = "Solar";
 
-    public int CurrentLevel = 1;
+    
 
    
 

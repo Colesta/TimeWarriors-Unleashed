@@ -6,6 +6,8 @@ public class LevelSystem : MonoBehaviour
     private Stats s;
     private Score sc;
 
+    private int CurrentLevel = 1;
+
     void Awake()
     {
         s = GetComponent<Stats>();
@@ -13,12 +15,12 @@ public class LevelSystem : MonoBehaviour
     }
 
     // Reference to the UI Image component for the background
-    public Image Background;
+    //public Image Background;
 
     // Sprites for different level backgrounds
-    public Sprite Level1Background;
-    public Sprite Level2Background;
-    public Sprite Level3Background;
+    // public Sprite Level1Background;
+    // public Sprite Level2Background;
+    // public Sprite Level3Background;
 
     void Start()
     {
@@ -29,42 +31,42 @@ public class LevelSystem : MonoBehaviour
     // Updates the background sprite based on the current level
     void UpdateBackground()
     {
-        if (s.CurrentLevel == 1)
-        {
-            Background.sprite = Level1Background;
-        }
-        else if (s.CurrentLevel == 2)
-        {
-            Background.sprite = Level2Background;
-        }
-        else if (s.CurrentLevel == 3)
-        {
-            Background.sprite = Level3Background;
-        }
+        // if (CurrentLevel == 1)
+        // {
+        //     Background.sprite = Level1Background;
+        // }
+        // else if (CurrentLevel == 2)
+        // {
+        //     Background.sprite = Level2Background;
+        // }
+        // else if (CurrentLevel == 3)
+        // {
+        //     Background.sprite = Level3Background;
+        // }
     }
 
     // Increase level count by one
     public void AddLevel()
     {
-        s.CurrentLevel += 1;
+        CurrentLevel += 1;
         UpdateBackground(); // Update background when level changes
     }
 
-    public string getCurrentLevel(){
-        return s.CurrentLevel + "";
+    public int getCurrentLevel(){
+        return CurrentLevel;
     }
 
     // When the button is pressed on lose screen, update your scores
     public void LoseScreen()
     {
-        sc.UpdateCurrentScore();
+        Score.Instance.UpdateCurrentScore();
     }
 
     // When the button is pressed on win screen, update your scores and reset level
     public void WinScreen()
     {
-        sc.UpdateCurrentScore();
-        s.CurrentLevel = 1; // Reset level to 1
+        Score.Instance.UpdateCurrentScore();
+        CurrentLevel = 1; // Reset level to 1
         UpdateBackground();  // Reset background as well
     }
 }

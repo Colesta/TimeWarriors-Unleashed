@@ -1,10 +1,6 @@
 {
     "users": [
         {
-            "username": "Carlos",
-            "password": "Second22"
-        },
-        {
             "username": "Test1",
             "password": "Testing1"
         },
@@ -25,12 +21,68 @@
             "password": "Password45"
         },
         {
-            "username": "Hellothere",
-            "password": "Password1234"
-        },
-        {
             "username": "Test6",
             "password": "Testing6"
+        },
+        {
+            "username": "Akira",
+            "password": "Kurusu55"
+        },
+        {
+            "username": "Ryuiji",
+            "password": "Sakamoto5"
+        },
+        {
+            "username": "LadyAnn",
+            "password": "Carmine5"
+        },
+        {
+            "username": "Yusuke",
+            "password": "IceMoves5"
+        },
+        {
+            "username": "Kasumi",
+            "password": "Yoshizawa5"
+        },
+        {
+            "username": "Aketchi57",
+            "password": "CursedCrow5"
+        },
+        {
+            "username": "Haru7",
+            "password": "Okumura5"
+        },
+        {
+            "username": "YuPersona",
+            "password": "Narakami4"
+        },
+        {
+            "username": "Arsene",
+            "password": "Persona5"
+        },
+        {
+            "username": "Denji",
+            "password": "Chainsawman5"
+        },
+        {
+            "username": "Adachi",
+            "password": "Murderer21"
+        },
+        {
+            "username": "Sataneal",
+            "password": "SinfulShell5"
+        },
+        {
+            "username": "Myriad",
+            "password": "Truth55555"
+        },
+        {
+            "username": "ArseneLupin",
+            "password": "Maiegon7"
+        },
+        {
+            "username": "Sathisha",
+            "password": "Govender65"
         }
     ]
 }

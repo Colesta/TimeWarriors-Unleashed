@@ -412,7 +412,7 @@ public class SetStats : MonoBehaviour
         }
 
         if(CheckIfEnemyDead(target)){
-            sc.EnemiesDefeated += 1;
+            Score.Instance.EnemiesDefeated += 1;
         }
     }
 

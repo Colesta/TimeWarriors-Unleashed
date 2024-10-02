@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public TextMeshProUGUI DialougeText;
     public GameObject trigOne;
     public GameObject portalOne;
 
@@ -27,8 +29,16 @@ public class PlayerCollision : MonoBehaviour
     // Store the last portal that caused the collision
     private GameObject lastPortal;
 
+    private LevelSystem ls;
+
+    void Awake()
+    {
+        ls = GetComponent<LevelSystem>();
+    }
+
     void Start()
     {
+        
         // Initialize the dictionary
         triggerPortalMap = new Dictionary<GameObject, GameObject>
         {
@@ -36,7 +46,6 @@ public class PlayerCollision : MonoBehaviour
             { trigTwo, portalTwo },
             { trigThree, portalThree },
             { shopTrig, ShopKeeper },
-            // Add more portals if necessary
         };
     }
 
@@ -44,17 +53,23 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collisionOccurred && Input.GetKeyDown(KeyCode.E))
         {
-            // Log the name of the portal being interacted with
             if (lastPortal != null)
             {
                 Debug.Log("Interacting with portal: " + lastPortal.name);
-                sc.gotoBattle();
+                
+                if (canAccessLevel(lastPortal.name))
+                {
+                    sc.gotoBattle();
+                }
+                else
+                {
+                    DialougeText.text = "I'm not strong enough to fight here yet.";
+                }
             }
 
-            // Example: Transition to another scene (battle/shop)
             if (lastPortal == ShopKeeper)
             {
-                sc.gotoShop(); // Or gotoShop(), depending on your logic
+                sc.gotoShop(); // Transition to the shop
             }
         }
     }
@@ -67,11 +82,27 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collision.gameObject == kvp.Value)
             {
-                kvp.Key.SetActive(true); // Activate the corresponding trigger
+                // First check if the collision occurred
                 collisionOccurred = true;
                 lastPortal = kvp.Value;  // Store the last portal that caused the collision
+                
                 Debug.Log("Collided with: " + kvp.Value.name);
-                return;
+                Debug.Log("collisionOccurred set to: " + collisionOccurred);
+
+                // Activate the corresponding trigger after setting the flag
+                kvp.Key.SetActive(true);
+
+                // Update the dialogue text immediately upon collision
+                if (lastPortal == ShopKeeper)
+                {
+                    DialougeText.text = "It's the Shopkeeper, I should visit sometime between battles.";
+                }
+                else
+                {
+                    DialougeText.text = "You've reached " + lastPortal.name;
+                }
+
+                return; // Exit after processing the first match
             }
         }
     }
@@ -87,8 +118,27 @@ public class PlayerCollision : MonoBehaviour
                 kvp.Key.SetActive(false);  // Deactivate the trigger
                 collisionOccurred = false;
                 lastPortal = null;  // Clear the last portal reference
+                DialougeText.text = ""; 
                 Debug.Log("Exited collision with: " + kvp.Value.name);
+                Debug.Log("collisionOccurred set to: " + collisionOccurred);
             }
+        }
+    }
+
+    // Method to check if the player can access a level
+    private bool canAccessLevel(string level)
+    {
+        switch (lastPortal.name)
+        {
+            case "Level 1":
+                return ls.getCurrentLevel() >= 1; // Return true if level access is allowed
+            case "Level 2":
+                return ls.getCurrentLevel() >= 2;
+            case "Level 3":
+                return ls.getCurrentLevel() >= 3;
+            default:
+                Debug.LogWarning("Unknown level: " + level); // Log if level doesn't match
+                return false; // Return false for unrecognized levels
         }
     }
 }

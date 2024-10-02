@@ -28,9 +28,9 @@ public class Results : MonoBehaviour
         MoneyText.text = "Money:        " + CalculateMoney();
         Dialouge.text = "Good Job";
 
-        sc.UpdateCurrentScore();
+        Score.Instance.UpdateCurrentScore();
         ls.AddLevel();
-        sc.Money += CalculateMoney();
+        Score.Instance.Money += CalculateMoney();
 
 
 

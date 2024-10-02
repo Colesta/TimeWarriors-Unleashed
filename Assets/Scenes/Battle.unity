@@ -736,22 +736,6 @@ MonoBehaviour:
   battleOptionMenu: {fileID: 3413584767689307895}
   battleMenu: {fileID: 3413584767334873203}
   moveSpeed: 2
---- !u!114 &891398994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413584767731309335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f19dc3f0b335e4e9a311e9ff12c9f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Money: 0
-  EnemiesDefeated: 0
-  totalTime: 0
-  distanceRan: 0
 --- !u!1 &897539768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,6 +4348,12 @@ MonoBehaviour:
   CurrentMana: 0
   Type: 
   Damage: 0
+  Ultimate1: 0
+  Ultimate2: 0
+  Ultimate3: 0
+  Ultimate4: 0
+  HealthPotions: 0
+  ManaPotions: 0
   CurrentLevel: 1
 --- !u!224 &3413584767731309332
 RectTransform:
@@ -4421,7 +4411,6 @@ GameObject:
   - component: {fileID: 3413584767731309321}
   - component: {fileID: 3413584767731309326}
   - component: {fileID: 891398987}
-  - component: {fileID: 891398994}
   - component: {fileID: 3413584767731309336}
   m_Layer: 5
   m_Name: BattleSystem

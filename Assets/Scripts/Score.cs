@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public static Score Instance { get; private set; } // Singleton instance
+
     public int Money = 0;
     public int EnemiesDefeated = 0;
-    public int totalTime = 0;
-    public float distanceRan = 0F; // Ensure this is a float
+    public int CurrentTime = 0; // Corrected variable name
+    public float CurrentDistance = 0F; // Corrected variable name
 
-    private string usersDataPath = "/Resources/Score.json";
+    private string usersDataPath = "/Resources/Score.json"; // Updated path
 
     [Serializable]
     public class UserData
     {
-        public string username;
-        public int money;
-        public int enemiesDefeated;
-        public int totalTime;
-        public float distanceRan; // Change to float
+        public string username; // Changed to public
+        public int money; // Changed to public
+        public int enemiesDefeated; // Changed to public
+        public int totalTime; // Changed to public
+        public float distanceRan; // Changed to public
     }
 
     [Serializable]
@@ -29,6 +31,21 @@ public class Score : MonoBehaviour
     }
 
     private UserDataArray userArray = new UserDataArray();
+
+    private void Awake()
+    {
+        // Check if instance already exists
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("Destroying duplicate Score instance.");
+            Destroy(gameObject); // Destroy duplicate instance
+            return;
+        }
+
+        Instance = this; // Assign the singleton instance
+        DontDestroyOnLoad(gameObject); // Preserve this GameObject across scenes
+        Debug.Log("Score instance created and set to persist.");
+    }
 
     public void NewRun()
     {
@@ -41,30 +58,35 @@ public class Score : MonoBehaviour
                 return;
             }
 
-            Debug.Log($"Current user: {username}");
-            Debug.Log($"Money: {Money}, EnemiesDefeated: {EnemiesDefeated}, TotalTime: {totalTime}, DistanceRan: {distanceRan}");
+            Debug.Log($"Current user: {username} - Starting a new run.");
 
             UserData newUserData = new UserData
             {
                 username = username,
                 money = Money,
                 enemiesDefeated = EnemiesDefeated,
-                totalTime = totalTime,
-                distanceRan = distanceRan // Use float
+                totalTime = CurrentTime,
+                distanceRan = CurrentDistance
             };
 
             string path = Application.dataPath + usersDataPath;
+            Debug.Log($"Path for Score.json: {path}");
+
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
                 userArray = JsonUtility.FromJson<UserDataArray>(json) ?? new UserDataArray();
+                Debug.Log($"Loaded existing data: {json}");
             }
             else
             {
                 Debug.Log("File not found, creating a new one.");
+                userArray = new UserDataArray();
             }
 
             userArray.score.Add(newUserData);
+            Debug.Log($"New User Data: {JsonUtility.ToJson(newUserData)}"); // Log new user data
+            Debug.Log($"Current User Array Count: {userArray.score.Count}"); // Log count
 
             string newJson = JsonUtility.ToJson(userArray, true);
             File.WriteAllText(path, newJson);
@@ -73,7 +95,6 @@ public class Score : MonoBehaviour
         catch (Exception ex)
         {
             Debug.LogError($"Exception in NewRun(): {ex.Message}");
-            Debug.LogError($"Stack Trace: {ex.StackTrace}");
         }
     }
 
@@ -88,7 +109,7 @@ public class Score : MonoBehaviour
                 string json = File.ReadAllText(path);
                 userArray = JsonUtility.FromJson<UserDataArray>(json);
 
-                string username = UserSession.CurrentUser; // Assuming you have a UserSession class
+                string username = UserSession.CurrentUser;
                 if (string.IsNullOrEmpty(username))
                 {
                     Debug.LogError("Username is null or empty.");
@@ -108,10 +129,21 @@ public class Score : MonoBehaviour
 
                 if (currentUserData != null)
                 {
-                    Money = currentUserData.money;
-                    EnemiesDefeated = currentUserData.enemiesDefeated;
-                    totalTime = currentUserData.totalTime;
-                    distanceRan = currentUserData.distanceRan; // Update distanceRan
+                    // Log current values before saving
+                    Debug.Log($"Before update - Money: {Money}, Enemies Defeated: {EnemiesDefeated}, Total Time: {CurrentTime}, Distance Ran: {CurrentDistance}");
+
+                    // Update currentUserData with the latest session values
+                    currentUserData.money = Money; // Set the latest money
+                    currentUserData.enemiesDefeated = EnemiesDefeated; // Set the latest enemies defeated
+                    currentUserData.totalTime = CurrentTime; // Save the current time as total time
+                    currentUserData.distanceRan = CurrentDistance; // Save the current distance as distance ran
+
+                    // Log updated user data before saving
+                    Debug.Log($"UserData before save - Total Time: {currentUserData.totalTime}, Distance Ran: {currentUserData.distanceRan}");
+
+                    string updatedJson = JsonUtility.ToJson(userArray, true);
+                    File.WriteAllText(path, updatedJson);
+                    Debug.Log("User data updated and saved after score update.");
                 }
                 else
                 {
@@ -130,3 +162,4 @@ public class Score : MonoBehaviour
         }
     }
 }
+

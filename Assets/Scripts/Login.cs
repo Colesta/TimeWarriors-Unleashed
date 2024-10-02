@@ -8,13 +8,9 @@ using TMPro;
 
 public class Login : MonoBehaviour
 {
-    private Score s;
+    
 
-    void Awake()
-    {
-        // Try to find the Score component either in the same GameObject or in the scene
-        s = GetComponent<Score>() ?? FindObjectOfType<Score>();
-    }
+    
 
     public GameObject LoginScreen;
     public GameObject MainMenu;
@@ -66,7 +62,7 @@ public class Login : MonoBehaviour
                 // Set the username globally after successful login
                 UserSession.SetCurrentUser(CurrentUser);
 
-                s.NewRun();  // Assuming 's' is set up
+                Score.Instance.NewRun();  // Assuming 's' is set up
                 DismissLogin();
                 return;
             }
@@ -139,7 +135,7 @@ public class Login : MonoBehaviour
             File.WriteAllText(path, newJson);
             UserSession.SetCurrentUser(CurrentUser);
 
-            s.NewRun();
+            Score.Instance.NewRun();
 
             
 

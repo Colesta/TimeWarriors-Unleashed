@@ -48,7 +48,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         // Initializes screen to show the next level you will fight, and takes Variables from permanent storage that relate to the current user and also puts that on screen to be used
         DialougeText.text = DefaultDialouge;
 
-        sc.UpdateCurrentScore();
+        Score.Instance.UpdateCurrentScore();
         UpdateInventory();
 
         Hero1.onClick.AddListener(() => OnButtonPressed(1));
@@ -104,6 +104,8 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     public void onNoButtonClick()
     {
         DialougeText.text = "Alright then, what else would you like?";
+        BuyChoice.SetActive(false);
+        ReturnButton.gameObject.SetActive(true);
     }
 
     public void onYesButtonClick()
@@ -155,16 +157,16 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     // Add potions to inventory and decrease your total money by cost of item
     public void BuyHealthPotions()
     {
-        sc.Money -= PriceHealth; // Make sure 'Money' is public property in Score
-        sc.UpdateCurrentScore();
+        Score.Instance.Money -= PriceHealth; // Make sure 'Money' is public property in Score
+        Score.Instance.UpdateCurrentScore();
         s.HealthPotions += 1;
         UpdateInventory();
     }
 
     public void BuyManaPotions()
     {
-        sc.Money -= PriceMana; // Make sure 'Money' is public property in Score
-        sc.UpdateCurrentScore();
+        Score.Instance.Money -= PriceMana; // Make sure 'Money' is public property in Score
+        Score.Instance.UpdateCurrentScore();
         s.ManaPotions += 1;
         UpdateInventory();
     }
@@ -198,8 +200,8 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     public void BuyUltimate()
     {
-        sc.Money -= PriceUltimate;
-        sc.UpdateCurrentScore();
+        Score.Instance.Money -= PriceUltimate;
+        Score.Instance.UpdateCurrentScore();
         UpdateInventory();
         DeactivateHeroButtons();
         DialougeText.text = "Thank you for your Purchase!";
@@ -208,7 +210,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     public bool CanAffordItem(int itemPrice)
     {
-        return itemPrice <= sc.Money; // Check if you can afford the item
+        return itemPrice <= Score.Instance.Money; // Check if you can afford the item
     }
 
     public void ActivateHeroButtons()
@@ -224,7 +226,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     public void UpdateInventory()
     {
-        MoneyText.text = "Money: " + sc.Money;
+        MoneyText.text = "Money: " + Score.Instance.Money;
         HealthPotionsText.text = "Health Potions: " + s.HealthPotions;
         ManaPotionsText.text = "Mana Potions: " + s.ManaPotions;
     }

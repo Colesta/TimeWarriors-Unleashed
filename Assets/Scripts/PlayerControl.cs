@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerControl : MonoBehaviour
 
     // Track the starting position
     private Vector2 startPosition;
+    // Last known position
+    private Vector2 lastPosition;
     // Distance traveled
     private float totalDistance;
     // Reference to Score script
@@ -20,8 +23,11 @@ public class PlayerControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position; // Store the starting position
-        sc = FindObjectOfType<Score>(); // Find the Score component in the scene
+        lastPosition = startPosition; // Initialize last position
+        sc = GetComponent<Score>() ?? FindObjectOfType<Score>(); // Find the Score component in the scene
         totalDistance = 0f; // Initialize distance
+
+       
     }
 
     // Update is called once per frame
@@ -32,25 +38,28 @@ public class PlayerControl : MonoBehaviour
         rb.velocity = new Vector2(speedX, speedY);
 
         // Calculate distance traveled
-        float distanceTravelled = Vector2.Distance(startPosition, transform.position);
+        float distanceTravelled = Vector2.Distance(lastPosition, transform.position);
         
-        // Check if distance has changed
-        if (distanceTravelled > totalDistance)
+        // Update score only if there is a distance change
+        if (distanceTravelled > 0)
         {
-            totalDistance = distanceTravelled; // Update total distance
+            totalDistance += distanceTravelled; // Update total distance
             UpdateScore(totalDistance); // Update the score
+             // Clear dialogue text if player moves
+            
         }
+
+        lastPosition = transform.position; // Update last position
     }
 
     // Method to update the score
     private void UpdateScore(float distance)
     {
-        if (sc != null)
-        {
-            sc.distanceRan += distance; // Update the distance in Score script
-            sc.UpdateCurrentScore(); // Call the method to save/update the score
-        }
+      
+            Score.Instance.CurrentDistance += distance; // Update the distance in Score script 
+            Score.Instance.UpdateCurrentScore(); // Call the method to save/update the score
+            
+        
     }
-
-    
 }
+
