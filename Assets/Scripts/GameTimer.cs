@@ -9,12 +9,10 @@ public class GameTimer : MonoBehaviour
     private float totalTime;
     private bool isTiming;
 
-     private Score sc;
-    
+    private Score sc;
 
     private void Awake()
     {
-        sc = GetComponent<Score>();
         // Ensure only one instance of GameTimer exists
         if (Instance == null)
         {
@@ -24,6 +22,14 @@ public class GameTimer : MonoBehaviour
         else
         {
             Destroy(gameObject); // Destroy any additional instances
+            Debug.LogWarning("Another instance of GameTimer was destroyed.");
+        }
+
+        // Attempt to get the Score component
+        sc = GetComponent<Score>();
+        if (sc == null)
+        {
+            Debug.LogError("Score component not found on the GameTimer GameObject!");
         }
     }
 
@@ -35,6 +41,10 @@ public class GameTimer : MonoBehaviour
             startTime = Time.time; // Capture the start time
             isTiming = true;
             Debug.Log("Timer started.");
+        }
+        else
+        {
+            Debug.LogWarning("Timer is already running; cannot start it again.");
         }
     }
 
@@ -48,11 +58,20 @@ public class GameTimer : MonoBehaviour
             Debug.Log($"Timer stopped. Total time played: {totalTime} seconds.");
 
             // Save the total time to Score class
-           
-           
+            if (sc != null) // Check if Score component is available
+            {
                 sc.totalTime += (int)totalTime; // Add to totalTime
                 sc.UpdateCurrentScore(); // Save new data
-            
+                Debug.Log("Total time updated in Score.");
+            }
+            else
+            {
+                Debug.LogError("Cannot update Score because the Score component is null.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("StopTimer called, but timer is not running.");
         }
     }
 

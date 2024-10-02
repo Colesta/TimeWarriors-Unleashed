@@ -51,4 +51,6 @@ public class PlayerControl : MonoBehaviour
             sc.UpdateCurrentScore(); // Call the method to save/update the score
         }
     }
+
+    
 }

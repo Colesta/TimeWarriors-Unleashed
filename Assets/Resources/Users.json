@@ -19,6 +19,18 @@
         {
             "username": "Test4",
             "password": "Testing4"
+        },
+        {
+            "username": "Rodrick47",
+            "password": "Password45"
+        },
+        {
+            "username": "Hellothere",
+            "password": "Password1234"
+        },
+        {
+            "username": "Test6",
+            "password": "Testing6"
         }
     ]
 }

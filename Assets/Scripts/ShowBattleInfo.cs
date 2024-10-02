@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShowInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TextMeshProUGUI HealthText;
     public Slider HPSlider;

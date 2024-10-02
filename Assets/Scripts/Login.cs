@@ -137,15 +137,11 @@ public class Login : MonoBehaviour
 
             string newJson = JsonUtility.ToJson(userArray, true);
             File.WriteAllText(path, newJson);
+            UserSession.SetCurrentUser(CurrentUser);
 
-            if (s != null)
-            {
-                s.NewRun();
-            }
-            else
-            {
-                Debug.LogError("Score component is null.");
-            }
+            s.NewRun();
+
+            
 
             DismissLogin();
         }

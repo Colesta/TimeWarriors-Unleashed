@@ -12,6 +12,15 @@ public class Stats : MonoBehaviour
     public int CurrentMana;
     public string Type;
     public int Damage;
+
+    public bool Ultimate1 = false;
+    public bool Ultimate2 = false;
+    public bool Ultimate3 = false;
+    public bool Ultimate4 = false;
+
+    public int HealthPotions = 0;
+    public int ManaPotions = 0;
+    
     
 
    
