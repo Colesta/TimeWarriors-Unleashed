@@ -128,7 +128,7 @@ public class Leaderboard : MonoBehaviour
         switch (criteria.ToLower())
         {
             case "most gold":
-                return userScore.money.ToString();
+                return userScore.money.ToString() + " Gold";
             case "most enemies defeated":
                 return userScore.enemiesDefeated.ToString();
             case "longest time played":

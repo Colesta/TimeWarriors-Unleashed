@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01555624cf1b15742bf7ce0e5694fa6a
+guid: ef4e7f5d8d7d2464faf7ab14c2cfafa7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,946 +117,946 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_0
+      name: ShopkeeperInteriorSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 5329
-        width: 1007
-        height: 665
+        y: 5328
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 537992f535a4df74fb5d8d635119ed50
-      internalID: 1367222036
+      spriteID: 7ae662f40ad520241985948f8cdd0913
+      internalID: 1643046910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_1
+      name: ShopkeeperInteriorSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 5329
-        width: 1007
-        height: 665
+        x: 1008
+        y: 5328
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50aa07a2fd9aa7b4a854a1b594f6800d
-      internalID: -998936875
+      spriteID: 599230ec43a6af9458f1b626628216b3
+      internalID: -1488969294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_2
+      name: ShopkeeperInteriorSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 5329
-        width: 1007
-        height: 665
+        x: 2016
+        y: 5328
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f9cf2baa70804c4dbb716200d57e4aa
-      internalID: 2115876517
+      spriteID: 1509e67b62cbb72449c6ca2f434b2ac5
+      internalID: -1120756773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_3
+      name: ShopkeeperInteriorSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 3021
-        y: 5329
-        width: 1007
-        height: 665
+        x: 3024
+        y: 5328
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a4541f5634967747b8d28bda270e3e0
-      internalID: 290538476
+      spriteID: af6dcf562d0266a47a4faad7e9b3d19e
+      internalID: -1674820475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_4
+      name: ShopkeeperInteriorSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 5329
-        width: 1007
-        height: 665
+        x: 4032
+        y: 5328
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa493c5d08582443a60003f80321918
-      internalID: 606442175
+      spriteID: 05dbbb39fd72a2e4488250992fa04ade
+      internalID: 1253331625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4664
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a544d249c414a654c946f46be68dda66
-      internalID: -1825702788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_6
-      rect:
-        serializedVersion: 2
-        x: 1007
-        y: 4664
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4797682265b16045bdb187d65aecef6
-      internalID: -1370976466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_7
-      rect:
-        serializedVersion: 2
-        x: 2014
-        y: 4664
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3acc44d72f90c06478ed82b6914dd321
-      internalID: -573652185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_8
-      rect:
-        serializedVersion: 2
-        x: 3021
-        y: 4664
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce410a5640a9b3f44bd248c146bda91c
-      internalID: 1580189016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_9
-      rect:
-        serializedVersion: 2
-        x: 4028
-        y: 4664
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20e784506629ee2498cad18cfb746713
-      internalID: 1532407614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_10
+      name: ShopkeeperInteriorSpriteSheet_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 3999
-        width: 1007
-        height: 665
+        y: 4662
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266c928bbb7bd8d4ca24850ecea1403b
-      internalID: -1542444927
+      spriteID: a2a9912d452d4df4da3049c1a28ccd99
+      internalID: -228308835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_11
+      name: ShopkeeperInteriorSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 3999
-        width: 1007
-        height: 665
+        x: 1008
+        y: 4662
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aceac3ebaed78d74c8c4d60e83b94c16
-      internalID: 1442724620
+      spriteID: bbaf75b0a8fac404da5e54b2b6bfac69
+      internalID: 2063667783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_12
+      name: ShopkeeperInteriorSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 3999
-        width: 1007
-        height: 665
+        x: 2016
+        y: 4662
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d18876ef5d0e01e40b6c7e09a44efbf4
-      internalID: -1713796266
+      spriteID: 87e6e4ada031ed74b97c0e6ffa046e3f
+      internalID: 2111271058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_13
+      name: ShopkeeperInteriorSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 3021
-        y: 3999
-        width: 1007
-        height: 665
+        x: 3024
+        y: 4662
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09ab057fed3bd494f8d892d60bf10d23
-      internalID: 1665049173
+      spriteID: b2714fbd2f2cb0c4598b9ebe7d12abb3
+      internalID: -1662125973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_14
+      name: ShopkeeperInteriorSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 3999
-        width: 1007
-        height: 665
+        x: 4032
+        y: 4662
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33983ffd6e105b8439daa6a762a5f2bc
-      internalID: -1072153488
+      spriteID: fca2a062218ad6643817482521e7c11a
+      internalID: -559911340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3334
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9381ad76a7699d4682851e00b21206e
-      internalID: 919429473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_16
-      rect:
-        serializedVersion: 2
-        x: 1007
-        y: 3334
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e7988c209c191a4f9d4e6a8db349cfc
-      internalID: 687946852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_17
-      rect:
-        serializedVersion: 2
-        x: 2014
-        y: 3334
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f96aa09630888446852ed4b74891536
-      internalID: -1291400431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_18
-      rect:
-        serializedVersion: 2
-        x: 3021
-        y: 3334
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d79651b87f27b84b9b8e425bcb36ac4
-      internalID: -1504793504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_19
-      rect:
-        serializedVersion: 2
-        x: 4028
-        y: 3334
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0dcb35522fa83d5419d064ab04425f7b
-      internalID: 1232656303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_20
+      name: ShopkeeperInteriorSpriteSheet_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 2669
-        width: 1007
-        height: 665
+        y: 3996
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 792fa025f524eea4f95796a3555d10b7
-      internalID: 1289447402
+      spriteID: 9f39b3860928cdd4980f84a6928427cd
+      internalID: 1926437361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_21
+      name: ShopkeeperInteriorSpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 2669
-        width: 1007
-        height: 665
+        x: 1008
+        y: 3996
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b4107f98cc61fa4fb695264b33d14a9
-      internalID: -131116439
+      spriteID: c7eb2a3549073fe4a8e1b7d13947ecb8
+      internalID: -404681127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_22
+      name: ShopkeeperInteriorSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 2669
-        width: 1007
-        height: 665
+        x: 2016
+        y: 3996
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf5cca6fdd5cece4c896370a5b0f6985
-      internalID: 880396747
+      spriteID: 86bffe9bfaa3ba2459feb312debaeaf4
+      internalID: 672568123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_23
+      name: ShopkeeperInteriorSpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 3021
-        y: 2669
-        width: 1007
-        height: 665
+        x: 3024
+        y: 3996
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23cc08e9c0d9f764f84a9bcfcc5e82c6
-      internalID: -1544410623
+      spriteID: a0b45bfe80f1a3440835e2ce04c39ab1
+      internalID: 1098630618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_24
+      name: ShopkeeperInteriorSpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 2669
-        width: 1007
-        height: 665
+        x: 4032
+        y: 3996
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f7f96c2fc3ead42b31a8a4bb78469e
-      internalID: -65346580
+      spriteID: 5dd69209a9e5bd04bb107a0cf9eb64cb
+      internalID: -1358425221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_25
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2004
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc51529496d16564e964f8c985d3db35
-      internalID: 517820052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_26
-      rect:
-        serializedVersion: 2
-        x: 1007
-        y: 2004
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1bdd63ccb433d24ea38180953fa49eb
-      internalID: -1041741671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_27
-      rect:
-        serializedVersion: 2
-        x: 2014
-        y: 2004
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65cb66820f73f0d47be25ffd341c20e1
-      internalID: 206906926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_28
-      rect:
-        serializedVersion: 2
-        x: 3021
-        y: 2004
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 905bc6087bef8c14c8694edd18b9d1fe
-      internalID: -1096343457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_29
-      rect:
-        serializedVersion: 2
-        x: 4028
-        y: 2004
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf14fbbc74bedc945a70654aa63c4151
-      internalID: -319387064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_30
+      name: ShopkeeperInteriorSpriteSheet_15
       rect:
         serializedVersion: 2
         x: 0
-        y: 1339
-        width: 1007
-        height: 665
+        y: 3330
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b96c931e470c18b4397b08d562eba287
-      internalID: 1376882218
+      spriteID: 94519703f37fa5f428e59b722e5cde28
+      internalID: 1715667938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_31
+      name: ShopkeeperInteriorSpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 1339
-        width: 1007
-        height: 665
+        x: 1008
+        y: 3330
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef85c649d5d684e48aca3b8086899277
-      internalID: 1916541827
+      spriteID: b33f30e818bcb074ea5f6389e323219c
+      internalID: -1395409770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_32
+      name: ShopkeeperInteriorSpriteSheet_17
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 1339
-        width: 1007
-        height: 665
+        x: 2016
+        y: 3330
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d6b32687726224dae75314b4be0586
-      internalID: -718149898
+      spriteID: 452ff659025301d4fa30710054e5185f
+      internalID: 1319622330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_33
+      name: ShopkeeperInteriorSpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 3021
-        y: 1339
-        width: 1007
-        height: 665
+        x: 3024
+        y: 3330
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09ad4674f4a2cc546835ca326d82ded2
-      internalID: -367330361
+      spriteID: 94181166f3e14a842aa071e6fb31d3dc
+      internalID: 1469858079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_34
+      name: ShopkeeperInteriorSpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 1339
-        width: 1007
-        height: 665
+        x: 4032
+        y: 3330
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 703ff2198d988f84489c9ff4d24c2f14
-      internalID: 1163506538
+      spriteID: 9624b14ce8eb3084fba83ff77163f342
+      internalID: -1732626633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_35
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 674
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef67885e33335164a971e567f67063e1
-      internalID: -1512974176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_36
-      rect:
-        serializedVersion: 2
-        x: 1007
-        y: 674
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8437079896b9764484cf8a8aa06b9b2
-      internalID: -719192614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_37
-      rect:
-        serializedVersion: 2
-        x: 2014
-        y: 674
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81628cacadcb1554293d43f8d0daa0f9
-      internalID: -889586491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_38
-      rect:
-        serializedVersion: 2
-        x: 3021
-        y: 674
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82b8375b0b4250c45b1939376a9cf5f0
-      internalID: -2059616465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_39
-      rect:
-        serializedVersion: 2
-        x: 4028
-        y: 674
-        width: 1007
-        height: 665
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 132701a8bd8ee8046b819da743c8e385
-      internalID: -570647732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_40
+      name: ShopkeeperInteriorSpriteSheet_20
       rect:
         serializedVersion: 2
         x: 0
-        y: 9
-        width: 1007
-        height: 665
+        y: 2664
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9af32884905367f4b924d0b7c6546eb7
-      internalID: -587135641
+      spriteID: 6f88b38adad81d04898dcd13f0cab750
+      internalID: -1269115284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_41
+      name: ShopkeeperInteriorSpriteSheet_21
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 9
-        width: 1007
-        height: 665
+        x: 1008
+        y: 2664
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4755fa61b4a7cc4d952d2b5f79f4a28
-      internalID: -1751877059
+      spriteID: 2373c66d0fced8c4b817a972e0e64064
+      internalID: 1307689195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_42
+      name: ShopkeeperInteriorSpriteSheet_22
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 9
-        width: 1007
-        height: 665
+        x: 2016
+        y: 2664
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2541b34c83abe4b4a992f5f2a558b991
-      internalID: 944392170
+      spriteID: 400f479147872fc42812b0afcab41cd1
+      internalID: 944377718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_43
+      name: ShopkeeperInteriorSpriteSheet_23
       rect:
         serializedVersion: 2
-        x: 3021
-        y: 9
-        width: 1007
-        height: 665
+        x: 3024
+        y: 2664
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a231dede6f36547b31686d22448369
-      internalID: 833990710
+      spriteID: 75a2a6dee0e366541a5e509440cb7986
+      internalID: -1435507068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_44
+      name: ShopkeeperInteriorSpriteSheet_24
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 9
-        width: 1007
-        height: 665
+        x: 4032
+        y: 2664
+        width: 1008
+        height: 666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a61632a1e05ab54eb744a9bbf7e9a56
-      internalID: -1965305386
+      spriteID: cc519d7b70073bb4f998b7ff2557e0bf
+      internalID: 1329388754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1998
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f96c945cdff9d419e3cc6acaba775d
+      internalID: 1641148656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1998
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ec3ddc38da9a44ea4ab78141d48fd5
+      internalID: 441977163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1998
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7083567ac9a8b934599d5f8fa9199860
+      internalID: -352489812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1998
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96255d8551754a4da74a222218e07d7
+      internalID: -539649728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1998
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9db6d2a2bcfce4f9bacc6aa25de992
+      internalID: 568631338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1332
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acc71cbe81e02f46aa3ae127d402006
+      internalID: -793054276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1332
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7af1e7fc9c05e4496c62657973b9db
+      internalID: -986034929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1332
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a423b96fdece88a4db15d406717b4f62
+      internalID: -1050316335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1332
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73845fca928787847b220773a32df065
+      internalID: -208798893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1332
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bb7b20116f57143b20e0730dcb2862
+      internalID: -1296518263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 666
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d833945ee9248469cb5e2ef40a0ee4
+      internalID: 1458153924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 666
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac805b0eca6639d4480c5253cc147d23
+      internalID: -1617395802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 666
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded9fa31cd653e847bf2035a621ae70a
+      internalID: -994685688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 666
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd877f5df328e234b9902058ae552943
+      internalID: -1339400879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 666
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117257351dd8a4c45b901a16e32985cb
+      internalID: 1488890923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568fc4d573591e045941a2d23c0e7dfe
+      internalID: 1599340236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35aa32446d485a4288ade3f07ae7bb0
+      internalID: 116697893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a77675915dfe6644983939a50342651
+      internalID: 2118707582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 0
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e17182dfd134244eb4d81e3ba569a38
+      internalID: 1596249893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopkeeperInteriorSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 1008
+        height: 666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a40c03d9258ef45b561da709a9505a
+      internalID: 1366319154
       vertices: []
       indices: 
       edges: []
@@ -1072,51 +1072,51 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_0: 1367222036
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_1: -998936875
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_10: -1542444927
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_11: 1442724620
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_12: -1713796266
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_13: 1665049173
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_14: -1072153488
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_15: 919429473
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_16: 687946852
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_17: -1291400431
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_18: -1504793504
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_19: 1232656303
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_2: 2115876517
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_20: 1289447402
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_21: -131116439
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_22: 880396747
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_23: -1544410623
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_24: -65346580
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_25: 517820052
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_26: -1041741671
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_27: 206906926
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_28: -1096343457
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_29: -319387064
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_3: 290538476
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_30: 1376882218
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_31: 1916541827
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_32: -718149898
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_33: -367330361
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_34: 1163506538
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_35: -1512974176
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_36: -719192614
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_37: -889586491
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_38: -2059616465
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_39: -570647732
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_4: 606442175
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_40: -587135641
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_41: -1751877059
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_42: 944392170
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_43: 833990710
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_44: -1965305386
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_5: -1825702788
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_6: -1370976466
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_7: -573652185
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_8: 1580189016
-      ShopKeeperInterior-ezgif.com-gif-to-sprite-converter_9: 1532407614
+      ShopkeeperInteriorSpriteSheet_0: 1643046910
+      ShopkeeperInteriorSpriteSheet_1: -1488969294
+      ShopkeeperInteriorSpriteSheet_10: 1926437361
+      ShopkeeperInteriorSpriteSheet_11: -404681127
+      ShopkeeperInteriorSpriteSheet_12: 672568123
+      ShopkeeperInteriorSpriteSheet_13: 1098630618
+      ShopkeeperInteriorSpriteSheet_14: -1358425221
+      ShopkeeperInteriorSpriteSheet_15: 1715667938
+      ShopkeeperInteriorSpriteSheet_16: -1395409770
+      ShopkeeperInteriorSpriteSheet_17: 1319622330
+      ShopkeeperInteriorSpriteSheet_18: 1469858079
+      ShopkeeperInteriorSpriteSheet_19: -1732626633
+      ShopkeeperInteriorSpriteSheet_2: -1120756773
+      ShopkeeperInteriorSpriteSheet_20: -1269115284
+      ShopkeeperInteriorSpriteSheet_21: 1307689195
+      ShopkeeperInteriorSpriteSheet_22: 944377718
+      ShopkeeperInteriorSpriteSheet_23: -1435507068
+      ShopkeeperInteriorSpriteSheet_24: 1329388754
+      ShopkeeperInteriorSpriteSheet_25: 1641148656
+      ShopkeeperInteriorSpriteSheet_26: 441977163
+      ShopkeeperInteriorSpriteSheet_27: -352489812
+      ShopkeeperInteriorSpriteSheet_28: -539649728
+      ShopkeeperInteriorSpriteSheet_29: 568631338
+      ShopkeeperInteriorSpriteSheet_3: -1674820475
+      ShopkeeperInteriorSpriteSheet_30: -793054276
+      ShopkeeperInteriorSpriteSheet_31: -986034929
+      ShopkeeperInteriorSpriteSheet_32: -1050316335
+      ShopkeeperInteriorSpriteSheet_33: -208798893
+      ShopkeeperInteriorSpriteSheet_34: -1296518263
+      ShopkeeperInteriorSpriteSheet_35: 1458153924
+      ShopkeeperInteriorSpriteSheet_36: -1617395802
+      ShopkeeperInteriorSpriteSheet_37: -994685688
+      ShopkeeperInteriorSpriteSheet_38: -1339400879
+      ShopkeeperInteriorSpriteSheet_39: 1488890923
+      ShopkeeperInteriorSpriteSheet_4: 1253331625
+      ShopkeeperInteriorSpriteSheet_40: 1599340236
+      ShopkeeperInteriorSpriteSheet_41: 116697893
+      ShopkeeperInteriorSpriteSheet_42: 2118707582
+      ShopkeeperInteriorSpriteSheet_43: 1596249893
+      ShopkeeperInteriorSpriteSheet_44: 1366319154
+      ShopkeeperInteriorSpriteSheet_5: -228308835
+      ShopkeeperInteriorSpriteSheet_6: 2063667783
+      ShopkeeperInteriorSpriteSheet_7: 2111271058
+      ShopkeeperInteriorSpriteSheet_8: -1662125973
+      ShopkeeperInteriorSpriteSheet_9: -559911340
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

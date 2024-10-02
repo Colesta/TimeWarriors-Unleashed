@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1367222036, guid: 01555624cf1b15742bf7ce0e5694fa6a, type: 3}
+  m_Sprite: {fileID: 1643046910, guid: ef4e7f5d8d7d2464faf7ab14c2cfafa7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3795,7 +3795,6 @@ MonoBehaviour:
   Ultimate4: 0
   HealthPotions: 0
   ManaPotions: 0
-  CurrentLevel: 1
 --- !u!114 &4474364207283532598
 MonoBehaviour:
   m_ObjectHideFlags: 0
