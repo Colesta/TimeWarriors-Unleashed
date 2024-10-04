@@ -18,6 +18,12 @@ public class PlayerCollision : MonoBehaviour
     public GameObject ShopKeeper;
     public GameObject shopTrig;
 
+    public GameObject StoryTeller;
+    public GameObject storyTrig;
+
+    public GameObject Overworld;
+    public GameObject Story;
+
     public SceneController sc;
 
     // Dictionary to map trigger objects to their corresponding portal objects
@@ -29,16 +35,8 @@ public class PlayerCollision : MonoBehaviour
     // Store the last portal that caused the collision
     private GameObject lastPortal;
 
-    private LevelSystem ls;
-
-    void Awake()
-    {
-        ls = GetComponent<LevelSystem>();
-    }
-
     void Start()
     {
-        
         // Initialize the dictionary
         triggerPortalMap = new Dictionary<GameObject, GameObject>
         {
@@ -46,6 +44,7 @@ public class PlayerCollision : MonoBehaviour
             { trigTwo, portalTwo },
             { trigThree, portalThree },
             { shopTrig, ShopKeeper },
+            { storyTrig, StoryTeller },
         };
     }
 
@@ -56,7 +55,7 @@ public class PlayerCollision : MonoBehaviour
             if (lastPortal != null)
             {
                 Debug.Log("Interacting with portal: " + lastPortal.name);
-                
+
                 if (canAccessLevel(lastPortal.name))
                 {
                     sc.gotoBattle();
@@ -70,6 +69,14 @@ public class PlayerCollision : MonoBehaviour
             if (lastPortal == ShopKeeper)
             {
                 sc.gotoShop(); // Transition to the shop
+            }
+            else if (lastPortal == StoryTeller)  // Corrected "id" to "if"
+            {
+                DialougeText.text = "What's going on here?";
+            }
+            else
+            {
+                DialougeText.text = "This is " + lastPortal.name;
             }
         }
     }
@@ -85,7 +92,7 @@ public class PlayerCollision : MonoBehaviour
                 // First check if the collision occurred
                 collisionOccurred = true;
                 lastPortal = kvp.Value;  // Store the last portal that caused the collision
-                
+
                 Debug.Log("Collided with: " + kvp.Value.name);
                 Debug.Log("collisionOccurred set to: " + collisionOccurred);
 
@@ -97,9 +104,13 @@ public class PlayerCollision : MonoBehaviour
                 {
                     DialougeText.text = "It's the Shopkeeper, I should visit sometime between battles.";
                 }
+                else if (lastPortal == StoryTeller)  // Corrected "id" to "if"
+                {
+                    DialougeText.text = "What's going on here?";
+                }
                 else
                 {
-                    DialougeText.text = "You've reached " + lastPortal.name;
+                    DialougeText.text = "This is " + lastPortal.name;
                 }
 
                 return; // Exit after processing the first match
@@ -131,11 +142,11 @@ public class PlayerCollision : MonoBehaviour
         switch (lastPortal.name)
         {
             case "Level 1":
-                return ls.getCurrentLevel() >= 1; // Return true if level access is allowed
+                return LevelSystem.Instance.getCurrentLevel() >= 1; // Return true if level access is allowed
             case "Level 2":
-                return ls.getCurrentLevel() >= 2;
+                return LevelSystem.Instance.getCurrentLevel() >= 2;
             case "Level 3":
-                return ls.getCurrentLevel() >= 3;
+                return LevelSystem.Instance.getCurrentLevel() >= 3;
             default:
                 Debug.LogWarning("Unknown level: " + level); // Log if level doesn't match
                 return false; // Return false for unrecognized levels

@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 500063429}
   - component: {fileID: 500063428}
   - component: {fileID: 500063427}
+  - component: {fileID: 500063430}
   m_Layer: 5
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -429,8 +430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -683, y: -188.43378}
-  m_SizeDelta: {x: 175.9698, y: 239.9443}
+  m_AnchoredPosition: {x: -538.4002, y: -218.50012}
+  m_SizeDelta: {x: 235.1694, y: 276.944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &500063427
 BoxCollider2D:
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -950360087, guid: 3b4e32c3e380ab64b80caf990c54aa2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -496,6 +497,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500063425}
   m_CullTransparentMesh: 1
+--- !u!95 &500063430
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500063425}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 401cb485ad7225d42ba2220ee4e7f895, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &632300512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1570,7 @@ GameObject:
   - component: {fileID: 1200505720}
   - component: {fileID: 1200505719}
   - component: {fileID: 1200505718}
+  - component: {fileID: 1200505721}
   m_Layer: 5
   m_Name: UltimatePotion
   m_TagString: Untagged
@@ -1572,8 +1595,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: -188.43378}
-  m_SizeDelta: {x: 175.9698, y: 239.9443}
+  m_AnchoredPosition: {x: 534.4498, y: -192}
+  m_SizeDelta: {x: 238.8695, y: 328.7436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1200505718
 BoxCollider2D:
@@ -1621,7 +1644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -133336092, guid: b6d94893d49080f45bf2c96abccffa61, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1639,6 +1662,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200505716}
   m_CullTransparentMesh: 1
+--- !u!95 &1200505721
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200505716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eae3d0cd9a5618c4c8731114c0fc0bb9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1225513748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2397,7 @@ GameObject:
   - component: {fileID: 1561025963}
   - component: {fileID: 1561025962}
   - component: {fileID: 1561025961}
+  - component: {fileID: 1561025964}
   m_Layer: 5
   m_Name: ManaPotion
   m_TagString: Untagged
@@ -2377,8 +2422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -451, y: -188.43378}
-  m_SizeDelta: {x: 175.9698, y: 239.9443}
+  m_AnchoredPosition: {x: -231, y: -215.9502}
+  m_SizeDelta: {x: 231.4694, y: 288.044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1561025961
 BoxCollider2D:
@@ -2426,7 +2471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -456981090, guid: 8c228af5a67a8d0438f21182bd81421c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2444,6 +2489,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561025959}
   m_CullTransparentMesh: 1
+--- !u!95 &1561025964
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561025959}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc537ef255483834c847b6757a15fee8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1565442014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,63 +2856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758154236}
   m_CullTransparentMesh: 1
---- !u!1001 &1771504072
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1019.971
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 697.97174
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.2695645
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8679425450372955560, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
-      propertyPath: m_Name
-      value: GameTimer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
 --- !u!1 &1807048716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3519,6 +3528,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074342385}
   m_CullTransparentMesh: 1
+--- !u!1001 &2090246178
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1019.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 697.97174
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2695645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616833046173747269, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679425450372955560, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
+      propertyPath: m_Name
+      value: GameEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c8bd72f9e371634c963e5629c73a406, type: 3}
 --- !u!1 &2096219413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,12 +3855,6 @@ MonoBehaviour:
   CurrentMana: 0
   Type: 
   Damage: 0
-  Ultimate1: 0
-  Ultimate2: 0
-  Ultimate3: 0
-  Ultimate4: 0
-  HealthPotions: 0
-  ManaPotions: 0
 --- !u!114 &4474364207283532598
 MonoBehaviour:
   m_ObjectHideFlags: 0

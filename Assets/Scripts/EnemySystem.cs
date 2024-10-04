@@ -1,30 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySystem : MonoBehaviour
 {
     private Stats s;        
-    private SetStats ss;
+    private GameManager ss;
     private HeroManager hm;
     private Score sc;
 
     void Awake()
     {
         s = GetComponent<Stats>();
-        ss = GetComponent<SetStats>();
+        ss = GetComponent<GameManager>();
         hm = GetComponent<HeroManager>();
-        sc = GetComponent<Score>();
 
         // Null checks to prevent errors if components are missing
         if (s == null)
             Debug.LogError("Stats component missing on this GameObject.");
         if (ss == null)
-            Debug.LogError("SetStats component missing on this GameObject.");
+            Debug.LogError("GameManager component missing on this GameObject.");
         if (hm == null)
             Debug.LogError("HeroManager component missing on this GameObject.");
-        if (sc == null)
-            Debug.LogError("Score component missing on this GameObject.");
     }
 
     public GameObject BattleScreen;
@@ -34,19 +30,19 @@ public class EnemySystem : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(BattleSequence());
+        
+        Debug.Log(Difficulty.Instance.GetCurrentDifficulty() + "");
     }
 
     // Lets the battle sequence happen every 3 seconds, allowing the enemies to automatically take their own "turns"
-    IEnumerator BattleSequence()
+    public IEnumerator BattleSequence()
     {
         while (!ss.AllEnemyDead())
         {
             int target = GenerateRandomTarget();
             int damage = GenerateRandomEnemyAttack();
 
-            // Attack a randomly selected target by a random amount of damage every 3 seconds
-            yield return new WaitForSeconds(1); 
+            yield return new WaitForSeconds(GetEnemyAttackTime(Difficulty.Instance.GetCurrentDifficulty()));
             ss.DamageHero(target, damage);
 
             // Check if all enemies are dead
@@ -54,11 +50,12 @@ public class EnemySystem : MonoBehaviour
             {
                 // Deactivate the battle screen, update score, and show result/win screen
                 BattleScreen.SetActive(false);
-
-               
                 ResultScreen.SetActive(true);
 
-               
+                if (LevelSystem.Instance.getCurrentLevel() == 3)
+                {
+                    WinScreen.SetActive(true);
+                }
             }
 
             // Check if all heroes are dead
@@ -81,15 +78,30 @@ public class EnemySystem : MonoBehaviour
     // Randomly generate how much damage will be done
     public int GenerateRandomEnemyAttack()
     {
-        int[] possibleDamageValues = { ss.getEnemyDamage(1), ss.getEnemyDamage(2), ss.getEnemyDamage(3), ss.getEnemyDamage(4)};
+        int[] possibleDamageValues = {
+            ss.getEnemyDamage(1),
+            ss.getEnemyDamage(2),
+            ss.getEnemyDamage(3),
+            ss.getEnemyDamage(4)
+        };
         int randomIndex = UnityEngine.Random.Range(0, possibleDamageValues.Length);
         return possibleDamageValues[randomIndex];
     }
 
     // Coroutine for delayed hero damage
-    IEnumerator DamageHeroWithDelay(int target, int damage)
+    private int GetEnemyAttackTime(string difficulty)
     {
-        yield return new WaitForSeconds(5); // Wait for 5 seconds
-        ss.DamageHero(target, damage);
+        switch (difficulty)
+        {
+            case "Easy":
+                return 5;
+            case "Medium":
+                return 3;
+            case "Hard":
+                return 1;
+            default:
+                Debug.Log("Difficulty not available");
+                return 1;  // Return a default time
+        }
     }
 }

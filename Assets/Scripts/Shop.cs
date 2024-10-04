@@ -34,14 +34,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     public string DefaultDialouge = "Hello there Traveller, what would you like?";
 
-    private Stats s;
-    private Score sc;
-
-    void Awake()
-    {
-        s = GetComponent<Stats>(); // Get the Stats component attached to the same GameObject
-        sc = GetComponent<Score>(); // Get the Score component attached to the same GameObject
-    }
+    
 
     void Start()
     {
@@ -78,7 +71,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         // Handle if Ultimate potion Selected
         else if (potion == UltimatePotion)
         {
-            DialougeText.text = "That is yours and your Team's Ultimate Moves. They cost " + PriceUltimate + " each. Would you like it?";
+            DialougeText.text = "That is your Team's Ultimate Moves. They cost " + PriceUltimate + " each. Would you like it?";
             currentItem = "Ultimate";
         }
     }
@@ -159,7 +152,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     {
         Score.Instance.Money -= PriceHealth; // Make sure 'Money' is public property in Score
         Score.Instance.UpdateCurrentScore();
-        s.HealthPotions += 1;
+        Inventory.Instance.HealthPotions += 1;
         UpdateInventory();
     }
 
@@ -167,36 +160,52 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     {
         Score.Instance.Money -= PriceMana; // Make sure 'Money' is public property in Score
         Score.Instance.UpdateCurrentScore();
-        s.ManaPotions += 1;
+        Inventory.Instance.ManaPotions += 1;
         UpdateInventory();
     }
 
-    public void ChooseUltimate()
+   public void ChooseUltimate()
+{
+    DialougeText.text = "Who's Ultimate move do you want to buy?";
+    ActivateHeroButtons();
+
+    switch (buttonPressedValue)
     {
-        DialougeText.text = "Who's Ultimate move do you want to buy?";
-
-        ActivateHeroButtons();
-
-        switch (buttonPressedValue)
-        {
-            case 1:
-                s.Ultimate1 = true;
+        case 1:
+            if (!checkIfUltimateBought(1)) {
+                Inventory.Instance.Ultimate1 = true;
                 BuyUltimate();
-                break;
-            case 2:
-                s.Ultimate2 = true;
+            } else {
+                itemAlreadyBought();
+            }
+            break;
+        case 2:
+            if (!checkIfUltimateBought(2)) {
+                Inventory.Instance.Ultimate2 = true;
                 BuyUltimate();
-                break;
-            case 3:
-                s.Ultimate3 = true;
+            } else {
+                itemAlreadyBought();
+            }
+            break;
+        case 3:
+            if (!checkIfUltimateBought(3)) {
+                Inventory.Instance.Ultimate3 = true;
                 BuyUltimate();
-                break;
-            case 4:
-                s.Ultimate4 = true;
+            } else {
+                itemAlreadyBought();
+            }
+            break;
+        case 4:
+            if (!checkIfUltimateBought(4)) {
+                Inventory.Instance.Ultimate4 = true;
                 BuyUltimate();
-                break;
-        }
+            } else {
+                itemAlreadyBought();
+            }
+            break;
     }
+}
+
 
     public void BuyUltimate()
     {
@@ -226,14 +235,37 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     public void UpdateInventory()
     {
-        MoneyText.text = "Money: " + Score.Instance.Money;
-        HealthPotionsText.text = "Health Potions: " + s.HealthPotions;
-        ManaPotionsText.text = "Mana Potions: " + s.ManaPotions;
+        MoneyText.text = "Gold: " + Score.Instance.Money;
+        HealthPotionsText.text = "Health Potions: " + Inventory.Instance.HealthPotions;
+        ManaPotionsText.text = "Mana Potions: " + Inventory.Instance.ManaPotions;
     }
 
     private int OnButtonPressed(int buttonValue)
     {
         buttonPressedValue = buttonValue; // Store the button value
         return buttonPressedValue; // Return the pressed button value
+    }
+
+    private bool checkIfUltimateBought(int hero)
+{
+    switch (hero)
+    {
+        case 1:
+            return Inventory.Instance.Ultimate1;
+        case 2:
+            return Inventory.Instance.Ultimate2;
+        case 3:
+            return Inventory.Instance.Ultimate3;
+        case 4:
+            return Inventory.Instance.Ultimate4;
+        default:
+            return false;
+    }
+}
+
+    public void itemAlreadyBought(){
+         DialougeText.text = "Seems you already bought that Item";
+         DeactivateHeroButtons();
+         ReturnButton.gameObject.SetActive(true);
     }
 }

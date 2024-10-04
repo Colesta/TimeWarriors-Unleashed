@@ -8,6 +8,11 @@ public class PlayerControl : MonoBehaviour
     public float movSpeed;
     float speedX, speedY;
     Rigidbody2D rb;
+    public TextMeshProUGUI MoneyText;
+    public TextMeshProUGUI HealthPotionsText;
+    public TextMeshProUGUI ManaPotionsText;
+
+
 
     // Track the starting position
     private Vector2 startPosition;
@@ -26,6 +31,12 @@ public class PlayerControl : MonoBehaviour
         lastPosition = startPosition; // Initialize last position
         sc = GetComponent<Score>() ?? FindObjectOfType<Score>(); // Find the Score component in the scene
         totalDistance = 0f; // Initialize distance
+
+        MoneyText.text = "Gold: " + Score.Instance.Money;
+        HealthPotionsText.text = "Health Potions: " + Inventory.Instance.HealthPotions;
+        ManaPotionsText.text = "Mana Potions: " + Inventory.Instance.ManaPotions;
+
+
 
        
     }

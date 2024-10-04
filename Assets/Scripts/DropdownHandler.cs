@@ -5,7 +5,7 @@ using TMPro;
 public class DropdownHandler : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
-    public int target;
+    public int target = 1; //default value
 
     private void Start()
     {

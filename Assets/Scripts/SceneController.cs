@@ -19,10 +19,21 @@ public class SceneController : MonoBehaviour
 
    SceneManager.LoadScene("Shop");
 
+  }
+
+   public void gotoMainMenu(){
+
+   SceneManager.LoadScene("MainMenu");
+
 
   }
 
 
+   }
+
+   
 
 
-}
+
+
+

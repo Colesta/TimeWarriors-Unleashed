@@ -11,12 +11,11 @@ public class Results : MonoBehaviour
     public TextMeshProUGUI Dialouge;
 
     private Score sc;
-    private LevelSystem ls;
+
 
     void Awake()
     {
         sc = GetComponent<Score>();
-        ls = GetComponent<LevelSystem>();
     }
 
     // Start is called before the first frame update
@@ -24,12 +23,12 @@ public class Results : MonoBehaviour
     {
 
         //Adds the money you earned into permanent storage as well as Dislay it on screen
-        CompletionText.text = "Level " + ls.getCurrentLevel() + " Completed";
+        CompletionText.text = "Level " + LevelSystem.Instance.getCurrentLevel() + " Completed";
         MoneyText.text = "Money:        " + CalculateMoney();
         Dialouge.text = "Good Job";
 
         Score.Instance.UpdateCurrentScore();
-        ls.AddLevel();
+        LevelSystem.Instance.AddLevel();
         Score.Instance.Money += CalculateMoney();
 
 

@@ -9,7 +9,6 @@ public class AttackBarController : MonoBehaviour
     public GameObject battleOptionMenu; // Menu UI element
     public GameObject battleMenu;
 
-    public float moveSpeed = 1.0f; // Speed of the moving line
     private bool movingRight = true;
 
     private HeroManager hm;
@@ -29,6 +28,7 @@ public class AttackBarController : MonoBehaviour
 
     void Start()
     {
+        
         // Check if the Slider is assigned
         if (attackBarSlider != null)
         {
@@ -50,12 +50,7 @@ public class AttackBarController : MonoBehaviour
             Debug.LogError("BattleOptionMenu GameObject is not assigned in the Inspector.");
         }
 
-        // Make sure attack bar starts hidden
-        if (attackBar != null)
-        {
-            attackBar.SetActive(false); // Hide attack bar at the start
-            Debug.Log("Attack bar set to inactive.");
-        }
+   
     }
 
     void Update()
@@ -89,6 +84,7 @@ public class AttackBarController : MonoBehaviour
     {
         Debug.Log("Starting Attack Bar");
         isAttackBarActive = true;
+        attackBar.SetActive(true);
 
         
 
@@ -155,7 +151,7 @@ public class AttackBarController : MonoBehaviour
         {
             if (movingRight)
             {
-                attackBarSlider.value += Time.deltaTime * moveSpeed;
+                attackBarSlider.value += Time.deltaTime * getLineSpeed(Difficulty.Instance.GetCurrentDifficulty());
                 if (attackBarSlider.value >= 1.0f)
                 {
                     movingRight = false;
@@ -163,7 +159,7 @@ public class AttackBarController : MonoBehaviour
             }
             else
             {
-                attackBarSlider.value -= Time.deltaTime * moveSpeed;
+                attackBarSlider.value -= Time.deltaTime * getLineSpeed(Difficulty.Instance.GetCurrentDifficulty());
                 if (attackBarSlider.value <= 0.0f)
                 {
                     movingRight = true;
@@ -205,6 +201,20 @@ public class AttackBarController : MonoBehaviour
         else
         {
             return 0.0f; // Missed attack
+        }
+    }
+    
+    public float getLineSpeed(string difficulty){
+        switch(difficulty){
+            case "Easy":
+                return 1.0F;
+            case "Medium":
+                return 1.5F;
+            case "Hard":
+                return 2.0F;
+            default:
+                return 0.0F;
+
         }
     }
 }
