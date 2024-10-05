@@ -54,7 +54,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (lastPortal != null)
             {
-                Debug.Log("Interacting with portal: " + lastPortal.name);
+      
 
                 if (canAccessLevel(lastPortal.name))
                 {
@@ -70,14 +70,12 @@ public class PlayerCollision : MonoBehaviour
             {
                 sc.gotoShop(); // Transition to the shop
             }
-            else if (lastPortal == StoryTeller)  // Corrected "id" to "if"
+            else if (lastPortal == StoryTeller)  
             {
-                DialougeText.text = "What's going on here?";
+                Overworld.SetActive(false);
+                Story.SetActive(true);
             }
-            else
-            {
-                DialougeText.text = "This is " + lastPortal.name;
-            }
+           
         }
     }
 
@@ -93,8 +91,7 @@ public class PlayerCollision : MonoBehaviour
                 collisionOccurred = true;
                 lastPortal = kvp.Value;  // Store the last portal that caused the collision
 
-                Debug.Log("Collided with: " + kvp.Value.name);
-                Debug.Log("collisionOccurred set to: " + collisionOccurred);
+             
 
                 // Activate the corresponding trigger after setting the flag
                 kvp.Key.SetActive(true);
@@ -104,7 +101,7 @@ public class PlayerCollision : MonoBehaviour
                 {
                     DialougeText.text = "It's the Shopkeeper, I should visit sometime between battles.";
                 }
-                else if (lastPortal == StoryTeller)  // Corrected "id" to "if"
+                else if (lastPortal == StoryTeller)  
                 {
                     DialougeText.text = "What's going on here?";
                 }
@@ -130,8 +127,7 @@ public class PlayerCollision : MonoBehaviour
                 collisionOccurred = false;
                 lastPortal = null;  // Clear the last portal reference
                 DialougeText.text = ""; 
-                Debug.Log("Exited collision with: " + kvp.Value.name);
-                Debug.Log("collisionOccurred set to: " + collisionOccurred);
+               
             }
         }
     }
@@ -139,17 +135,20 @@ public class PlayerCollision : MonoBehaviour
     // Method to check if the player can access a level
     private bool canAccessLevel(string level)
     {
-        switch (lastPortal.name)
-        {
-            case "Level 1":
-                return LevelSystem.Instance.getCurrentLevel() >= 1; // Return true if level access is allowed
-            case "Level 2":
-                return LevelSystem.Instance.getCurrentLevel() >= 2;
-            case "Level 3":
-                return LevelSystem.Instance.getCurrentLevel() >= 3;
-            default:
-                Debug.LogWarning("Unknown level: " + level); // Log if level doesn't match
-                return false; // Return false for unrecognized levels
-        }
+    // Get the player's current level from the LevelSystem
+    int currentLevel = LevelSystem.Instance.getCurrentLevel();
+
+    // Check if the player can access the desired level based on their current level
+    switch (lastPortal.name)
+    {
+        case "Level 1":
+            return currentLevel >= 1; // Can access Level 1 if current level is 1 or higher
+        case "Level 2":
+            return currentLevel >= 2; // Can access Level 2 if current level is 2 or higher
+        case "Level 3":
+            return currentLevel >= 3; // Can access Level 3 if current level is 3 or higher
+        default:
+            return false; // If no valid level is found, deny access
+    }
     }
 }

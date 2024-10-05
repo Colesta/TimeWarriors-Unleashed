@@ -14,7 +14,7 @@ public class Stats : MonoBehaviour
     public int Damage;
     public string Species;
 
-   
+   //Constants of the different elements an enemy or Hero move can have
     public static string FireType = "Fire";
     public static string IceType = "Ice";
     public static string WindType = "Wind";

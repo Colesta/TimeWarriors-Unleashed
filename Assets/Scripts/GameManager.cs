@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     public Sprite BattleScreen1;
     public Sprite BattleScreen2;
     public Sprite BattleScreen3;
+    public TextMeshProUGUI numHPot;
+    public TextMeshProUGUI numMPot;
+
 
     public Animator[] enemyAnimators = new Animator[4]; // Assign the Animator references for Enemies in the Inspector
     public RuntimeAnimatorController[] enemyIdleAnimators = new RuntimeAnimatorController[4]; // Assign idle animations in the Inspector
@@ -70,10 +73,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //When the Battle Starts, everything needed for the game to run will be initialized
         InitializeHeroes();
         LoadEnemiesFromJson();
         InitializeEnemies();
         InitializeSliders();
+        InitializePotions();
         InitializeScreen();
         StartCoroutine(es.BattleSequence());
         
@@ -81,9 +86,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Always calling this so the player always knows the health and mana of all the heroes and health of enemies
         UpdateStats();
     }
 
+    // Change the background of the Game depending on the Current level
     public void InitializeScreen()
     {
         Image backgroundImage = Background.GetComponent<Image>();
@@ -109,6 +116,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Initilaize all the Hero Objects 
     private void InitializeHeroes()
     {
         Hero1 = gameObject.AddComponent<Stats>();
@@ -123,18 +131,25 @@ public class GameManager : MonoBehaviour
         SetHeroStats(Hero4);
     }
 
+    //The Stats that all the heroes share
     private void SetHeroStats(Stats hero)
     {
-        hero.MaxHP = 500;
-        hero.CurrentHP = 500;
-        hero.MaxMana = 150;
-        hero.CurrentMana = 150;
-        hero.Type = Stats.FireType; // Change this based on the specific hero
+        hero.MaxHP = 650;
+        hero.CurrentHP = 650;
+        hero.MaxMana = 200;
+        hero.CurrentMana = 200;
     }
 
+    //Set in the UI the amount of each potion that you have 
+    private void InitializePotions(){
+        numHPot.text = "x" + Inventory.Instance.HealthPotions;
+        numMPot.text = "x" + Inventory.Instance.ManaPotions;
+    }
+
+    //Get the Enemy data from Json
     private void LoadEnemiesFromJson()
     {
-        Debug.Log("Loading enemies from JSON.");
+        
         // Load JSON data from Resources folder
         TextAsset jsonTextAsset = Resources.Load<TextAsset>("Enemies");
         if (jsonTextAsset == null)
@@ -152,7 +167,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No enemies found in the JSON data.");
         }
     }
-
+    //Assign the enemyObject created in CreateRandomEnemy using Json Data to the Enemy Objects in the Battle Screen
     private void InitializeEnemies()
     {
         for (int i = 0; i < 4; i++)
@@ -165,6 +180,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Create an enemy object with the Json Data, randomly choosing an enemy in the file and using its corresponding stats
     private Stats CreateRandomEnemy(int index)
     {
         // Create a new GameObject for the enemy
@@ -198,6 +214,7 @@ public class GameManager : MonoBehaviour
         return enemyStats;
     }
 
+    //Get the Animator for a specific Enemy Species
     private RuntimeAnimatorController GetEnemyAnimator(int speciesIndex)
     {
         // Validate species index to ensure it is within bounds
@@ -214,7 +231,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    //Initilaize the Health and Mana Sliders on the Battle Scree, displaying to the Player the State of all the Enemies and Heroes
     private void InitializeSliders()
     {
         if (HPH1 == null || HPH2 == null || HPE1 == null)
@@ -240,6 +257,7 @@ public class GameManager : MonoBehaviour
         HPE4.value = returnCurrentEnemyHP(4);
     }
 
+//If an Enemy is dead, their Sprite and UI will dissapear indicating they are dead
     public void ChangeEnemyOnDeath(int enemyIndex)
 {
     switch (enemyIndex)
@@ -248,8 +266,7 @@ public class GameManager : MonoBehaviour
             if (CheckIfEnemyDead(1))
             {
                 Enemy1UI.SetActive(false);
-                // Additional logic for Enemy 1 death
-                // e.g., trigger animations, display messages, etc.
+                
             }
             break;
 
@@ -257,7 +274,6 @@ public class GameManager : MonoBehaviour
             if (CheckIfEnemyDead(2))
             {
                 Enemy2UI.SetActive(false);
-                // Additional logic for Enemy 2 death
             }
             break;
 
@@ -265,7 +281,7 @@ public class GameManager : MonoBehaviour
             if (CheckIfEnemyDead(3))
             {
                 Enemy3UI.SetActive(false);
-                // Additional logic for Enemy 3 death
+              
             }
             break;
 
@@ -273,7 +289,7 @@ public class GameManager : MonoBehaviour
             if (CheckIfEnemyDead(4))
             {
                 Enemy4UI.SetActive(false);
-                // Additional logic for Enemy 4 death
+         
             }
             break;
 
@@ -283,14 +299,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
-    public void ChangeEnemyOnDeath()
-    {
-        for (int i = 0; i < enemyGameObjects.Length; i++)
-        {
-            if (enemyGameObjects[i] != null)
-                enemyGameObjects[i].SetActive(false);
-        }
-    }
+   
 
     // Method to get the species of a specific enemy
     public string GetEnemySpecies(int enemyIndex)
@@ -306,7 +315,7 @@ public class GameManager : MonoBehaviour
                 return null; // Ensure a return value for invalid indices
         }
     }
-
+    //Return the Max Heroes HP to initalize the Slider
     public int returnMaxHeroHP(int index)
     {
         switch (index)
@@ -320,7 +329,8 @@ public class GameManager : MonoBehaviour
                 return 0; // or another default value indicating an error
         }
     }
-    
+
+    //Return the Current Heroes HP to initalize the Slider, and keep it updated with the current state of the Player
     public int returnCurrentHeroHP(int index)
     {
         switch (index)
@@ -335,6 +345,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+//Return the Max Enemies HP to initalize the Slider
     public int returnMaxEnemyHP(int index)
     {
         switch (index)
@@ -349,6 +360,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+ //Return the Current Enemy's HP to initalize the Slider, and keep it updated with the current state of the Player
     public int returnCurrentEnemyHP(int index)
     {
         switch (index)
@@ -383,6 +395,7 @@ public class GameManager : MonoBehaviour
             HPE4.value = returnCurrentEnemyHP(4);
     }
 
+//Return the Max Heroes Mana to initalize the Slider
     public int returnMaxMana(int num)
     {
         switch (num)
@@ -399,6 +412,7 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
+ //Return the Current Heroes Mana to initalize the Slider, and keep it updated with the current state of the Player
     public int returnCurrentMana(int num)
     {
         switch (num)
@@ -415,6 +429,7 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
+//return the Elemental Type of the Enemy
     public string returnEnemyType(int enemyIndex)
     {
         switch (enemyIndex)
@@ -432,6 +447,7 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+//Get the a specific Enemies Damage. Also Checks that they have been initilaized
     public int getEnemyDamage(int enemy) 
 {
     switch (enemy) 
@@ -440,7 +456,7 @@ public class GameManager : MonoBehaviour
             if (Enemy1 == null)
             {
                 Debug.LogError("Enemy1 is not assigned.");
-                return 0; // or handle it another way
+                return 0; 
             }
             return Enemy1.Damage;
         case 2:
@@ -466,12 +482,12 @@ public class GameManager : MonoBehaviour
             return Enemy4.Damage;    
         default:
             Debug.LogError("Invalid enemy index: " + enemy);
-            return 0; // Return a default value, or you could throw an exception
+            return 0; 
     }
 }
 
 
-
+ //Remove health from a certain hero
     public void DamageHero(int target, int damage)
     {
         switch (target)
@@ -495,6 +511,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+//Remove mana from a certain hero
     public void RemoveMana(int target, int mana)
     {
         switch (target)
@@ -514,6 +531,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+//Remove health from a certain enemy
     public void DamageEnemy(int target, int damage)
     {
         switch (target)
@@ -541,6 +559,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+//Check if a certain hero is dead
     public bool CheckIfHeroDead(int num)
     {
         switch (num)
@@ -557,6 +576,7 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+//Check if a certain enemy is dead
     public bool CheckIfEnemyDead(int num)
 {
     switch (num)
@@ -575,6 +595,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
+//add health to a ceratin hero, used in Health Potions
 public void AddHealth(int heroIndex, int amount)
 {
     switch (heroIndex)
@@ -594,7 +615,7 @@ public void AddHealth(int heroIndex, int amount)
         }
     
 }
-
+//add mana to a ceratin hero, used in Mana Potions
 public void AddMana(int heroIndex, int amount)
 {
      switch (heroIndex)
@@ -614,12 +635,12 @@ public void AddMana(int heroIndex, int amount)
         }
 }
 
-
+//Checks if all the heroes are dead
     public bool AllHeroDead()
     {
         return CheckIfHeroDead(1) && CheckIfHeroDead(2) && CheckIfHeroDead(3) && CheckIfHeroDead(4);
     }
-
+//Checks if all the enemies are dead
     public bool AllEnemyDead()
     {
         return CheckIfEnemyDead(1) && CheckIfEnemyDead(2) && CheckIfEnemyDead(3) && CheckIfEnemyDead(4);

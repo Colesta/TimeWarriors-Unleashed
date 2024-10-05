@@ -8,9 +8,6 @@ using TMPro;
 
 public class Login : MonoBehaviour
 {
-    
-
-    
 
     public GameObject LoginScreen;
     public GameObject MainMenu;
@@ -62,7 +59,7 @@ public class Login : MonoBehaviour
                 // Set the username globally after successful login
                 UserSession.SetCurrentUser(CurrentUser);
 
-                Score.Instance.NewRun();  // Assuming 's' is set up
+                Score.Instance.NewRun(); //Create new game Session  
                 DismissLogin();
                 return;
             }
@@ -89,6 +86,8 @@ public class Login : MonoBehaviour
                 Error.text = "Username or Password is empty.";
                 return;
             }
+
+            //Check if password and username are valid and have the nessecary values
 
             if (UsernameExists())
             {
@@ -135,7 +134,7 @@ public class Login : MonoBehaviour
             File.WriteAllText(path, newJson);
             UserSession.SetCurrentUser(CurrentUser);
 
-            Score.Instance.NewRun();
+            Score.Instance.NewRun(); //Create new game Session
 
             
 
@@ -156,6 +155,7 @@ public class Login : MonoBehaviour
     // Dismiss login screen and show the main menu
     public void DismissLogin()
     {
+        //Check if all UI Elements are assigned
         if (LoginScreen == null || MainMenu == null || UserPlaying == null)
         {
             Debug.LogError("One or more UI elements are not assigned.");

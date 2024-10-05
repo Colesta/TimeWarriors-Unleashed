@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Added this line for Button
-using UnityEngine.EventSystems; // Added this line for IPointer interfaces
+using UnityEngine.UI; 
+using UnityEngine.EventSystems; 
 
 public class Shop : MonoBehaviour, IPointerEnterHandler
 {
@@ -76,7 +76,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         }
     }
 
-    // Method to handle exit from potion hover
+
    
 
     // IPointerEnterHandler implementation
@@ -93,7 +93,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
 
     
    
-
+    //If player doesnt want to buy an item
     public void onNoButtonClick()
     {
         DialougeText.text = "Alright then, what else would you like?";
@@ -101,10 +101,11 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         ReturnButton.gameObject.SetActive(true);
     }
 
+//If player does want to buy an item
     public void onYesButtonClick()
     {
        BuyChoice.SetActive(false);
-
+    //Check if player can buy the Item Selected
         switch (currentItem)
         {
             case "Health":
@@ -147,23 +148,25 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         }
     }
 
-    // Add potions to inventory and decrease your total money by cost of item
+    // Add Health potions to inventory and decrease your total money by cost of item
     public void BuyHealthPotions()
     {
-        Score.Instance.Money -= PriceHealth; // Make sure 'Money' is public property in Score
+        Score.Instance.Money -= PriceHealth; 
         Score.Instance.UpdateCurrentScore();
         Inventory.Instance.HealthPotions += 1;
         UpdateInventory();
     }
 
+// Add Mana potions to inventory and decrease your total money by cost of item
     public void BuyManaPotions()
     {
-        Score.Instance.Money -= PriceMana; // Make sure 'Money' is public property in Score
+        Score.Instance.Money -= PriceMana; 
         Score.Instance.UpdateCurrentScore();
         Inventory.Instance.ManaPotions += 1;
         UpdateInventory();
     }
 
+//Choose which hero's Ultimate you will buy, and check fi you have it already.
    public void ChooseUltimate()
 {
     DialougeText.text = "Who's Ultimate move do you want to buy?";
@@ -206,7 +209,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     }
 }
 
-
+//Turn the Ultimate for the corresponding hero to True in the Inventory Class
     public void BuyUltimate()
     {
         Score.Instance.Money -= PriceUltimate;
@@ -222,6 +225,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         return itemPrice <= Score.Instance.Money; // Check if you can afford the item
     }
 
+//Methods to manage the hero buttons 
     public void ActivateHeroButtons()
     {
         HeroSelection.SetActive(true);
@@ -233,6 +237,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         HeroSelection.SetActive(false);
     }
 
+//Set the Inventory Ui on the Shop screen to match your current Inventory
     public void UpdateInventory()
     {
         MoneyText.text = "Gold: " + Score.Instance.Money;
@@ -246,6 +251,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
         return buttonPressedValue; // Return the pressed button value
     }
 
+//check if Ultimate is bought already
     private bool checkIfUltimateBought(int hero)
 {
     switch (hero)
@@ -263,6 +269,7 @@ public class Shop : MonoBehaviour, IPointerEnterHandler
     }
 }
 
+//If Ultimate is already bought
     public void itemAlreadyBought(){
          DialougeText.text = "Seems you already bought that Item";
          DeactivateHeroButtons();

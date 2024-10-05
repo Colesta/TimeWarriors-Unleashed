@@ -3041,8 +3041,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -646315445
-  m_SortingLayer: 1
+  m_SortingLayerID: 601422733
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0d360b432d813b04688c80269f9e9ea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3342,8 +3342,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32, y: 116}
-  m_SizeDelta: {x: 1019.5111, y: 291.6506}
+  m_AnchoredPosition: {x: -0.0000048876, y: 225}
+  m_SizeDelta: {x: 1413.2875, y: 366.468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781471067
 MonoBehaviour:
@@ -3365,7 +3365,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Text
+  m_text: 'Greetings Hero. I have brought you and your companies to this world, as
+    it is in grave danger. You are all from sepereate Timelines, ones in which history
+    devloped and played out differently, for example, in your timeline, the year
+    is 3017, however the knights of England never disbanded. All your party memebrs
+    are from different Timelines. I have brought you all together to help defeat
+    Chronos, a time king who intenetds to merge, and then Destroy all timelines!
+    There are portals which lead to different timelines, in whcih you must defeat
+    his Eclipese Army. Each Party member has an affinity to a certain element, use
+    the correct element to defeat certain memebers of his Army. To know Elemental
+    affinities, go to the Help Screen on the Main Menu. Chronos'' army also possess
+    the Element Eclipse, Which is very Weak to Solar Attacks. Buy Ultimate moves
+    from the Shopkeeper to have access to these Solar Attacks. As you complete a
+    level, you will grow stronger and get closer to being able to defeat Chronos. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8bce1ec61f7c8ac43b0d3922bebc7f51, type: 2}
   m_sharedMaterial: {fileID: -4789581747742498240, guid: 8bce1ec61f7c8ac43b0d3922bebc7f51, type: 2}
@@ -3392,8 +3404,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5963,7 +5975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1353561831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6673,7 +6685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -564, y: -228.61}
+  m_AnchoredPosition: {x: -503.57, y: -323.8}
   m_SizeDelta: {x: 483.4891, y: 457.2226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455914703
@@ -6861,8 +6873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39, y: 171.45}
-  m_SizeDelta: {x: 1303.0005, y: 761.9126}
+  m_AnchoredPosition: {x: 119.31116, y: 79.90662}
+  m_SizeDelta: {x: 1729.2551, y: 1133.8867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495303964
 MonoBehaviour:
@@ -7695,7 +7707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1602810669
 RectTransform:
   m_ObjectHideFlags: 0

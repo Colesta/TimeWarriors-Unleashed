@@ -9,8 +9,6 @@ public class GameTimer : MonoBehaviour
     private float totalTime;
     private bool isTiming;
 
-    private Score sc;
-
     private void Awake()
     {
         // Ensure only one instance of GameTimer exists
@@ -22,15 +20,11 @@ public class GameTimer : MonoBehaviour
         else
         {
             Destroy(gameObject); // Destroy any additional instances
-            Debug.LogWarning("Another instance of GameTimer was destroyed.");
+            
         }
 
-        // Attempt to get the Score component
-        sc = GetComponent<Score>() ?? FindObjectOfType<Score>();
-        if (sc == null)
-        {
-            Debug.LogError("Score component not found!");
-        }
+        StartTimer();
+        
     }
 
     // Call this method to start the timer
@@ -40,7 +34,6 @@ public class GameTimer : MonoBehaviour
         {
             startTime = Time.time; // Capture the start time
             isTiming = true;
-            Debug.Log("Timer started.");
         }
         else
         {
@@ -56,22 +49,11 @@ public class GameTimer : MonoBehaviour
        
         totalTime += Time.time - startTime; // Calculate elapsed time
         isTiming = false;
-        Debug.Log($"Timer stopped. Total time played: {totalTime} seconds.");
 
-        // Log the total time before saving it to the Score class
-        Debug.Log($"Total Time in GameTimer before saving: {totalTime}");
 
         // Save the total time to Score class
-        if (sc != null)
-        {
-            Score.Instance.CurrentTime += (int)totalTime; // Update totalTime
+       Score.Instance.CurrentTime += (int)totalTime; // Update totalTime
             Score.Instance.UpdateCurrentScore(); // Save new data
-            Debug.Log("Total time updated in Score.");
-        }
-        else
-        {
-            Debug.LogError("Cannot update Score because the Score component is null.");
-        }
     }
     else
     {
@@ -83,8 +65,6 @@ public class GameTimer : MonoBehaviour
     // Automatically called when the application quits
     private void OnApplicationQuit()
 {
-    // Ensure all relevant updates are done before application quits
-    Debug.Log("Updating score before quitting...");
     Score.Instance.UpdateCurrentScore(); // Update scores first
 
     // Now stop the timer, ensuring the right values are preserved

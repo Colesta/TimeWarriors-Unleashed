@@ -31,7 +31,7 @@ public class DropdownHandler : MonoBehaviour
         else
         {
             Debug.LogError("Selected option is not a valid number: " + selectedOption);
-            // Optionally, you can set a default target or handle invalid selection differently
+            
             target = value; // Defaulting to using the dropdown index if parsing fails
         }
     }

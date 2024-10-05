@@ -20,8 +20,6 @@ public class PlayerControl : MonoBehaviour
     private Vector2 lastPosition;
     // Distance traveled
     private float totalDistance;
-    // Reference to Score script
-    private Score sc;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +27,13 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position; // Store the starting position
         lastPosition = startPosition; // Initialize last position
-        sc = GetComponent<Score>() ?? FindObjectOfType<Score>(); // Find the Score component in the scene
         totalDistance = 0f; // Initialize distance
-
+        
+        //Display the inventory of the Player on the Overworld Screen
         MoneyText.text = "Gold: " + Score.Instance.Money;
         HealthPotionsText.text = "Health Potions: " + Inventory.Instance.HealthPotions;
         ManaPotionsText.text = "Mana Potions: " + Inventory.Instance.ManaPotions;
+
 
 
 
@@ -56,7 +55,7 @@ public class PlayerControl : MonoBehaviour
         {
             totalDistance += distanceTravelled; // Update total distance
             UpdateScore(totalDistance); // Update the score
-             // Clear dialogue text if player moves
+        
             
         }
 

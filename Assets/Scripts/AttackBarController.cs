@@ -33,7 +33,7 @@ public class AttackBarController : MonoBehaviour
         if (attackBarSlider != null)
         {
             attackBarSlider.value = 0.5f; // Start the line in the middle
-            Debug.Log("Attack bar slider initialized.");
+            
         }
         else
         {
@@ -62,7 +62,7 @@ public class AttackBarController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E)) // Player confirms attack with key press
             {
                 float attackPower = CheckPlayerInput();
-                Debug.Log("Attack Power: " + attackPower);
+                
 
                 // Store calculated attack power in the Hero Manager
                 if (hm != null)
@@ -82,7 +82,7 @@ public class AttackBarController : MonoBehaviour
     // Method to start the attack bar when an attack begins
     public IEnumerator StartAttackBar()
     {
-        Debug.Log("Starting Attack Bar");
+        
         isAttackBarActive = true;
         attackBar.SetActive(true);
 
@@ -92,7 +92,7 @@ public class AttackBarController : MonoBehaviour
         if (battleOptionMenu != null)
         {
             battleOptionMenu.SetActive(false);
-            Debug.Log("Battle Menu Active: " + battleOptionMenu.activeSelf);
+           
         }
         else
         {
@@ -106,7 +106,7 @@ public class AttackBarController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 float attackPower = CheckPlayerInput();
-                Debug.Log("Attack Power: " + attackPower);
+               
 
                 if (hm != null)
                 {
@@ -131,13 +131,13 @@ public class AttackBarController : MonoBehaviour
         if (attackBar != null)
         {
             attackBar.SetActive(false); // Hide attack bar
-            Debug.Log("Attack Bar set to inactive.");
+           
         }
 
         if (battleMenu != null)
         {
             battleMenu.SetActive(true); // Show battle menu 
-            Debug.Log("Battle Menu set to active.");
+          
         }
 
 
@@ -145,6 +145,7 @@ public class AttackBarController : MonoBehaviour
 
     }
 
+    // Control the Movement of the line on the Attack Bar
     void MoveLine()
     {
         if (attackBarSlider != null)
@@ -176,7 +177,6 @@ public class AttackBarController : MonoBehaviour
     {
         if (attackBarSlider == null)
         {
-            Debug.LogError("AttackBarSlider is missing. Defaulting attack power to 0.");
             return 0.0f;
         }
 
@@ -204,14 +204,15 @@ public class AttackBarController : MonoBehaviour
         }
     }
     
+    // Determine speed of the line depending on the Difficulty
     public float getLineSpeed(string difficulty){
         switch(difficulty){
             case "Easy":
-                return 1.0F;
+                return 0.5F;
             case "Medium":
-                return 1.5F;
+                return 1.0F;
             case "Hard":
-                return 2.0F;
+                return 1.5F;
             default:
                 return 0.0F;
 

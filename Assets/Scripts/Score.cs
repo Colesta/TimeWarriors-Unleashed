@@ -9,19 +9,19 @@ public class Score : MonoBehaviour
 
     public int Money = 0;
     public int EnemiesDefeated = 0;
-    public int CurrentTime = 0; // Corrected variable name
-    public float CurrentDistance = 0F; // Corrected variable name
+    public int CurrentTime = 0; 
+    public float CurrentDistance = 0F; 
 
-    private string usersDataPath = "/Resources/Score.json"; // Updated path
+    private string usersDataPath = "/Resources/Score.json"; //File Path
 
     [Serializable]
     public class UserData
     {
-        public string username; // Changed to public
-        public int money; // Changed to public
-        public int enemiesDefeated; // Changed to public
-        public int totalTime; // Changed to public
-        public float distanceRan; // Changed to public
+        public string username; 
+        public int money;
+        public int enemiesDefeated; 
+        public int totalTime; 
+        public float distanceRan; 
     }
 
     [Serializable]
@@ -37,16 +37,15 @@ public class Score : MonoBehaviour
         // Check if instance already exists
         if (Instance != null && Instance != this)
         {
-            Debug.Log("Destroying duplicate Score instance.");
             Destroy(gameObject); // Destroy duplicate instance
             return;
         }
 
         Instance = this; // Assign the singleton instance
         DontDestroyOnLoad(gameObject); // Preserve this GameObject across scenes
-        Debug.Log("Score instance created and set to persist.");
     }
 
+    //When a Player registers or Signs in, this method will be called to create a new Game Session in the Score Json File
     public void NewRun()
     {
         try
@@ -58,7 +57,6 @@ public class Score : MonoBehaviour
                 return;
             }
 
-            Debug.Log($"Current user: {username} - Starting a new run.");
 
             UserData newUserData = new UserData
             {
@@ -70,13 +68,11 @@ public class Score : MonoBehaviour
             };
 
             string path = Application.dataPath + usersDataPath;
-            Debug.Log($"Path for Score.json: {path}");
 
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
                 userArray = JsonUtility.FromJson<UserDataArray>(json) ?? new UserDataArray();
-                Debug.Log($"Loaded existing data: {json}");
             }
             else
             {
@@ -85,12 +81,9 @@ public class Score : MonoBehaviour
             }
 
             userArray.score.Add(newUserData);
-            Debug.Log($"New User Data: {JsonUtility.ToJson(newUserData)}"); // Log new user data
-            Debug.Log($"Current User Array Count: {userArray.score.Count}"); // Log count
 
             string newJson = JsonUtility.ToJson(userArray, true);
             File.WriteAllText(path, newJson);
-            Debug.Log("User data updated and saved.");
         }
         catch (Exception ex)
         {
@@ -98,6 +91,7 @@ public class Score : MonoBehaviour
         }
     }
 
+    //Will be called throughout the code to assign changed Score varibales to the Json File
     public void UpdateCurrentScore()
     {
         try
@@ -129,21 +123,15 @@ public class Score : MonoBehaviour
 
                 if (currentUserData != null)
                 {
-                    // Log current values before saving
-                    Debug.Log($"Before update - Money: {Money}, Enemies Defeated: {EnemiesDefeated}, Total Time: {CurrentTime}, Distance Ran: {CurrentDistance}");
-
                     // Update currentUserData with the latest session values
                     currentUserData.money = Money; // Set the latest money
                     currentUserData.enemiesDefeated = EnemiesDefeated; // Set the latest enemies defeated
                     currentUserData.totalTime = CurrentTime; // Save the current time as total time
                     currentUserData.distanceRan = CurrentDistance; // Save the current distance as distance ran
 
-                    // Log updated user data before saving
-                    Debug.Log($"UserData before save - Total Time: {currentUserData.totalTime}, Distance Ran: {currentUserData.distanceRan}");
 
                     string updatedJson = JsonUtility.ToJson(userArray, true);
                     File.WriteAllText(path, updatedJson);
-                    Debug.Log("User data updated and saved after score update.");
                 }
                 else
                 {

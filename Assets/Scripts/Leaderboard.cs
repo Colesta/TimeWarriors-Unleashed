@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Needed for Dropdown
+using UnityEngine.UI; 
 
 [Serializable]
+
 public class UserScore
 {
-    public string username;
-    public int money;
-    public int enemiesDefeated;
-    public int totalTime;
-    public int distanceRan;
+    public string username; // Username of the player
+    public int money; // Total gold/money earned by the player
+    public int enemiesDefeated; // Total number of enemies defeated by the player
+    public int totalTime; // Total time played by the player in seconds
+    public int distanceRan; // Total distance the player has run
 }
 
 [Serializable]
 public class ScoreData
 {
-    public List<UserScore> score;
+    public List<UserScore> score; // List holding all the user scores
 }
 
 public class Leaderboard : MonoBehaviour
@@ -40,7 +41,7 @@ public class Leaderboard : MonoBehaviour
 
         if (jsonFile != null)
         {
-            LoadScores(jsonFile.text); // Call your existing LoadScores method
+            LoadScores(jsonFile.text); // Call the existing LoadScores method
         }
         else
         {
@@ -48,7 +49,7 @@ public class Leaderboard : MonoBehaviour
         }
     }
 
-    // Method to load your JSON data into scoreData
+    // Method to load JSON data into scoreData
     public void LoadScores(string json)
     {
         scoreData = JsonUtility.FromJson<ScoreData>(json);
@@ -123,6 +124,7 @@ public class Leaderboard : MonoBehaviour
         }
     }
 
+    //Get the accumukated Score of a certain category for a User
     private string GetScoreValue(UserScore userScore, string criteria)
     {
         switch (criteria.ToLower())

@@ -6,7 +6,6 @@ public class EnemySystem : MonoBehaviour
     private Stats s;        
     private GameManager ss;
     private HeroManager hm;
-    private Score sc;
 
     void Awake()
     {
@@ -28,11 +27,6 @@ public class EnemySystem : MonoBehaviour
     public GameObject LoseScreen;
     public GameObject WinScreen;
 
-    void Start()
-    {
-        
-        Debug.Log(Difficulty.Instance.GetCurrentDifficulty() + "");
-    }
 
     // Lets the battle sequence happen every 3 seconds, allowing the enemies to automatically take their own "turns"
     public IEnumerator BattleSequence()
@@ -94,13 +88,12 @@ public class EnemySystem : MonoBehaviour
         switch (difficulty)
         {
             case "Easy":
-                return 5;
+                return 7;
             case "Medium":
-                return 3;
+                return 5;
             case "Hard":
-                return 1;
+                return 2;
             default:
-                Debug.Log("Difficulty not available");
                 return 1;  // Return a default time
         }
     }

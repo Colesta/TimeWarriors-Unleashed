@@ -37,7 +37,7 @@ public class Difficulty : MonoBehaviour
         Easy = true;
         Medium = false;
         Hard = false;
-        Debug.Log("Difficulty set to Easy");
+        
     }
 
     // Set difficulty to Medium
@@ -46,7 +46,7 @@ public class Difficulty : MonoBehaviour
         Easy = false;
         Medium = true;
         Hard = false;
-        Debug.Log("Difficulty set to Medium");
+        
     }
 
     // Set difficulty to Hard
@@ -55,7 +55,7 @@ public class Difficulty : MonoBehaviour
         Easy = false;
         Medium = false;
         Hard = true;
-        Debug.Log("Difficulty set to Hard");
+        
     }
 
     // Method to get the current difficulty level

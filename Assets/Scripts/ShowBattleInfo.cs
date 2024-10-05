@@ -43,19 +43,12 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         ss = FindObjectOfType<GameManager>();
         hm = FindObjectOfType<HeroManager>();
-        Debug.Log("ShowBattleInfo script initialized. GameManager and HeroManager found.");
     }
 
+//Display information of character or move if mouse hovers over it
     public void OnPointerEnter(PointerEventData eventData)
 {
     GameObject triggerObject = eventData.pointerEnter;
-    Debug.Log("Pointer entered: " + (triggerObject != null ? triggerObject.name : "null"));
-
-    if (triggerObject == null)
-    {
-        Debug.LogError("No trigger object detected!");
-        return;
-    }
 
     // Hide the info display initially
     MoveInfoDisplay.SetActive(false);
@@ -69,67 +62,56 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (triggerObject == Move1.gameObject)
         {
-            Debug.Log("Move 1 selected.");
             MoveInfoDisplay.SetActive(true);
             UpdateUIWithMoveInfo(hm.returnCurrentPlayer(), 1); 
         }
         else if (triggerObject == Move2.gameObject)
         {
-            Debug.Log("Move 2 selected.");
             MoveInfoDisplay.SetActive(true);
             UpdateUIWithMoveInfo(hm.returnCurrentPlayer(), 2); 
         }
         else if (triggerObject == MoveUltimate.gameObject)
         {
-            Debug.Log("Ultimate move selected.");
             MoveInfoDisplay.SetActive(true);
             UpdateUIWithMoveInfo(hm.returnCurrentPlayer(), 3); 
         }
         else if (triggerObject == Hero1)
         {
-            Debug.Log("Hero 1 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithHeroStats(1);
         }
         else if (triggerObject == Hero2)
         {
-            Debug.Log("Hero 2 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithHeroStats(2);
         }
         else if (triggerObject == Hero3)
         {
-            Debug.Log("Hero 3 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithHeroStats(3);
         }
         else if (triggerObject == Hero4)
         {
-            Debug.Log("Hero 4 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithHeroStats(4);
         }
         else if (triggerObject == Enemy1)
         {
-            Debug.Log("Enemy 1 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithEnemyStats(1);
         }
         else if (triggerObject == Enemy2)
         {
-            Debug.Log("Enemy 2 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithEnemyStats(2);
         }
         else if (triggerObject == Enemy3)
         {
-            Debug.Log("Enemy 3 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithEnemyStats(3);
         }
         else if (triggerObject == Enemy4)
         {
-            Debug.Log("Enemy 4 hovered.");
             CharacterInfoDisplay.SetActive(true);
             UpdateUIWithEnemyStats(4);
         }
@@ -139,23 +121,22 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         // Hide the info display if hovering over a non-interactive object
         MoveInfoDisplay.SetActive(false);
         CharacterInfoDisplay.SetActive(false);
-        Debug.Log("Hovering over a non-interactive object.");
     }
 }
 
 
 
+//When mouse leaves the character or move, the information will dissapear
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Pointer exited.");
         DialougeText.gameObject.SetActive(false); // Hide dialogue text on exit
         CharacterInfoDisplay.SetActive(false);
         MoveInfoDisplay.SetActive(false); // Hide move info on exit
     }
 
+//Show Hero information if a Hero is hovered over
     private void UpdateUIWithHeroStats(int heroIndex)
     {
-        Debug.Log("Updating UI with hero stats for Hero " + heroIndex);
 
         if (HealthText == null || HPSlider == null || ManaText == null || ManaSlider == null || typeText == null || Mana == null)
         {
@@ -170,9 +151,6 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
         DialougeText.gameObject.SetActive(true);
 
-        Debug.Log("Hero " + heroIndex + " stats: HP = " + ss.returnCurrentHeroHP(heroIndex) + "/" + ss.returnMaxHeroHP(heroIndex) +
-                  ", Mana = " + ss.returnCurrentMana(heroIndex) + "/" + ss.returnMaxMana(heroIndex));
-
         HealthText.text = ss.returnCurrentHeroHP(heroIndex) + "/" + ss.returnMaxHeroHP(heroIndex);
         HPSlider.maxValue = ss.returnMaxHeroHP(heroIndex);
         HPSlider.value = ss.returnCurrentHeroHP(heroIndex);
@@ -185,18 +163,15 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         typeText.gameObject.SetActive(false);
     }
 
+//Show Enemy information if a Enemy is hovered over
     private void UpdateUIWithEnemyStats(int enemyIndex)
     {
-        Debug.Log("Updating UI with enemy stats for Enemy " + enemyIndex);
 
         if (HealthText == null || HPSlider == null || typeText == null || Mana == null)
         {
             Debug.LogError("One or more UI elements are not assigned!");
             return;
         }
-
-        Debug.Log("Enemy " + enemyIndex + " stats: HP = " + ss.returnCurrentEnemyHP(enemyIndex) + "/" + ss.returnMaxEnemyHP(enemyIndex) +
-                  ", Type = " + ss.returnEnemyType(enemyIndex));
 
         DialougeText.text = "Enemy " + enemyIndex + ": " + ss.GetEnemySpecies(enemyIndex);
         DialougeText.gameObject.SetActive(true);
@@ -211,9 +186,9 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Mana.SetActive(false); // Hide Mana UI for enemies
     }
 
+//Show Move information if a Move is hovered over
     private void UpdateUIWithMoveInfo(int heroIndex, int moveIndex)
     {
-        Debug.Log("Updating UI with move info for Hero " + heroIndex + ", Move " + moveIndex);
 
         if (Damage == null || ManaCost == null || Type == null || Target == null || MoveName == null || MoveDescription == null)
         {
@@ -222,13 +197,7 @@ public class ShowBattleInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
 
         HeroManager.MoveInfo moveInfo = hm.GetMoveInfo(heroIndex, moveIndex);
-        if (moveInfo == null)
-        {
-            Debug.LogError($"Move info not found for Hero {heroIndex}, Move {moveIndex}");
-            return;
-        }
 
-        Debug.Log($"Move Info: Name = {moveInfo.Name}, Description = {moveInfo.Description}, Damage = {moveInfo.Damage}, Mana Cost = {moveInfo.ManaCost}");
 
         MoveName.text = moveInfo.Name;
         MoveDescription.text = moveInfo.Description;

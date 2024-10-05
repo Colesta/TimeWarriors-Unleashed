@@ -244,6 +244,34 @@
             "enemiesDefeated": 0,
             "totalTime": 0,
             "distanceRan": 14528.568359375
+        },
+        {
+            "username": "TheDragonKnight",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 0,
+            "distanceRan": 961018.75
+        },
+        {
+            "username": "Test1",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 8,
+            "distanceRan": 17816.892578125
+        },
+        {
+            "username": "TheDragonKnight",
+            "money": 0,
+            "enemiesDefeated": 0,
+            "totalTime": 72,
+            "distanceRan": 130144.1171875
+        },
+        {
+            "username": "TheDragonKnight",
+            "money": 0,
+            "enemiesDefeated": 20,
+            "totalTime": 0,
+            "distanceRan": 24129.58203125
         }
     ]
 }

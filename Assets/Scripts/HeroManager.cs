@@ -7,26 +7,15 @@ using TMPro;
 
 public class HeroManager : MonoBehaviour
 {
-    public Sprite Tombstone;
-
-    public GameObject Enemy1;
-    public GameObject Enemy2;
-    public GameObject Enemy3;
-    public GameObject Enemy4;
-
-    public GameObject BackgroundImage;
-    public GameObject Buttons;
-    public GameObject OptionButton;
-    public GameObject Items;
     public TextMeshProUGUI currentHeroText;
 
-    public GameObject sharedUltimateButton; // Reference to the shared button for the ultimate move
+    public GameObject sharedUltimateButton; 
 
     public DropdownHandler dh;
 
     private int CurrentPlayer = 1;
     private int CurrentMove = 1;
-    private float storedAttackPower; // Variable to hold the stored attack power
+    private float storedAttackPower; 
 
     public TextMeshProUGUI NumHealthP;
     public TextMeshProUGUI NumManaP;
@@ -44,6 +33,7 @@ public class HeroManager : MonoBehaviour
 
 
         // Initialize heroes
+        //More easily be able to manage the variables relating to the a specific move of a specific hero
         heroes = new Hero[]
         {
         new Hero("Hero1", new MoveInfo[]
@@ -74,12 +64,13 @@ public class HeroManager : MonoBehaviour
     }
 
 
+    //When the Battle Starts, the current hero will be displayed, indicating whose turn it is
     void Start()
     {
         currentHeroText.text = "Current Hero: " + CurrentPlayer;
-        Debug.Log(returnCurrentPlayer() + "");
     }
-
+     
+    //Change the players turn, indicating whose turn it is
     public void NextPlayersTurn()
     {
         CurrentPlayer += 1;
@@ -111,7 +102,6 @@ public class HeroManager : MonoBehaviour
     public void StoreAttackPower(float power)
     {
         storedAttackPower = power; // Store the attack power as a float
-        Debug.Log("Stored Attack Power: " + storedAttackPower);
     }
 
     // Coroutine for handling the attack bar input and applying damage
@@ -122,43 +112,35 @@ public class HeroManager : MonoBehaviour
         string playerMoveType = moveInfo.Type; // Get the player's move type
         int target = dh.SelectedTarget(); //get the enemy targetted
 
-      
-
-        Debug.Log("Executing hero move for hero index: " + heroIndex + " Move: " + moveInfo.Name);
-
         // Attack bar logic
-        
         yield return StartCoroutine(ab.StartAttackBar());
         
 
-        // Additional debug for mana cost application
-        Debug.Log("Removing mana for hero index: " + heroIndex);
         ss.RemoveMana(heroIndex, moveInfo.ManaCost);
-         // Calculate damage
+        // Calculate damage
         float effectivenessMultiplier = ElementalEffect(playerMoveType, target);
         int totalDamage = (int)(moveInfo.Damage * storedAttackPower * effectivenessMultiplier);
 
-        Debug.Log("Total damage calculated: " + totalDamage);
 
         if (moveInfo.IsMultiTarget)
         {
             // Apply damage to all enemies for multi-target moves
             for (int i = 1; i <= 4; i++)
             {
-                ss.DamageEnemy(i, totalDamage); // Make sure totalDamage is an int
+                ss.DamageEnemy(i, totalDamage); 
             }
         }
         else
         {
             // Get selected target from dropdown
             
-            ss.DamageEnemy(target, totalDamage); // Make sure totalDamage is an int
+            ss.DamageEnemy(target, totalDamage); 
         }
 
         // Update stats and change enemy appearance if dead
         ss.UpdateStats();
 
-        ss.ChangeEnemyOnDeath();
+        ss.ChangeEnemyOnDeath(target);
 
         // End turn
         NextPlayersTurn(); // Move to the next player's turn
@@ -166,7 +148,7 @@ public class HeroManager : MonoBehaviour
         // Check if the next players are dead and skip them if necessary
         if (ss.CheckIfHeroDead(CurrentPlayer))
         {
-            yield break; // If the current player is dead, stop execution
+            yield break; 
         }
 
         // Check the next players
@@ -186,35 +168,36 @@ public class HeroManager : MonoBehaviour
 
     public void Move1()
     {
-        Debug.Log("Move 1 method is being accessed for player: " + CurrentPlayer);
         CurrentMove = 1; // Set current move to Move1
+        //Execute the Move 1 for the current hero
         StartCoroutine(ExecuteHeroMove(CurrentPlayer));
     }
 
     public void Move2()
     {
         CurrentMove = 2; // Set current move to Move2
+        //Execute the Move 2 for the current hero
         StartCoroutine(ExecuteHeroMove(CurrentPlayer));
     }
 
     public void Ultimate()
     {
         CurrentMove = 3; // Set current move to Ultimate Move
+        //Execute the Ultimte Move for the current hero
         StartCoroutine(ExecuteHeroMove(CurrentPlayer));
     }
 
+    // Retrieve information about a specific move for a given hero
     public MoveInfo GetMoveInfo(int heroIndex, int moveIndex)
     {
         if (heroIndex < 1 || heroIndex > heroes.Length)
         {
-            Debug.LogError("Hero index is out of range!");
             return new MoveInfo(0, 0, "", false, "Unknown Move", "No description available."); // Default case
         }
 
         Hero hero = heroes[heroIndex - 1]; // Subtract 1 for zero-based index
         if (moveIndex < 1 || moveIndex > hero.Moves.Length)
         {
-            Debug.LogError("Move index is out of range!");
             return new MoveInfo(0, 0, "", false, "Unknown Move", "No description available."); // Default case
         }
 
@@ -224,6 +207,7 @@ public class HeroManager : MonoBehaviour
         return moveInfo;
     }
 
+// Retrieve the damage value for a specific move depending on the hero
   private int GetMoveDamage(int heroIndex, int moveIndex)
     {
         switch (heroIndex)
@@ -264,6 +248,7 @@ public class HeroManager : MonoBehaviour
                 return 0;
         }
     }
+    // Retrieve the Mana Cost value for a specific move depending on the hero
     private int GetMoveManaCost(int heroIndex, int moveIndex)
     {
         switch (heroIndex)
@@ -305,6 +290,7 @@ public class HeroManager : MonoBehaviour
         }
     }
 
+// Retrieve the name for a specific move depending on the hero
     private string GetMoveName(int heroIndex, int moveIndex)
     {
         switch (heroIndex)
@@ -388,7 +374,7 @@ public class HeroManager : MonoBehaviour
         }
     }
 
-    // Potions will increase either your health or mana for all players and decrease the amount of that item you have in your inventory by 1
+    // Health Potions will increase the health for a certain hero and decrease the amount of  Health Potions you have in your inventory by 1
     public void HealthPotion()
     {
         int healthToAdd = 100;
@@ -399,6 +385,8 @@ public class HeroManager : MonoBehaviour
             NumHealthP.text = "x " + Inventory.Instance.HealthPotions;
         }
     }
+
+    // Mana Potions will increase the mana for a certain hero and decrease the amount of  Mana Potions you have in your inventory by 1
 
     public void ManaPotion()
     {
@@ -411,6 +399,7 @@ public class HeroManager : MonoBehaviour
         }
     }
 
+//See how effective your move was agaisnt an enemy depending on the element of the move and element of the enemy
     public float ElementalEffect(string playerMoveType, int enemyIndex)
 {
     string enemyType = ss.returnEnemyType(enemyIndex); // Assuming a method to get enemy's type
@@ -435,33 +424,31 @@ public class HeroManager : MonoBehaviour
     }
     else if (playerMoveType == Stats.FireType && enemyType == Stats.WindType)
     {
-        effectivenessMultiplier = 0.5f; // Wind < Ice
+        effectivenessMultiplier = 0.5f; // Fire < Wind
     }
     else if (playerMoveType == Stats.IceType && enemyType == Stats.FireType)
     {
-        effectivenessMultiplier = 0.5f; // Fire < Wind
+        effectivenessMultiplier = 0.5f; // Ice < Fire
     }
     else if (playerMoveType == Stats.ThunderType && enemyType == Stats.IceType)
     {
-        effectivenessMultiplier = 0.5f; // Ice < Fire
+        effectivenessMultiplier = 0.5f; // Thunder < Ice
     }
     else if (playerMoveType == Stats.WindType && enemyType == Stats.ThunderType)
     {
-        effectivenessMultiplier = 0.5f; // Thunder < Ice
+        effectivenessMultiplier = 0.5f; // Wind < Thunder
     }
     else if (playerMoveType == Stats.SolarType){
-         effectivenessMultiplier = 3.0f; // Solar effective agaisnt everything
+         effectivenessMultiplier = 4.0f; // Solar effective agaisnt all enemies
     }
     
 
-    Debug.Log($"Elemental effectiveness for {playerMoveType} against {enemyType}: {effectivenessMultiplier}x");
     // Apply the multiplier when calculating damage in the ExecuteHeroMove coroutine
     return effectivenessMultiplier;
 }
 
 
 
-    // Hero class to hold hero data
     // Hero class to hold hero data
     [System.Serializable]
     public class Hero
@@ -482,10 +469,10 @@ public class HeroManager : MonoBehaviour
     {
         public int Damage;
         public int ManaCost;
-        public string Type; // You can change this to an enum if you prefer
+        public string Type;
         public bool IsMultiTarget;
-        public string Name; // Field for the move name
-        public string Description; // New field for the move description
+        public string Name; 
+        public string Description; 
 
         public MoveInfo(int damage, int manaCost, string type, bool isMultiTarget, string name, string description)
         {
